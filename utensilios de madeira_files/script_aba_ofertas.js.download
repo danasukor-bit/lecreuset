@@ -1,0 +1,47 @@
+// Função para verificar se o botão deve estar oculto
+    function verificarOcultacao() {
+        const fechamento = sessionStorage.getItem('fecharOfertas');
+        const agora = new Date().getTime();
+		
+		cxofertas.style.visibility = 'hidden';
+
+        if (fechamento) {
+            cxofertas.style.display = 'none';
+            botaodeofertas.style.display = 'none';
+            fecharOfertas.style.display = 'none';
+        } else {
+            cxofertas.style.display = 'block';
+            botaodeofertas.style.display = 'block';
+            fecharOfertas.style.display = 'block';
+        }
+    }
+
+    // Adiciona um event listener para o botaodeofertas
+    botaodeofertas.addEventListener('click', function() {
+        if (cxofertas.style.visibility === 'hidden') {
+            cxofertas.style.visibility = 'visible';
+            cxofertas.style.right = '0px';
+            botaodeofertas.style.right = '207px';
+            fecharOfertas.style.right = '269px';
+        } else {
+            cxofertas.style.right = '-262px';
+            botaodeofertas.style.right = '-53px';
+            fecharOfertas.style.right = '8px';
+
+            setTimeout(function() {
+                cxofertas.style.visibility = 'hidden';
+            }, 500);
+        }
+    });
+
+    fecharOfertas.addEventListener('click', function() {
+        cxofertas.style.display = 'none';
+        botaodeofertas.style.display = 'none';
+        fecharOfertas.style.display = 'none';
+
+        // Armazena o estado de fechamento no sessionStorage
+        sessionStorage.setItem('fecharOfertas', new Date().getTime());
+    });
+
+    // Verifica se o botão deve estar oculto ao carregar a página
+    verificarOcultacao();

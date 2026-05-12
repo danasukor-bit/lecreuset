@@ -1,0 +1,51 @@
+(function () {
+  const dataAlvo = new Date("Aug 01, 2025 00:00:00").getTime();
+  let intervalo; // guarda o ID do setInterval para controlar
+
+  function iniciarCronometro() {
+    const box = document.querySelector(".boxCrono");
+    if (!box || box.dataset.cronoAtivo === "sim") return;
+
+    const diasEl = box.querySelector(".cronometro-dias");
+    const horasEl = box.querySelector(".cronometro-horas");
+    const minutosEl = box.querySelector(".cronometro-minutos");
+    const segundosEl = box.querySelector(".cronometro-segundos");
+
+    box.dataset.cronoAtivo = "sim"; // Evita múltiplas execuções
+
+    intervalo = setInterval(() => {
+      const agora = new Date().getTime();
+      const distancia = dataAlvo - agora;
+
+      if (distancia < 0) {
+        clearInterval(intervalo);
+        box.style.display = "none";
+        return;
+      }
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      if (diasEl) diasEl.textContent = dias.toString().padStart(2, '0') + "d";
+      if (horasEl) horasEl.textContent = horas.toString().padStart(2, '0') + "h";
+      if (minutosEl) minutosEl.textContent = minutos.toString().padStart(2, '0') + "min";
+      if (segundosEl) segundosEl.textContent = segundos.toString().padStart(2, '0') + "s";
+    }, 1000);
+  }
+
+  // Observa mudanças no DOM que possam recriar a boxCrono
+  const observer = new MutationObserver(() => {
+    const box = document.querySelector(".boxCrono");
+    if (box && box.dataset.cronoAtivo !== "sim") {
+      clearInterval(intervalo); // Limpa o antigo
+      iniciarCronometro();
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // Inicia cronômetro imediatamente ao carregar
+  document.addEventListener("DOMContentLoaded", iniciarCronometro);
+})();

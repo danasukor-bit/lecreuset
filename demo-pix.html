@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Demo PIX — Le Creuset</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito Sans', sans-serif; color: #1a1a1a; background: #f7f7f8; min-height: 100vh; }
+
+    .header { background: #fff; border-bottom: 1px solid #e8e8e8; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
+    .header img { height: 36px; }
+    .header-secure { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #2e7d32; font-weight: 600; }
+
+    .wrap { max-width: 640px; margin: 40px auto; padding: 0 24px 80px; }
+
+    .demo-bar { background: #1a1a1a; color: #fff; padding: 10px 20px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; margin-bottom: 24px; }
+
+    .step-label { font-size: 11px; font-weight: 800; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+
+    /* PAYMENT TABS */
+    .pay-tabs { display: flex; gap: 12px; margin-bottom: 16px; }
+    .pay-tab { flex: 1; border: 1px solid #ddd; background: #fff; padding: 18px 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; font-family: inherit; }
+    .pay-tab.active { border: 2px solid #c8102e; }
+    .pay-tab-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #333; }
+    .pay-tab.active .pay-tab-label { color: #c8102e; }
+    .pay-tab-sub { font-size: 0.68rem; color: #2a7d2e; font-weight: 600; }
+
+    .pix-info-box { background: #f0f8f0; border: 1px solid #c8e6c9; padding: 20px; margin-bottom: 16px; }
+    .pix-info-label { font-size: 0.7rem; font-weight: 700; color: #2a7d2e; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+    .pix-info-val { font-size: 1.6rem; font-weight: 800; color: #1a1a1a; margin-bottom: 8px; }
+    .pix-install-note { background: #d4edda; border: 1px solid #b8dfc4; padding: 12px 14px; font-size: 12px; color: #1a5c2a; font-weight: 600; line-height: 1.6; margin-bottom: 10px; }
+    .pix-info-desc { font-size: 0.8rem; color: #555; line-height: 1.6; }
+
+    .btn-finalizar { width: 100%; background: #c8102e; color: #fff; border: none; padding: 16px; font-size: 14px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+    .btn-finalizar:hover { background: #a50c25; }
+    .btn-finalizar:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    /* PIX RESULT */
+    .pix-result { display: none; }
+    .sec-notice { background: #fff8e1; border: 1px solid #ffe082; padding: 12px 16px; margin-bottom: 16px; display: flex; gap: 10px; align-items: flex-start; }
+    .sec-notice-title { font-size: 12px; font-weight: 800; color: #92400e; margin-bottom: 3px; }
+    .sec-notice-text { font-size: 11px; color: #78350f; line-height: 1.6; }
+
+    .progress-dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 16px; }
+    .progress-dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; }
+
+    .pix-card { border: 1.5px solid #c8e6c9; padding: 20px; background: #f9fef9; text-align: center; }
+    .pix-card-title { font-weight: 800; font-size: 14px; color: #1a5c2a; margin-bottom: 12px; }
+    .pix-qr { display: flex; justify-content: center; margin-bottom: 14px; }
+    .pix-qr img { width: 200px; height: 200px; }
+    .copia-label { font-size: 11px; font-weight: 700; color: #777; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .copia-row { display: flex; gap: 8px; margin-bottom: 4px; }
+    .copia-input { flex: 1; border: 1px solid #e0e0e0; padding: 9px 12px; font-size: 11px; background: #fafafa; outline: none; color: #333; font-family: monospace; }
+    .btn-copiar { background: #2a7d2e; color: #fff; border: none; padding: 9px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+    .btn-copiar:active { background: #1b5e20; }
+    .copied-msg { font-size: 11px; color: #2a7d2e; margin-top: 4px; display: none; }
+
+    .btn-proximo { width: 100%; background: #2a7d2e; color: #fff; border: none; padding: 15px; font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; margin-top: 14px; font-family: inherit; }
+    .btn-proximo:hover { background: #1b5e20; }
+
+    .all-done { background: #e8f5e9; border: 1px solid #c8e6c9; padding: 16px; margin-top: 14px; text-align: center; }
+    .all-done-title { font-size: 15px; font-weight: 800; color: #1a5c2a; margin-bottom: 4px; }
+    .all-done-sub { font-size: 12px; color: #2a7d2e; }
+
+    .btn-voltar { display: block; text-align: center; margin-top: 12px; padding: 14px; background: #1a1a1a; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; }
+
+    .order-ref { text-align: center; font-size: 11px; color: #888; margin-bottom: 8px; }
+
+    /* spinner */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { animation: spin 1s linear infinite; display: inline-block; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites/default/dwd459bb3e/images/logo.svg" alt="Le Creuset" />
+  <div class="header-secure">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    Ambiente Seguro
+  </div>
+</div>
+
+<div class="demo-bar">🎬 Modo Demonstração — Simulação do Fluxo PIX</div>
+
+<div class="wrap">
+
+  <!-- TABS -->
+  <div class="step-label">Forma de pagamento</div>
+  <div class="pay-tabs">
+    <div class="pay-tab active">
+      <img src="https://logospng.org/download/pix/logo-pix-icone-512.png" alt="PIX" width="28" height="28" style="object-fit:contain;" />
+      <span class="pay-tab-label">PIX</span>
+      <span class="pay-tab-sub">12% de desconto</span>
+    </div>
+    <div class="pay-tab">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+      <span class="pay-tab-label">CARTÃO</span>
+      <span class="pay-tab-sub" style="color:#888;">Até 10x</span>
+    </div>
+    <div class="pay-tab">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="16"/><line x1="10" y1="8" x2="10" y2="16"/><line x1="14" y1="8" x2="14" y2="16"/><line x1="18" y1="8" x2="18" y2="16"/></svg>
+      <span class="pay-tab-label">BOLETO</span>
+      <span class="pay-tab-sub" style="color:#888;">Vence em 3 dias</span>
+    </div>
+  </div>
+
+  <!-- PIX INFO -->
+  <div id="pixPre">
+    <div class="pix-info-box">
+      <div class="pix-info-label">Desconto especial via PIX</div>
+      <div class="pix-info-val">R$ 2.926,88 <small style="font-size:0.9rem;font-weight:600;color:#2a7d2e;">(-12%)</small></div>
+      <div class="pix-install-note">
+        <div style="display:flex;gap:8px;align-items:flex-start;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1a5c2a" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><strong>Para sua segurança, o pagamento será feito em 3 partes</strong><br>
+          <span style="font-weight:400;">Cada cobrança PIX de <strong>R$ 975,63</strong> será gerada individualmente. Você pagará uma de cada vez, na ordem.</span></div>
+        </div>
+      </div>
+      <div class="pix-info-desc">Clique em <strong>Finalizar Pedido</strong> para gerar o primeiro QR Code PIX.</div>
+    </div>
+    <button class="btn-finalizar" id="btnFinalizar" onclick="iniciarDemo()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Finalizar Pedido (12% OFF no PIX)
+    </button>
+  </div>
+
+  <!-- PIX RESULT -->
+  <div id="pixResult" class="pix-result"></div>
+
+</div>
+
+<script>
+  var TOTAL = 2926.88;
+  var N_PIX = 3;
+  var PARC = 975.63;
+  var ORDER_ID = Math.floor(100000 + Math.random() * 900000);
+
+  // Mock PIX codes (realistic)
+  var MOCK_CODES = [
+    '00020101021226940014br.gov.bcb.pix2572qrcode.somossimpay.com.br/v2/qr/cob/DEMO0000000000000000000001520400005303986540997563550200BR5913LE CREUSET BR6009SAO PAULO62150511DEMO0000001630461A2',
+    '00020101021226940014br.gov.bcb.pix2572qrcode.somossimpay.com.br/v2/qr/cob/DEMO0000000000000000000002520400005303986540997563550200BR5913LE CREUSET BR6009SAO PAULO62150511DEMO0000002630441B3',
+    '00020101021226940014br.gov.bcb.pix2572qrcode.somossimpay.com.br/v2/qr/cob/DEMO0000000000000000000003520400005303986540997563550200BR5913LE CREUSET BR6009SAO PAULO62150511DEMO00000036304C1D4'
+  ];
+
+  function fmt(v) {
+    return 'R$ ' + v.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
+  function iniciarDemo() {
+    var btn = document.getElementById('btnFinalizar');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner">⟳</span>&nbsp; Gerando PIX 1/3...';
+
+    setTimeout(function() {
+      document.getElementById('pixPre').style.display = 'none';
+      document.getElementById('pixResult').style.display = 'block';
+      renderPix(0);
+    }, 1800);
+  }
+
+  function renderPix(idx) {
+    var isLast = idx === N_PIX - 1;
+    var code = MOCK_CODES[idx];
+    var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(code);
+    var uid = 'pix_code_' + idx;
+
+    // Progress dots
+    var dots = '';
+    for (var i = 0; i < N_PIX; i++) {
+      var bg = i < idx ? '#2a7d2e' : (i === idx ? '#c8102e' : '#ddd');
+      var clr = i <= idx ? '#fff' : '#999';
+      dots += '<div class="progress-dot" style="background:' + bg + ';color:' + clr + ';">' + (i + 1) + '</div>';
+    }
+
+    var nextBtn = !isLast
+      ? '<button class="btn-proximo" onclick="proximoPix(' + (idx+1) + ')">✅ Já paguei — Gerar PIX ' + (idx+2) + ' de ' + N_PIX + '</button>'
+      : '<div class="all-done"><div class="all-done-title">Todos os PIX gerados! 🎉</div><div class="all-done-sub">Assim que todos os pagamentos forem confirmados, você receberá a confirmação por e-mail.</div></div>'
+        + '<a href="index.html" class="btn-voltar">Voltar à Loja</a>';
+
+    var html =
+      '<div class="sec-notice">'
+      + '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'
+      + '<div><div class="sec-notice-title">Para sua segurança, o pagamento será feito em partes</div>'
+      + '<div class="sec-notice-text">Seu pedido de <strong>' + fmt(TOTAL) + '</strong> será dividido em <strong>' + N_PIX + ' cobranças PIX</strong> de <strong>' + fmt(PARC) + '</strong> cada. Pague uma de cada vez, na ordem indicada.</div>'
+      + '</div></div>'
+
+      + '<div class="order-ref">Pedido #LC-' + ORDER_ID + ' — Total: ' + fmt(TOTAL) + '</div>'
+
+      + '<div class="progress-dots">' + dots + '</div>'
+
+      + '<div class="pix-card">'
+      + '<div class="pix-card-title">PIX ' + (idx+1) + ' de ' + N_PIX + ' — ' + fmt(PARC) + '</div>'
+      + '<div class="pix-qr"><img src="' + qrUrl + '" alt="QR Code PIX" /></div>'
+      + '<div class="copia-label">Copia e Cola</div>'
+      + '<div class="copia-row">'
+      + '<input id="' + uid + '" class="copia-input" readonly value="' + code + '" />'
+      + '<button class="btn-copiar" onclick="copiarCodigo(\'' + uid + '\')">Copiar</button>'
+      + '</div>'
+      + '<div class="copied-msg" id="copied_' + idx + '">✅ Copiado!</div>'
+      + '</div>'
+
+      + nextBtn;
+
+    var result = document.getElementById('pixResult');
+    result.innerHTML = html;
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function proximoPix(idx) {
+    var btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner">⟳</span> Gerando PIX ' + (idx+1) + '/' + N_PIX + '...';
+    setTimeout(function() {
+      renderPix(idx);
+    }, 1400);
+  }
+
+  function copiarCodigo(uid) {
+    var input = document.getElementById(uid);
+    var idx = uid.replace('pix_code_', '');
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(input.value);
+    } else {
+      input.select();
+      document.execCommand('copy');
+    }
+    var msg = document.getElementById('copied_' + idx);
+    if (msg) { msg.style.display = 'block'; setTimeout(function(){ msg.style.display='none'; }, 2000); }
+    var btn = input.nextElementSibling;
+    if (btn) { btn.textContent = '✅'; setTimeout(function(){ btn.textContent='Copiar'; }, 2000); }
+  }
+</script>
+</body>
+</html>

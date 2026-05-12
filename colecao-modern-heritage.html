@@ -1,0 +1,856 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Modern Heritage | Le Creuset Brasil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
+  <style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Nunito Sans',sans-serif;color:#000;background:#fff;}
+    a{text-decoration:none;color:inherit;}
+    .top-bar{background:#1a1a1a;color:#fff;font-size:12px;text-align:center;padding:8px 16px;}
+    header{background:#fff;border-bottom:1px solid #e5e5e5;position:sticky;top:0;z-index:100;}
+    .header-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px;gap:24px;}
+    .logo{flex-shrink:0;display:flex;align-items:center;} .logo img{height:45px;width:auto;}
+    
+    nav{flex:1;}
+    .nav-list{display:flex;list-style:none;align-items:center;}
+    .nav-list>li{position:relative;}
+    .nav-list>li>a{display:block;padding:22px 14px;font-size:13px;font-weight:600;color:#000;white-space:nowrap;border-bottom:2px solid transparent;transition:border-color 0.2s;}
+    .nav-list>li>a:hover{border-bottom-color:#000;}
+    .nav-list>li.highlight>a{color:#c8102e;}
+    .nav-list>li.blue>a{color:#2563ab;}
+    .mega-menu{display:none;position:fixed;left:0;right:0;top:64px;background:#fff;border-top:2px solid #e5e5e5;box-shadow:0 8px 32px rgba(0,0,0,0.13);z-index:200;padding:28px 0 24px;}
+    .nav-list>li:hover .mega-menu{display:block;}
+    .mega-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:170px 150px 170px 170px 170px;gap:0 20px;align-items:start;}
+    .mega-col-title{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#000;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid #e5e5e5;}
+    .mega-col a{display:block;font-size:13px;color:#444;padding:4px 0;}
+    .mega-col a:hover{color:#c8102e;}
+    .header-icons{display:flex;align-items:center;gap:16px;flex-shrink:0;}
+    .header-icons a{font-size:12px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:2px;color:#000;}
+    .header-icons svg{width:22px;height:22px;}
+    .search-box{display:flex;align-items:center;border:1px solid #ccc;border-radius:4px;overflow:hidden;height:36px;}
+    .search-box input{border:none;outline:none;padding:0 12px;font-size:13px;width:180px;font-family:inherit;}
+    .search-box button{background:#000;border:none;cursor:pointer;padding:0 12px;height:100%;display:flex;align-items:center;}
+    .search-box button svg{fill:#fff;width:16px;height:16px;}
+    .cat-banner-wrap{border-bottom:1px solid #e0e0e0;overflow:hidden;}
+    .cat-banner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 3fr;min-height:300px;}
+    .cat-banner-left{position:relative;padding:32px 48px 40px 32px;display:flex;flex-direction:column;justify-content:flex-end;background:#f5f0ec;overflow:hidden;}
+    .cat-banner-left-content{position:relative;z-index:1;}
+    .cat-banner-crumb{font-size:12px;color:#888;display:flex;gap:5px;align-items:center;margin-bottom:auto;padding-bottom:100px;}
+    .cat-banner-crumb a{color:#888;} .cat-banner-crumb a:hover{color:#000;text-decoration:underline;}
+    .cat-banner-title{font-size:32px;font-weight:300;color:#000;margin-bottom:12px;letter-spacing:-0.5px;}
+    .cat-banner-desc{font-size:13px;color:#444;line-height:1.6;max-width:300px;}
+    .cat-banner-right{overflow:hidden;}
+    .cat-banner-right img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+    .shop-layout{max-width:1400px;margin:0 auto;padding:24px 24px 80px;display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start;}
+    .sidebar{position:sticky;top:80px;}
+    .filter-section{border-bottom:1px solid #e5e5e5;}
+    .filter-header{display:flex;justify-content:space-between;align-items:center;padding:14px 0;cursor:pointer;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;user-select:none;}
+    .filter-header svg{width:14px;height:14px;transition:transform 0.2s;}
+    .filter-header.open svg{transform:rotate(180deg);}
+    .filter-body{padding-bottom:12px;display:none;}
+    .filter-body.open{display:block;}
+    .filter-option{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:13px;color:#444;cursor:pointer;}
+    .filter-option input{width:14px;height:14px;cursor:pointer;accent-color:#000;}
+    .results-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
+    .results-count{font-size:13px;color:#888;}
+    .sort-select{font-size:13px;border:1px solid #ccc;padding:6px 12px;font-family:inherit;cursor:pointer;}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+    .product-card{position:relative;}
+    .product-card-img{position:relative;overflow:hidden;background: transparent;aspect-ratio:1;margin-bottom:10px;border:1px solid #f0f0f0;}
+    .product-card-img img{width:100%;height:100%;object-fit:contain;padding:16px;transition:transform 0.4s ease;}
+    .product-card-img:hover img{transform:scale(1.06);}
+    .product-wishlist{position:absolute;top:8px;right:8px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+    .product-wishlist svg{width:15px;height:15px;}
+    .product-card-name{font-size:13px;font-weight:700;margin-bottom:3px;line-height:1.3;}
+    .product-card-sub{font-size:11px;color:#888;margin-bottom:5px;}
+    .product-card-price{font-size:14px;font-weight:800;}
+    .card-swatches{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap;}
+    .swatch{width:18px;height:18px;border-radius:50%;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;display:inline-block;}
+    .swatch:hover{transform:scale(1.15);}
+    .swatch.active{box-shadow:0 0 0 2px #fff,0 0 0 3.5px #000;}
+    footer{background:#111;color:#fff;padding:60px 24px 30px;}
+    .footer-inner{max-width:1400px;margin:0 auto;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+    .footer-brand .logo{margin-bottom:16px;display:block;} .footer-brand .logo img{height:28px;width:auto;}
+    .footer-brand p{font-size:13px;color:#aaa;line-height:1.7;max-width:280px;margin-bottom:20px;}
+    .footer-social{display:flex;gap:12px;}
+    .social-btn{width:36px;height:36px;border:1px solid #444;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;}
+    .footer-col h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;margin-bottom:16px;}
+    .footer-col ul{list-style:none;}
+    .footer-col ul li{margin-bottom:10px;}
+    .footer-col ul li a{font-size:13px;color:#aaa;}
+    .footer-col ul li a:hover{color:#fff;}
+    .footer-bottom{border-top:1px solid #333;padding-top:24px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-bottom p{font-size:12px;color:#666;}
+    .payment-icons{display:flex;gap:8px;}
+    .payment-icon{background:#222;border:1px solid #444;border-radius:4px;padding:4px 8px;font-size:10px;font-weight:700;color:#aaa;}
+  
+    /* ========== PROMO BAR CAROUSEL ========== */
+    .top-bar { position: relative; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .promo-track { flex: 1; text-align: center; overflow: hidden; height: 20px; position: relative; }
+    .promo-slide { position: absolute; width: 100%; left: 0; top: 0; opacity: 0; transition: opacity 0.5s; white-space: nowrap; }
+    .promo-slide.active { opacity: 1; }
+    .promo-arrow { background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; padding: 0 6px; opacity: 0.7; line-height: 1; flex-shrink: 0; }
+    .promo-arrow:hover { opacity: 1; }
+
+    /* ========== MOBILE STANDARD ========== */
+    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; justify-content: center; gap: 5px; flex-shrink: 0; }
+    .mobile-menu-btn span { display: block; width: 22px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
+    .header-search-icon { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .header-search-icon svg { width: 22px; height: 22px; }
+    .mobile-nav { display: block; position: fixed; top: 0; left: 0; width: 82%; max-width: 300px; height: 100%; background: #fff; z-index: 999; overflow-y: auto; transform: translateX(-100%); transition: transform 0.3s ease; box-shadow: 4px 0 24px rgba(0,0,0,0.18); }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 996; }
+    .mobile-overlay.open { display: block; }
+    .mobile-nav-header { display: flex; align-items: center; justify-content: flex-end; padding: 14px 16px; }
+    .mobile-nav-close { background: none; border: none; cursor: pointer; font-size: 28px; color: #000; line-height: 1; padding: 2px; }
+    /* Nav search */
+    .mnav-search { display: flex; align-items: center; gap: 10px; padding: 0 18px 16px; border-bottom: 1px solid #e5e5e5; }
+    .mnav-search input { flex: 1; border: none; outline: none; font-size: 15px; font-family: inherit; color: #333; }
+    .mnav-search input::placeholder { color: #999; }
+    .mnav-search svg { width: 20px; height: 20px; flex-shrink: 0; opacity: 0.4; }
+    .mnav-accordion { border-bottom: 1px solid #e5e5e5; }
+    .mnav-accordion-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 16px 18px; background: none; border: none; cursor: pointer; font-size: 14px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #000; font-family: inherit; }
+    .mnav-accordion-btn svg { width: 14px; height: 14px; transition: transform 0.2s; flex-shrink: 0; }
+    .mnav-accordion.open .mnav-accordion-btn svg { transform: rotate(90deg); }
+    .mnav-accordion-body { display: none; padding: 0 18px 14px; }
+    .mnav-accordion.open .mnav-accordion-body { display: block; }
+    .mnav-accordion-body a { display: block; padding: 8px 0; font-size: 14px; color: #444; }
+    .mnav-accordion-body a:hover { color: #c8102e; }
+    .mnav-colors { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 18px 16px; border-bottom: 1px solid #e5e5e5; }
+    .mnav-color { width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s, transform 0.2s; display: block; }
+    .mnav-color:hover { border-color: #000; transform: scale(1.1); }
+    .mnav-links { list-style: none; padding: 8px 0 80px; }
+    .mnav-links li > a { display: block; padding: 14px 18px; font-size: 15px; font-weight: 500; color: #333; }
+    .mnav-links li.highlight > a { color: #c8102e; font-weight: 700; }
+    
+    
+    
+    
+    
+    
+    .mobile-search-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; background: #fff; z-index: 1000; padding: 12px 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .mobile-search-overlay.open { display: block; }
+    .mobile-search-bar { display: flex; align-items: center; gap: 10px; border: 1.5px solid #000; border-radius: 4px; overflow: hidden; height: 44px; }
+    .search-overlay-close { background: none; border: none; font-size: 24px; padding: 0 12px; cursor: pointer; color: #000; line-height: 1; flex-shrink: 0; }
+    .mobile-search-bar input { flex: 1; border: none; outline: none; font-size: 15px; font-family: inherit; padding: 0; }
+    .search-overlay-go { background: #000; border: none; padding: 0 14px; cursor: pointer; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
+    .filter-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 996; }
+    .filter-overlay.open { display: block; }
+    .mobile-filter-bar { display: none; }
+    .bottom-nav { display: none; }
+
+    @media (max-width: 768px) {
+      .top-bar { font-size: 11px; padding: 8px 4px; }
+      .header-inner { padding: 0 12px; height: 56px; gap: 0; justify-content: space-between; }
+      nav { display: none; }
+      .search-box { display: none; }
+      .mobile-menu-btn { display: flex; order: 1; margin-right: 6px; }
+      .header-search-icon { display: flex; order: 2; margin-right: 4px; }
+      .logo { flex: 0 0 auto; order: 3; margin: 0 auto; } .logo img { height: 32px; }
+      .header-icons { gap: 10px; margin-left: 0; order: 4; }
+      .header-icons a span { display: none; }
+      .header-icons a { gap: 0; }
+      .header-icons svg { width: 22px; height: 22px; }
+      /* Banner */
+      .cat-banner { height: 180px; }
+      .cat-banner-overlay { padding: 0 20px; }
+      .cat-banner-title { font-size: 24px; }
+      .cat-banner-sub { font-size: 12px; }
+      .breadcrumb { padding: 10px 12px; font-size: 11px; }
+      /* Layout - hide sidebar/filters on mobile */
+      .shop-layout { grid-template-columns: 1fr !important; padding: 14px 12px 80px; gap: 0; }
+      .collection-wrap { grid-template-columns: 1fr !important; padding: 0 12px 80px; gap: 0; }
+    .shop-layout { max-width: 1400px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 240px 1fr; gap: 40px; }
+      .sidebar, .filters {
+        display: none;
+        position: fixed; top: 0; left: 0; width: 85%; max-width: 320px; height: 100%;
+        background: #fff; z-index: 997; overflow-y: auto; padding: 20px;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+      }
+      .sidebar.filter-open, .filters.filter-open { display: block; }
+      .mobile-filter-btn { display: none; }
+      /* Mobile filter bar */
+      .mobile-filter-bar {
+        display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+        padding: 14px 0; margin-bottom: 4px;
+      }
+      .mobile-results-count { width: 100%; text-align: center; font-size: 14px; color: #888; margin-bottom: 12px; }
+      .mobile-results-count strong { color: #c8102e; }
+      .mobile-filter-actions { display: flex; width: 100%; gap: 10px; }
+      .mobile-filter-toggle {
+        flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+        background: #fff; border: 1.5px solid #ccc; padding: 10px 0;
+        font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+        font-family: inherit; cursor: pointer;
+      }
+      .mobile-filter-toggle svg { width: 16px; height: 16px; }
+      .mobile-sort-select {
+        flex: 1; background: #fff; border: 1.5px solid #ccc; padding: 10px 12px;
+        font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+        font-family: inherit; cursor: pointer;
+        appearance: none; -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px;
+      }
+      .collection-header { display: none; }
+      .results-bar { display: none; }
+      /* Product grid 2 cols */
+      .product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+      .product-card { background: transparent; border-radius: 6px; overflow: hidden; }
+      .product-card-media { aspect-ratio: 1; background: transparent; border-radius: 6px 6px 0 0; }
+      .product-card-media img { padding: 8px; }
+      .product-card-img { border-radius: 6px; background: transparent; }
+      .product-card-img img { padding: 10px; }
+      .product-quick-buy { display: none; }
+      .product-wishlist { opacity: 1; width: 28px; height: 28px; top: 6px; right: 6px; box-shadow: none; background: rgba(255,255,255,0.85); }
+      .product-wishlist svg { width: 14px; height: 14px; }
+      .product-info { padding: 8px 8px 10px; }
+      .product-name { font-size: 12px; font-weight: 600; line-height: 1.35; margin-bottom: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .product-name a { color: #1a1a1a; }
+      .product-card-name { font-size: 12px; font-weight: 600; line-height: 1.3; }
+      .product-card-sub { font-size: 10.5px; margin-bottom: 4px; }
+      .product-card-price { font-size: 13px; }
+      .product-sizes { font-size: 10px; color: #999; margin-bottom: 4px; }
+      .product-price { font-size: 13px; font-weight: 800; }
+      .product-installment { font-size: 10px; color: #888; margin-top: 1px; }
+      .product-colors { margin-top: 6px; gap: 4px; }
+      .swatch { width: 16px; height: 16px; }
+      .product-badge { font-size: 9px; padding: 2px 6px; top: 6px; left: 6px; border-radius: 2px; }
+      /* Section headers */
+      .section-header { padding-bottom: 8px; margin-bottom: 14px; }
+      .section-title { font-size: 16px; }
+      .section-link { font-size: 11px; }
+      /* Hub section */
+      .hub-section { padding: 16px 12px 80px; }
+      .hub-title { font-size: 12px; margin-bottom: 18px; }
+      .category-tiles { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 32px; }
+      .cat-tile { aspect-ratio: 3/2; border-radius: 4px; }
+      .cat-tile-title { font-size: 13px; margin-bottom: 4px; }
+      .cat-tile-btn { font-size: 9px; padding: 4px 10px; }
+      .cat-tile-overlay { padding: 10px; }
+      /* Footer */
+      footer { padding: 36px 14px 80px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      /* Bottom nav */
+      .bottom-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e5e5; z-index: 500; height: 56px; height: calc(56px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); }
+      .bottom-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 10px; font-weight: 600; color: #666; text-decoration: none; padding: 6px 0; }
+      .bottom-nav-item svg { width: 22px; height: 22px; }
+      .bottom-nav-item.active { color: #c8102e; }
+      .bottom-nav-item.active svg { stroke: #c8102e; }
+    }
+    @media (max-width: 480px) {
+      .top-bar { font-size: 10.5px; }
+      .header-inner { padding: 0 10px; height: 52px; }
+      .cat-banner { height: 150px; }
+      .cat-banner-title { font-size: 21px; }
+      .collection-wrap { padding: 0 10px 80px; }
+      .shop-layout { padding: 12px 10px 80px; }
+      .hub-section { padding: 12px 10px 80px; }
+      .product-grid { gap: 8px; }
+      .product-card-name { font-size: 11.5px; }
+      .product-card-price { font-size: 12.5px; }
+      .product-name { font-size: 11.5px; }
+      .product-price { font-size: 12.5px; }
+      .product-info { padding: 6px 6px 8px; }
+      .swatch { width: 14px; height: 14px; }
+      .category-tiles { gap: 8px; margin-bottom: 24px; }
+      .cat-tile-title { font-size: 12px; }
+      .cat-tile-btn { font-size: 8px; padding: 3px 8px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+
+    /* ─── COLLECTION PAGE TITLE ─── */
+    .collection-page-header { text-align: center; padding: 32px 24px 20px; border-bottom: 1px solid #e5e5e5; margin-bottom: 0; }
+    .collection-page-title {
+      font-size: 36px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #6080A8; letter-spacing: 0;
+    }
+    @media(max-width:768px) { .collection-page-title {
+      font-size: 36px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #6080A8; letter-spacing: 0;
+    } .collection-page-header { padding: 20px 16px 16px; } }
+  </style>
+</head>
+<body>
+<div class="top-bar">&#128666; Frete Gr&#225;tis em compras acima de R$ 1.500,00 &nbsp;|&nbsp; 5% OFF no PIX &nbsp;|&nbsp; 10x Sem Juros</div>
+<header>
+  <div class="header-inner">
+    
+    <button class="mobile-menu-btn" onclick="document.getElementById('mobileNav').classList.add('open');document.getElementById('mobileOverlay').classList.add('open');">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="header-search-icon" onclick="document.getElementById('mobileSearchOverlay').classList.add('open');">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+    </button>
+    <a href="index.html" class="logo"><img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites/default/dwd459bb3e/images/logo.svg" alt="Le Creuset" /></a>
+    <nav><ul class="nav-list">
+      <li><a href="#">Comprar</a>
+        <div class="mega-menu"><div class="mega-inner">
+          <div class="mega-col"><div class="mega-col-title">Cozinhar</div>
+            <a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a>
+            <a href="colecao-frigideiras-e-skillets.html">Frigideiras e Skillets</a>
+            <a href="colecao-cacarolas.html">Ca&#231;arolas</a>
+            <a href="colecao-acessorios.html">Acess&#243;rios</a>
+          </div>
+          <div class="mega-col"><div class="mega-col-title">Assar</div>
+            <a href="colecao-assadeiras-travessas.html">Assadeiras e Travessas</a>
+            <a href="colecao-formas-metal-bakeware.html">Formas Metal Bakeware</a>
+          </div>
+          <div class="mega-col"><div class="mega-col-title">Preparar &amp; Servir</div>
+            <a href="colecao-bowls.html">Bowls</a>
+            <a href="colecao-pratos.html">Pratos</a>
+            <a href="colecao-canecas-e-xicaras.html">Canecas e X&#237;caras</a>
+          </div>
+          <div class="mega-col"><div class="mega-col-title">Acess&#243;rios</div>
+            <a href="colecao-moedores-e-galheteiro.html">Moedores e Galheteiro</a>
+            <a href="colecao-utensilios.html">Utensilios</a>
+            <a href="colecao-sets.html">Sets</a>
+          </div>
+          <div class="mega-col"><div class="mega-col-title">Cole&#231;&#245;es</div>
+            <a href="colecao-flamme-doree.html">Flamme Dor&#233;e</a>
+            <a href="colecao-gift-collection.html">Gift Collection</a>
+            <a href="colecao-churrasco.html">Churrasco</a>
+            <a href="colecao-alpine.html">Cole&#231;&#227;o Alpine</a>
+            <a href="colecao-modern-heritage.html">Modern Heritage</a>
+            <a href="colecao-jardim.html">Cole&#231;&#227;o Jardim</a>
+            <a href="colecao-culinaria-oriental.html">Culin&#225;ria Oriental</a>
+            <a href="colecao-gourmand.html">Cole&#231;&#227;o Gourmand</a>
+          </div>
+        </div></div>
+      </li>
+      <li class="highlight"><a href="colecao-pascoa.html">P&#225;scoa</a></li>
+      <li><a href="colecao-ofertas.html">Ofertas</a></li>
+      <li class="blue"><a href="colecao-bleu-riviera.html">Bleu Riviera</a></li>
+      <li><a href="colecao-lancamentos.html">Lan&#231;amentos</a></li>
+      <li><a href="colecao-ferro-fundido.html">Ferro Fundido</a></li>
+      <li><a href="colecao-ceramica.html">Cer&#226;mica</a></li>
+      <li><a href="colecao-best-sellers.html">Best-Sellers</a></li>
+    </ul></nav>
+    <div class="header-icons">
+      <div class="search-box">
+        <input type="text" placeholder="Buscar..."/>
+        <button><svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 5.15 5.15a7.5 7.5 0 0 0 10.5 11.5z" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></button>
+      </div>
+      <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Entrar</span></a>
+      <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sacola</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="cat-banner-wrap">
+  <div class="cat-banner">
+    <div class="cat-banner-left">
+      <div class="cat-banner-left-content">
+        <div class="cat-banner-crumb">
+          <a href="index.html">In&#237;cio</a><span>/</span>
+          <a href="#">Cole&#231;&#245;es</a><span>/</span>
+          <span>Modern Heritage</span>
+        </div>
+        <p class="cat-banner-desc">A linha Modern Heritage Le Creuset reinterpreta o design clássico com acabamentos contemporâneos. Peças em ferro fundido esmaltado com pegadores em aço e cores sofisticadas.</p>
+      </div>
+    </div>
+    <div class="cat-banner-right">
+      <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5a6b2fa5/images/cacarola-buffet-28Cm-Modern-laranja-Heritage.png?sw=650&sh=650&sm=fit" alt="Modern Heritage Le Creuset"/>
+    </div>
+  </div>
+</div>
+<div class="shop-layout">
+  <aside class="sidebar">
+    <div class="filter-section">
+      <div class="filter-header open" onclick="toggleFilter(this)">Tipo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-body open">
+        <label class="filter-option"><input type="checkbox"> Panelas</label>
+        <label class="filter-option"><input type="checkbox"> Caçarolas</label>
+
+      </div>
+    </div>
+    <div class="filter-section">
+      <div class="filter-header open" onclick="toggleFilter(this)">Pre&#231;o
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-body open">
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="233.0" data-max="500.0"> At&#233; R$ 500</label>
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="500.0" data-max="8211.0"> R$ 500 &#8211; R$ 1.500</label>
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="1500.0" data-max="8211.0"> R$ 1.500 &#8211; R$ 3.000</label>
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="3000.0" data-max="999999"> + R$ 3.000</label>
+      </div>
+    </div>
+  </aside>
+  <div class="filter-overlay" id="filterOverlay" onclick="document.querySelector('.sidebar').classList.remove('filter-open');this.classList.remove('open');document.body.style.overflow='';"></div>
+
+  <div>
+    <!-- Mobile filter bar -->
+    <div class="mobile-filter-bar">
+      <div class="mobile-results-count"><strong>4</strong> resultados</div>
+      <div class="mobile-filter-actions">
+        <button class="mobile-filter-toggle" onclick="document.querySelector('.sidebar').classList.add('filter-open');document.getElementById('filterOverlay').classList.add('open');document.body.style.overflow='hidden';">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="8" cy="6" r="2" fill="#000"/><circle cx="16" cy="12" r="2" fill="#000"/><circle cx="10" cy="18" r="2" fill="#000"/></svg>
+          Filtro
+        </button>
+        <select class="mobile-sort-select">
+          <option>Ordenar por: Relev&#226;ncia</option>
+          <option>Pre&#231;o: Menor para Maior</option>
+          <option>Pre&#231;o: Maior para Menor</option>
+        </select>
+      </div>
+    </div>
+    <div class="results-bar">
+      <span class="results-count">4 resultados</span>
+      <select class="sort-select"><option>Ordenar por: Relev&#226;ncia</option><option>Pre&#231;o: Menor para Maior</option><option>Pre&#231;o: Maior para Menor</option></select>
+    </div>
+    <div class="product-grid">
+    <div class="product-card">
+      <a href="#">
+        <div class="product-card-img">
+          <img id="img_1" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5a6b2fa5/images/cacarola-buffet-28Cm-Modern-laranja-Heritage.png?sw=650&sh=650&sm=fit" alt="Caçarola Buffet Modern Heritage 28cm"/>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+      <a href="#">
+        <div class="product-card-name">Caçarola Buffet Modern Heritage 28cm</div>
+        <div class="product-card-sub">Ferro Fundido · 28cm</div>
+        <div class="product-card-price">R$ 3.819,00</div>
+      </a>
+      <div class="card-swatches"><span class="swatch active" style="background:#d46820;border:1.5px solid transparent;" onclick="swatchClick(event,this,'img_1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5a6b2fa5/images/cacarola-buffet-28Cm-Modern-laranja-Heritage.png?sw=650&sh=650&sm=fit')" title="Laranja"></span><span class="swatch" style="background:#F5F0E8;border:1.5px solid #ccc;" onclick="swatchClick(event,this,'img_1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfdb403b0/images/panela-redonda-26Cm-Modern-Heritage-meringue.png?sw=650&sh=650&sm=fit')" title="Meringue"></span></div>
+    </div>
+    <div class="product-card">
+      <a href="#">
+        <div class="product-card-img">
+          <img id="img_2" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfdb403b0/images/panela-redonda-26Cm-Modern-Heritage-meringue.png?sw=650&sh=650&sm=fit" alt="Panela Redonda Modern Heritage 26cm"/>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+      <a href="#">
+        <div class="product-card-name">Panela Redonda Modern Heritage 26cm</div>
+        <div class="product-card-sub">Ferro Fundido · 26cm</div>
+        <div class="product-card-price">R$ 3.699,00</div>
+      </a>
+      <div class="card-swatches"><span class="swatch active" style="background:#F5F0E8;border:1.5px solid #ccc;" onclick="swatchClick(event,this,'img_2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfdb403b0/images/panela-redonda-26Cm-Modern-Heritage-meringue.png?sw=650&sh=650&sm=fit')" title="Meringue"></span><span class="swatch" style="background:#d46820;border:1.5px solid transparent;" onclick="swatchClick(event,this,'img_2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5a6b2fa5/images/cacarola-buffet-28Cm-Modern-laranja-Heritage.png?sw=650&sh=650&sm=fit')" title="Laranja"></span></div>
+    </div>
+    <div class="product-card">
+      <a href="#">
+        <div class="product-card-img">
+          <img id="img_3" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfdb403b0/images/panela-redonda-26Cm-Modern-Heritage-meringue.png?sw=650&sh=650&sm=fit" alt="Caçarola Buffet Modern Heritage Meringue 28cm"/>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+      <a href="#">
+        <div class="product-card-name">Caçarola Buffet Modern Heritage Meringue 28cm</div>
+        <div class="product-card-sub">Ferro Fundido · Meringue · 28cm</div>
+        <div class="product-card-price">R$ 3.819,00</div>
+      </a>
+    </div>
+    <div class="product-card" data-price-min="3699.0">
+      <a href="#">
+        <div class="product-card-img">
+          <img id="img_4" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5a6b2fa5/images/cacarola-buffet-28Cm-Modern-laranja-Heritage.png?sw=650&sh=650&sm=fit" alt="Panela Redonda Modern Heritage Laranja 26cm"/>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+      <a href="#">
+        <div class="product-card-name">Panela Redonda Modern Heritage Laranja 26cm</div>
+        <div class="product-card-sub">Ferro Fundido · Laranja · 26cm</div>
+        <div class="product-card-price">R$ 3.699,00</div>
+      </a>
+    </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites/default/dwd459bb3e/images/logo.svg" alt="Le Creuset" /></a>
+        <p>Desde 1925, criando pe&#231;as excepcionais que transformam o cozinhar em arte.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">f</a><a href="#" class="social-btn">in</a><a href="#" class="social-btn">yt</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Produtos</h4><ul>
+        <li><a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a></li>
+        <li><a href="colecao-ceramica.html">Cer&#226;mica</a></li>
+        <li><a href="colecao-acessorios.html">Acess&#243;rios</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Atendimento</h4><ul>
+        <li><a href="#">Central de Ajuda</a></li><li><a href="#">Rastrear Pedido</a></li>
+        <li><a href="#">Trocas e Devolu&#231;&#245;es</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul>
+        <li><a href="#">Sobre N&#243;s</a></li><li><a href="#">Blog</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul>
+        <li><a href="#">Privacidade</a></li><li><a href="#">Termos</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Le Creuset do Brasil. Todos os direitos reservados.</p>
+      <div class="payment-icons">
+        <span class="payment-icon">VISA</span><span class="payment-icon">MASTER</span>
+        <span class="payment-icon">PIX</span><span class="payment-icon">BOLETO</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleFilter(h){
+  h.classList.toggle('open');
+  h.nextElementSibling.classList.toggle('open');
+}
+function swatchClick(e,el,imgId,src){
+  e.preventDefault();e.stopPropagation();
+  el.parentElement.querySelectorAll('.swatch').forEach(x=>x.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(imgId).src=src;
+}
+
+// ── Promo carousel ──
+(function() {
+  var slides = document.querySelectorAll('.promo-slide');
+  if (!slides.length) return;
+  var cur = 0;
+  function show(i) {
+    slides[cur].classList.remove('active');
+    cur = (i + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+  }
+  var timer = setInterval(function(){ show(cur + 1); }, 5000);
+  var prev = document.getElementById('promoPrev');
+  var next = document.getElementById('promoNext');
+  if (prev) prev.addEventListener('click', function(){ clearInterval(timer); show(cur - 1); timer = setInterval(function(){ show(cur + 1); }, 5000); });
+  if (next) next.addEventListener('click', function(){ clearInterval(timer); show(cur + 1); timer = setInterval(function(){ show(cur + 1); }, 5000); });
+})();
+
+// ── Mobile menu ──
+(function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var nav = document.getElementById('mobileNav');
+  var overlay = document.getElementById('mobileOverlay');
+  var closeBtn = document.getElementById('mobileNavClose');
+  function openNav() { nav.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeNav() { nav.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  if (btn) btn.addEventListener('click', openNav);
+  if (closeBtn) closeBtn.addEventListener('click', closeNav);
+  if (overlay) overlay.addEventListener('click', closeNav);
+
+  document.querySelectorAll('.nav-acc-btn').forEach(function(b) {
+    b.addEventListener('click', function() { b.closest('.nav-accordion').classList.toggle('open'); });
+  });
+
+  // Mobile filter
+  var filterBtn = document.getElementById('mobileFilterBtn');
+  var sidebar = document.querySelector('.sidebar');
+  var filterOverlay = document.getElementById('filterOverlay');
+  function openFilter() { sidebar.classList.add('filter-open'); filterOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeFilter() { sidebar.classList.remove('filter-open'); filterOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+  if (filterBtn) filterBtn.addEventListener('click', openFilter);
+  if (filterOverlay) filterOverlay.addEventListener('click', closeFilter);
+
+  // Search overlay
+  var searchOverlay = document.getElementById('mobileSearchOverlay');
+  var searchCloseBtn = document.getElementById('searchOverlayClose');
+  var bottomSearchBtn = document.getElementById('bottomSearchBtn');
+  var searchInput = document.getElementById('mobileSearchInput');
+  function openSearch(e) { if(e) e.preventDefault(); searchOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; if(searchInput) setTimeout(function(){ searchInput.focus(); }, 100); }
+  function closeSearch() { searchOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+  if (bottomSearchBtn) bottomSearchBtn.addEventListener('click', openSearch);
+  if (searchCloseBtn) searchCloseBtn.addEventListener('click', closeSearch);
+})();
+
+// ── Filter Logic ──
+(function() {
+  var cards = document.querySelectorAll('.product-card');
+  var colorSwatches = document.querySelectorAll('.color-filter-swatch');
+  var countEl = document.querySelector('.results-count strong') || document.querySelector('.results-count');
+
+  // Detect filter sections by header text
+  var priceCbs = [];
+  var capCbs = [];
+  var typeCbs = [];
+
+  document.querySelectorAll('.filter-group, .filter-section').forEach(function(section) {
+    var header = section.querySelector('.filter-title, .filter-header');
+    if (!header) return;
+    var headerText = header.textContent.trim().toLowerCase();
+    var checkboxes = section.querySelectorAll('input[type="checkbox"]');
+
+    if (headerText.indexOf('pre') === 0 || headerText.indexOf('preço') >= 0 || headerText.indexOf('preco') >= 0 || headerText.indexOf('valor') >= 0) {
+      checkboxes.forEach(function(cb) { priceCbs.push(cb); });
+    } else if (headerText.indexOf('capac') >= 0 || headerText.indexOf('volume') >= 0 || headerText.indexOf('litro') >= 0) {
+      checkboxes.forEach(function(cb) { capCbs.push(cb); });
+    } else if (headerText.indexOf('cor') < 3 && headerText.indexOf('cor') >= 0) {
+      // "Cor" section - skip, handled by swatches
+    } else {
+      // Type/category filter
+      checkboxes.forEach(function(cb) { typeCbs.push(cb); });
+    }
+  });
+
+  function parsePrice(text) {
+    var nums = text.match(/[\d.,]+/g);
+    if (!nums) return 0;
+    return parseFloat(nums[0].replace(/\./g, '').replace(',', '.')) || 0;
+  }
+
+  function getPriceRange(label) {
+    // Clone label and remove filter-count span to avoid polluting price parsing
+    var clone = label.cloneNode(true);
+    var countSpan = clone.querySelector('.filter-count');
+    if (countSpan) countSpan.remove();
+    var text = clone.textContent || clone.innerText || '';
+    var nums = text.match(/[\d.,]+/g);
+    if (!nums) return {min:0, max:999999};
+    var lower = text.toLowerCase();
+    if (lower.indexOf('mais') >= 0 || lower.indexOf('acima') >= 0 || text.indexOf('+') >= 0) {
+      return {min: parsePrice('R$ ' + nums[0]), max: 999999};
+    }
+    if (lower.indexOf('at') >= 0 && nums.length === 1) {
+      return {min:0, max: parsePrice('R$ ' + nums[0])};
+    }
+    if (nums.length >= 2) {
+      return {min: parsePrice('R$ ' + nums[0]), max: parsePrice('R$ ' + nums[1])};
+    }
+    return {min:0, max:999999};
+  }
+
+  // Color swatch toggle
+  colorSwatches.forEach(function(sw) {
+    sw.addEventListener('click', function() {
+      sw.classList.toggle('active');
+      applyFilters();
+    });
+  });
+
+  // Checkbox listeners
+  priceCbs.concat(capCbs).concat(typeCbs).forEach(function(cb) {
+    cb.addEventListener('change', applyFilters);
+  });
+
+  function applyFilters() {
+    // Active price ranges
+    var activePrices = [];
+    priceCbs.forEach(function(cb) {
+      if (cb.checked) {
+        var label = cb.closest('label') || cb.parentElement;
+        activePrices.push(getPriceRange(label));
+      }
+    });
+
+    // Active capacities
+    var activeCaps = [];
+    capCbs.forEach(function(cb) {
+      if (cb.checked) {
+        var label = cb.closest('label') || cb.parentElement;
+        var text = (label.textContent || '').trim();
+        activeCaps.push(text.replace(/^\s+|\s+$/g, ''));
+      }
+    });
+
+    // Active colors
+    var activeColors = [];
+    colorSwatches.forEach(function(sw) {
+      if (sw.classList.contains('active')) activeColors.push(sw.getAttribute('title'));
+    });
+
+    // Active types
+    var activeTypes = [];
+    typeCbs.forEach(function(cb) {
+      if (cb.checked) {
+        var label = cb.closest('label') || cb.parentElement;
+        activeTypes.push((label.textContent || '').trim());
+      }
+    });
+
+    var visible = 0;
+    cards.forEach(function(card) {
+      var show = true;
+
+      // Price filter
+      if (activePrices.length > 0) {
+        var priceMin = parseFloat(card.dataset.priceMin) || 0;
+        var priceMatch = false;
+        activePrices.forEach(function(range) {
+          if (priceMin >= range.min && priceMin <= range.max) priceMatch = true;
+        });
+        if (!priceMatch) show = false;
+      }
+
+      // Capacity filter - check if card text contains the capacity value
+      if (show && activeCaps.length > 0) {
+        var cardText = card.textContent || '';
+        var capMatch = false;
+        activeCaps.forEach(function(cap) {
+          if (cardText.indexOf(cap) >= 0) capMatch = true;
+        });
+        // Also check data-caps attribute
+        if (!capMatch && card.dataset.caps) {
+          var cardCaps = card.dataset.caps.split(',');
+          activeCaps.forEach(function(cap) {
+            if (cardCaps.indexOf(cap) >= 0) capMatch = true;
+          });
+        }
+        if (!capMatch) show = false;
+      }
+
+      // Color filter
+      if (show && activeColors.length > 0 && card.dataset.colors) {
+        var cardColors = card.dataset.colors.split(',');
+        var colorMatch = false;
+        activeColors.forEach(function(color) {
+          if (cardColors.indexOf(color) !== -1) colorMatch = true;
+        });
+        if (!colorMatch) show = false;
+      }
+
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    // Update count
+    if (countEl) {
+      if (countEl.tagName === 'STRONG') {
+        countEl.textContent = visible;
+      } else {
+        var strong = countEl.querySelector('strong');
+        if (strong) {
+          strong.textContent = visible;
+        } else {
+          countEl.textContent = visible + ' resultados';
+        }
+      }
+    }
+  }
+})();
+
+
+</script>
+
+<!-- Mobile overlay -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="document.getElementById('mobileNav').classList.remove('open');this.classList.remove('open');"></div>
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header">
+    <button class="mobile-nav-close" onclick="this.closest('.mobile-nav').classList.remove('open');document.getElementById('mobileOverlay').classList.remove('open');">&times;</button>
+  </div>
+  <div class="mnav-search">
+    <input type="text" placeholder="O que voc&ecirc; est&aacute; procurando?" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Cozinhar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a>
+      <a href="colecao-frigideiras-e-skillets.html">Frigideiras e Skillets</a>
+      <a href="colecao-grelhas.html">Grelhas</a>
+      <a href="colecao-antiaderente.html">Antiaderente</a>
+      <a href="colecao-cacarolas.html">Ca&ccedil;arolas</a>
+      <a href="colecao-chaleiras.html">Chaleiras de A&ccedil;o Esmaltado</a>
+      <a href="colecao-3ply-aco-inox.html">3-Ply A&ccedil;o Inox</a>
+      <a href="colecao-formatos-especiais.html">Formatos Especiais</a>
+      <a href="colecao-primeira-le-creuset.html">Minha Primeira Le Creuset</a>
+      <a href="colecao-stockpots.html">Stockpots</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Assar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-mini-cocotte.html">Mini Cocotte e Ramekins</a>
+      <a href="colecao-formas-metal-bakeware.html">Formas Metal Bakeware</a>
+      <a href="colecao-assadeiras-travessas.html">Assadeiras e Travessas</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Acess&oacute;rios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-moedores-e-galheteiro.html">Moedores e Galheteiro</a>
+      <a href="colecao-utensilios.html">Utens&iacute;lios</a>
+      <a href="colecao-utensilios-madeira.html">Utens&iacute;lios de Madeira</a>
+      <a href="colecao-suporte-descansos.html">Suportes e Descansos</a>
+      <a href="colecao-potes-e-porta-mantimentos.html">Potes e Porta-Mantimentos</a>
+      <a href="colecao-acessorios-de-vinhos.html">Acess&oacute;rios de Vinhos</a>
+      <a href="colecao-sets.html">Sets</a>
+      <a href="colecao-vasos.html">Decora&ccedil;&atilde;o</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Preparar e Servir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-bowls.html">Bowls</a>
+      <a href="colecao-pratos.html">Pratos</a>
+      <a href="colecao-canecas-e-xicaras.html">Canecas e X&iacute;caras</a>
+      <a href="colecao-bules-e-jarras.html">Bules e Jarras</a>
+      <a href="colecao-chaleiras.html">Chaleiras</a>
+      <a href="colecao-travessas.html">Travessas</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Cole&ccedil;&otilde;es <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-flamme-doree.html">Flamme Dor&eacute;e</a>
+      <a href="colecao-gift-collection.html">Gift Collection</a>
+      <a href="colecao-churrasco.html">Churrasco</a>
+      <a href="colecao-alpine.html">Cole&ccedil;&atilde;o Alpine</a>
+      <a href="colecao-modern-heritage.html">Modern Heritage</a>
+      <a href="colecao-jardim.html">Cole&ccedil;&atilde;o Jardim</a>
+      <a href="colecao-culinaria-oriental.html">Culin&aacute;ria Oriental</a>
+      <a href="colecao-gourmand.html">Cole&ccedil;&atilde;o Gourmand</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Nossas Cores <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body" style="padding:0;"></div>
+  </div>
+  <div class="mnav-colors">
+    <a href="colecao-bleu-riviera.html" class="mnav-color" style="background:#2DBECD;" title="Bleu Riviera"></a>
+    <a href="colecao-flamme-doree.html" class="mnav-color" style="background:#D4A017;" title="Flamme Doree"></a>
+  </div>
+  <ul class="mnav-links">
+    <li class="highlight"><a href="#">Dia das M&atilde;es</a></li>
+    <li><a href="colecao-ofertas.html">Ofertas</a></li>
+    <li><a href="colecao-bleu-riviera.html">Bleu Riviera</a></li>
+    <li><a href="colecao-lancamentos.html">Lan&ccedil;amentos</a></li>
+    <li><a href="colecao-ferro-fundido.html">Ferro Fundido</a></li>
+    <li><a href="colecao-ceramica.html">Cer&acirc;mica</a></li>
+        <li><a href="colecao-best-sellers.html">Best-sellers</a></li>
+  </ul>
+</nav>
+<!-- Mobile search overlay -->
+<div class="mobile-search-overlay" id="mobileSearchOverlay">
+  <div class="mobile-search-bar">
+    <button class="search-overlay-close" onclick="document.getElementById('mobileSearchOverlay').classList.remove('open');">&times;</button>
+    <input type="text" placeholder="O que você está procurando?" id="mobileSearchInput" />
+    <button class="search-overlay-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  </div>
+</div>
+
+<!-- Mobile bottom navigation -->
+<nav class="bottom-nav" id="bottomNav">
+  <a href="index.html" class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9,22 9,12 15,12 15,22" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="#" class="bottom-nav-item" onclick="document.getElementById('mobileSearchOverlay').classList.add('open');">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+    <span>Buscar</span>
+  </a>
+  <a href="colecao-best-sellers.html" class="bottom-nav-item active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span>Produtos</span>
+  </a>
+  <a href="#" class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Lista</span>
+  </a>
+  <a href="#" class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Sacola</span>
+  </a>
+</nav>
+
+<script src="cart.js"></script>
+</body></html>

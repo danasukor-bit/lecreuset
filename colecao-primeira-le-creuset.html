@@ -1,0 +1,1780 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Minha Primeira Le Creuset | Le Creuset Brasil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+  <style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito Sans', sans-serif; color: #000; background: #fff; }
+    a { text-decoration: none; color: inherit; }
+    .top-bar { background: #1a1a1a; color: #fff; font-size: 12px; text-align: center; padding: 8px 16px; }
+    header { background: #fff; border-bottom: 1px solid #e5e5e5; position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; height: 64px; gap: 24px; }
+    .logo { flex-shrink: 0; display: flex; align-items: center; } .logo img { height: 45px; width: auto; }
+    
+    nav { flex: 1; }
+    .nav-list { display: flex; list-style: none; align-items: center; }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a { display: block; padding: 22px 14px; font-size: 13px; font-weight: 600; color: #000; white-space: nowrap; border-bottom: 2px solid transparent; transition: border-color 0.2s; }
+    .nav-list > li > a:hover { border-bottom-color: #000; }
+    .nav-list > li.highlight > a { color: #c8102e; }
+    .nav-list > li.blue > a { color: #2563ab; }
+    .mega-menu { display: none; position: fixed; left: 0; right: 0; top: 64px; background: #fff; border-top: 2px solid #e5e5e5; box-shadow: 0 8px 32px rgba(0,0,0,0.13); z-index: 200; padding: 28px 0 24px; }
+    .nav-list > li:hover .mega-menu { display: block; }
+    .mega-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 170px 150px 170px 170px 170px 140px; gap: 0 20px; align-items: start; }
+    .mega-col-title { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #000; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #e5e5e5; }
+    .mega-col a { display: block; font-size: 13px; color: #444; padding: 4px 0; transition: color 0.15s; }
+    .mega-col a:hover { color: #c8102e; }
+    .mega-colors { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+    .mega-color-dot { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid transparent; cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
+    .mega-color-dot:hover { border-color: #000; transform: scale(1.12); }
+    .mega-img { width: 100%; object-fit: cover; border-radius: 6px; }
+    .dropdown { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #e5e5e5; min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); z-index: 200; padding: 12px 0; }
+    .nav-list > li:hover .dropdown { display: block; }
+    .dropdown a { display: block; padding: 8px 20px; font-size: 13px; color: #333; }
+    .dropdown a:hover { background: #f5f5f5; }
+    .header-icons { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .header-icons a { font-size: 12px; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #000; }
+    .header-icons svg { width: 22px; height: 22px; }
+    .search-box { display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; height: 36px; }
+    .search-box input { border: none; outline: none; padding: 0 12px; font-size: 13px; width: 180px; font-family: inherit; }
+    .search-box button { background: #000; border: none; cursor: pointer; padding: 0 12px; height: 100%; display: flex; align-items: center; }
+    .search-box button svg { fill: #fff; width: 16px; height: 16px; }
+    .cat-banner { width: 100%; height: 220px; overflow: hidden; position: relative; background: #f5ede8; }
+    .cat-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+    .cat-banner-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 60%); display: flex; align-items: center; padding: 0 80px; }
+    .cat-banner-title { color: #fff; font-size: 40px; font-weight: 800; letter-spacing: -0.5px; }
+    .breadcrumb { max-width: 1400px; margin: 0 auto; padding: 14px 24px; font-size: 12px; color: #888; display: flex; gap: 6px; align-items: center; }
+    .breadcrumb a { color: #888; } .breadcrumb a:hover { text-decoration: underline; } .breadcrumb span { color: #bbb; }
+    .shop-layout { max-width: 1400px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; }
+    .sidebar { position: sticky; top: 80px; }
+    .filter-section { border-bottom: 1px solid #e5e5e5; }
+    .filter-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; cursor: pointer; font-size: 13px; font-weight: 700; letter-spacing: 0.3px; user-select: none; }
+    .filter-header svg { width: 16px; height: 16px; transition: transform 0.2s; }
+    .filter-header.open svg { transform: rotate(180deg); }
+    .filter-body { margin-top: 0; padding-bottom: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .filter-body.closed { display: none; }
+    .filter-option { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; color: #333; }
+    .filter-option input[type="checkbox"] { accent-color: #000; width: 14px; height: 14px; cursor: pointer; }
+    .filter-option:hover { color: #000; }
+    .filter-count { color: #aaa; font-size: 11px; margin-left: auto; }
+    .color-filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 0 14px; }
+    .color-filter-swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
+    .color-filter-swatch:hover, .color-filter-swatch.active { border-color: #000; transform: scale(1.15); }
+
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .product-card { position: relative; text-align: center; transition: transform 0.2s ease; }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-card-img { position: relative; overflow: hidden; background: transparent; aspect-ratio: 1; margin-bottom: 14px; }
+    .product-card-img img { width: 100%; height: 100%; object-fit: contain; padding: 16px; transition: transform 0.4s ease; }
+    .product-card-img:hover img { transform: scale(1.06); }
+    .product-wishlist { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .product-wishlist svg { width: 16px; height: 16px; }
+    .product-card-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; color: #111; }
+    .product-card-sub { font-size: 11px; color: #999; margin-bottom: 5px; }
+    .product-card-price { font-size: 13px; font-weight: 800; color: #111; margin-bottom: 4px; }
+    .product-colors { display: flex; gap: 5px; flex-wrap: wrap; margin: 8px 0 6px; }
+    .swatch { width: 18px; height: 18px; border-radius: 50%; cursor: pointer; border: 1.5px solid rgba(0,0,0,0.15); display: inline-block; transition: transform 0.2s, border-color 0.2s; }
+    .swatch:hover, .swatch.active { border-color: #000; transform: scale(1.15); }
+    .results-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .results-count { font-size: 13px; color: #888; }
+    .sort-select { font-size: 13px; border: 1px solid #ccc; padding: 6px 12px; font-family: inherit; cursor: pointer; }
+    footer { background: #111; color: #fff; padding: 60px 24px 30px; }
+    .footer-inner { max-width: 1400px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .logo { margin-bottom: 16px; display: block; } .footer-brand .logo img { height: 28px; width: auto; }
+    .footer-brand p { font-size: 13px; color: #aaa; line-height: 1.7; max-width: 280px; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn { width: 36px; height: 36px; border: 1px solid #444; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; transition: border-color 0.2s, background 0.2s; }
+    .social-btn:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+    .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 13px; color: #aaa; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid #333; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 12px; color: #666; }
+    .payment-icons { display: flex; gap: 8px; }
+    .payment-icon { background: #222; border: 1px solid #444; border-radius: 4px; padding: 4px 8px; font-size: 10px; font-weight: 700; color: #aaa; }
+
+    /* ========== PROMO BAR CAROUSEL ========== */
+    .top-bar { position: relative; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .promo-track { flex: 1; text-align: center; overflow: hidden; height: 20px; position: relative; }
+    .promo-slide { position: absolute; width: 100%; left: 0; top: 0; opacity: 0; transition: opacity 0.5s; white-space: nowrap; }
+    .promo-slide.active { opacity: 1; }
+    .promo-arrow { background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; padding: 0 6px; opacity: 0.7; line-height: 1; flex-shrink: 0; }
+    .promo-arrow:hover { opacity: 1; }
+
+    /* ========== MOBILE STANDARD ========== */
+    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; justify-content: center; gap: 5px; flex-shrink: 0; }
+    .mobile-menu-btn span { display: block; width: 22px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
+    .header-search-icon { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .header-search-icon svg { width: 22px; height: 22px; }
+    .mobile-nav { display: block; position: fixed; top: 0; left: 0; width: 82%; max-width: 300px; height: 100%; background: #fff; z-index: 999; overflow-y: auto; transform: translateX(-100%); transition: transform 0.3s ease; box-shadow: 4px 0 24px rgba(0,0,0,0.18); }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 996; }
+    .mobile-overlay.open { display: block; }
+    .mobile-nav-header { display: flex; align-items: center; justify-content: flex-end; padding: 14px 16px; }
+    .mobile-nav-close { background: none; border: none; cursor: pointer; font-size: 28px; color: #000; line-height: 1; padding: 2px; }
+    /* Nav search */
+    .mnav-search { display: flex; align-items: center; gap: 10px; padding: 0 18px 16px; border-bottom: 1px solid #e5e5e5; }
+    .mnav-search input { flex: 1; border: none; outline: none; font-size: 15px; font-family: inherit; color: #333; }
+    .mnav-search input::placeholder { color: #999; }
+    .mnav-search svg { width: 20px; height: 20px; flex-shrink: 0; opacity: 0.4; }
+    .mnav-accordion { border-bottom: 1px solid #e5e5e5; }
+    .mnav-accordion-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 16px 18px; background: none; border: none; cursor: pointer; font-size: 14px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #000; font-family: inherit; }
+    .mnav-accordion-btn svg { width: 14px; height: 14px; transition: transform 0.2s; flex-shrink: 0; }
+    .mnav-accordion.open .mnav-accordion-btn svg { transform: rotate(90deg); }
+    .mnav-accordion-body { display: none; padding: 0 18px 14px; }
+    .mnav-accordion.open .mnav-accordion-body { display: block; }
+    .mnav-accordion-body a { display: block; padding: 8px 0; font-size: 14px; color: #444; }
+    .mnav-accordion-body a:hover { color: #c8102e; }
+    .mnav-colors { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 18px 16px; border-bottom: 1px solid #e5e5e5; }
+    .mnav-color { width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s, transform 0.2s; display: block; }
+    .mnav-color:hover { border-color: #000; transform: scale(1.1); }
+    .mnav-links { list-style: none; padding: 8px 0 80px; }
+    .mnav-links li > a { display: block; padding: 14px 18px; font-size: 15px; font-weight: 500; color: #333; }
+    .mnav-links li.highlight > a { color: #c8102e; font-weight: 700; }
+    
+    
+    
+    
+    
+    
+    .mobile-search-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; background: #fff; z-index: 1000; padding: 12px 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .mobile-search-overlay.open { display: block; }
+    .mobile-search-bar { display: flex; align-items: center; gap: 10px; border: 1.5px solid #000; border-radius: 4px; overflow: hidden; height: 44px; }
+    .search-overlay-close { background: none; border: none; font-size: 24px; padding: 0 12px; cursor: pointer; color: #000; line-height: 1; flex-shrink: 0; }
+    .mobile-search-bar input { flex: 1; border: none; outline: none; font-size: 15px; font-family: inherit; padding: 0; }
+    .search-overlay-go { background: #000; border: none; padding: 0 14px; cursor: pointer; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
+    .filter-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 996; }
+    .filter-overlay.open { display: block; }
+    .mobile-filter-bar { display: none; }
+    .bottom-nav { display: none; }
+
+    @media (max-width: 768px) {
+      .top-bar { font-size: 11px; padding: 8px 4px; }
+      .header-inner { padding: 0 12px; height: 56px; gap: 0; justify-content: space-between; }
+      nav { display: none; }
+      .search-box { display: none; }
+      .mobile-menu-btn { display: flex; order: 1; margin-right: 6px; }
+      .header-search-icon { display: flex; order: 2; margin-right: 4px; }
+      .logo { flex: 0 0 auto; order: 3; margin: 0 auto; } .logo img { height: 32px; }
+      .header-icons { gap: 10px; margin-left: 0; order: 4; }
+      .header-icons a span { display: none; }
+      .header-icons a { gap: 0; }
+      .header-icons svg { width: 22px; height: 22px; }
+      /* Banner */
+      .cat-banner { height: 180px; }
+      .cat-banner-overlay { padding: 0 20px; }
+      .cat-banner-title { font-size: 24px; }
+      .cat-banner-sub { font-size: 12px; }
+      .breadcrumb { padding: 10px 12px; font-size: 11px; }
+      /* Layout - hide sidebar/filters on mobile */
+      .shop-layout { grid-template-columns: 1fr !important; padding: 14px 12px 80px; gap: 0; }
+      .collection-wrap { grid-template-columns: 1fr !important; padding: 0 12px 80px; gap: 0; }
+      .sidebar, .filters {
+        display: none;
+        position: fixed; top: 0; left: 0; width: 85%; max-width: 320px; height: 100%;
+        background: #fff; z-index: 997; overflow-y: auto; padding: 20px;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+      }
+      .sidebar.filter-open, .filters.filter-open { display: block; }
+      .mobile-filter-btn { display: none; }
+      /* Mobile filter bar */
+      .mobile-filter-bar {
+        display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+        padding: 14px 0; margin-bottom: 4px;
+      }
+      .mobile-results-count { width: 100%; text-align: center; font-size: 14px; color: #888; margin-bottom: 12px; }
+      .mobile-results-count strong { color: #c8102e; }
+      .mobile-filter-actions { display: flex; width: 100%; gap: 10px; }
+      .mobile-filter-toggle {
+        flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+        background: #fff; border: 1.5px solid #ccc; padding: 10px 0;
+        font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+        font-family: inherit; cursor: pointer;
+      }
+      .mobile-filter-toggle svg { width: 16px; height: 16px; }
+      .mobile-sort-select {
+        flex: 1; background: #fff; border: 1.5px solid #ccc; padding: 10px 12px;
+        font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+        font-family: inherit; cursor: pointer;
+        appearance: none; -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px;
+      }
+      .collection-header { display: none; }
+      .results-bar { display: none; }
+      /* Product grid 2 cols */
+      .product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+      .product-card { background: transparent; border-radius: 6px; overflow: visible; }
+      .product-card-img { overflow: hidden; border-radius: 6px; }
+      .product-card-media { aspect-ratio: 1; background: transparent; border-radius: 6px 6px 0 0; }
+      .product-card-media img { padding: 8px; }
+      .product-card-img { border-radius: 6px; background: transparent; }
+      .product-card-img img { padding: 10px; }
+      .product-quick-buy { display: none; }
+      .product-wishlist { opacity: 1; width: 28px; height: 28px; top: 6px; right: 6px; box-shadow: none; background: rgba(255,255,255,0.85); }
+      .product-wishlist svg { width: 14px; height: 14px; }
+      .product-info { padding: 8px 8px 10px; }
+      .product-name { font-size: 12px; font-weight: 600; line-height: 1.35; margin-bottom: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .product-name a { color: #1a1a1a; }
+      .product-card-name { font-size: 12px; font-weight: 600; line-height: 1.3; }
+      .product-card-sub { font-size: 10.5px; margin-bottom: 4px; }
+      .product-card-price { font-size: 13px; }
+      .product-sizes { font-size: 10px; color: #999; margin-bottom: 4px; }
+      .product-price { font-size: 13px; font-weight: 800; }
+      .product-installment { font-size: 10px; color: #888; margin-top: 1px; }
+      .product-colors { margin-top: 6px; gap: 4px; flex-wrap: nowrap; overflow: visible; }
+      .swatch { width: 16px; height: 16px; }
+      .swatch-more { font-size: 11px; color: #555; white-space: nowrap; }
+      .product-badge { font-size: 9px; padding: 2px 6px; top: 6px; left: 6px; border-radius: 2px; }
+      /* Section headers */
+      .section-header { padding-bottom: 8px; margin-bottom: 14px; }
+      .section-title { font-size: 16px; }
+      .section-link { font-size: 11px; }
+      /* Hub section */
+      .hub-section { padding: 16px 12px 80px; }
+      .hub-title { font-size: 12px; margin-bottom: 18px; }
+      .category-tiles { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 32px; }
+      .cat-tile { aspect-ratio: 3/2; border-radius: 4px; }
+      .cat-tile-title { font-size: 13px; margin-bottom: 4px; }
+      .cat-tile-btn { font-size: 9px; padding: 4px 10px; }
+      .cat-tile-overlay { padding: 10px; }
+      /* Footer */
+      footer { padding: 36px 14px 80px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      /* Bottom nav */
+      .bottom-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e5e5; z-index: 500; height: 56px; height: calc(56px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); }
+      .bottom-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 10px; font-weight: 600; color: #666; text-decoration: none; padding: 6px 0; }
+      .bottom-nav-item svg { width: 22px; height: 22px; }
+      .bottom-nav-item.active { color: #c8102e; }
+      .bottom-nav-item.active svg { stroke: #c8102e; }
+    }
+    @media (max-width: 480px) {
+      .top-bar { font-size: 10.5px; }
+      .header-inner { padding: 0 10px; height: 52px; }
+      .cat-banner { height: 150px; }
+      .cat-banner-title { font-size: 21px; }
+      .collection-wrap { padding: 0 10px 80px; }
+      .shop-layout { padding: 12px 10px 80px; }
+      .hub-section { padding: 12px 10px 80px; }
+      .product-grid { gap: 8px; }
+      .product-card-name { font-size: 11.5px; }
+      .product-card-price { font-size: 12.5px; }
+      .product-name { font-size: 11.5px; }
+      .product-price { font-size: 12.5px; }
+      .product-info { padding: 6px 6px 8px; }
+      .swatch { width: 14px; height: 14px; }
+      .category-tiles { gap: 8px; margin-bottom: 24px; }
+      .cat-tile-title { font-size: 12px; }
+      .cat-tile-btn { font-size: 8px; padding: 3px 8px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+
+    /* ─── COLLECTION PAGE TITLE ─── */
+    .collection-page-header { text-align: center; padding: 32px 24px 20px; border-bottom: 1px solid #e5e5e5; margin-bottom: 0; }
+    .collection-page-title {
+      font-size: 36px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #6080A8; letter-spacing: 0;
+    }
+    @media(max-width:768px) { .collection-page-title {
+      font-size: 36px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #6080A8; letter-spacing: 0;
+    } .collection-page-header { padding: 20px 16px 16px; } }
+  
+    /* Brighten dark black/matte product images */
+    img[src*="matte_black"],
+    img[src*="matteblack"],
+    img[src*="black_onyx"],
+    img[src*="blackonyx"],
+    img[src*="preto_black"],
+    img[src*="alpine_3.jpeg"],
+    img[src*="allpine_3.jpeg"],
+    img[src*="alpine-lifestyle"],
+    img[src*="lecreuset-black.png"],
+    img[src*="avental_chef_preto"],
+    img[src*="luva_dupla_preta"],
+    img[src*="-onyx.png"],
+    img[src*="onyx.png"] {
+      filter: brightness(1.35) contrast(0.92);
+    }
+  </style>
+</head>
+<body>
+<div class="top-bar" id="promoBar">
+  <button class="promo-arrow" id="promoPrev">&#8249;</button>
+  <div class="promo-track" id="promoTrack">
+    <span class="promo-slide active">🚚 Frete Grátis em compras acima de R$&nbsp;1.500,00</span>
+    <span class="promo-slide">💳 5% OFF em pagamentos via PIX</span>
+    <span class="promo-slide">✨ 10x Sem Juros no cartão de crédito</span>
+    <span class="promo-slide">🎁 Celebre a Páscoa com Le Creuset</span>
+  </div>
+  <button class="promo-arrow" id="promoNext">&#8250;</button>
+</div>
+<header>
+  <div class="header-inner">
+    
+    <button class="mobile-menu-btn" onclick="document.getElementById('mobileNav').classList.add('open');document.getElementById('mobileOverlay').classList.add('open');">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="header-search-icon" onclick="document.getElementById('mobileSearchOverlay').classList.add('open');">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+    </button>
+    <a href="index.html" class="logo"><img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites/default/dwd459bb3e/images/logo.svg" alt="Le Creuset" /></a>
+    <nav>
+      <ul class="nav-list">
+        <li>
+          <a href="#">Comprar</a>
+          <div class="mega-menu">
+            <div class="mega-inner">
+              <div class="mega-col">
+                <div class="mega-col-title">Cozinhar</div>
+                <a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a>
+                <a href="colecao-frigideiras-e-skillets.html">Frigideiras e Skillets</a>
+                <a href="colecao-grelhas.html">Grelhas</a>
+                <a href="colecao-antiaderente.html">Antiaderente</a>
+                <a href="colecao-cacarolas.html">Caçarolas</a>
+                <a href="colecao-chaleiras.html">Chaleiras de Aço Esmaltado</a>
+                <a href="colecao-3ply-aco-inox.html">3-Ply Aço Inox</a>
+                <a href="#">Aço Inox</a>
+                <a href="#">Formatos Especiais</a>
+                <a href="#">Acessórios</a>
+                <a href="colecao-primeira-le-creuset.html">Minha Primeira Le Creuset</a>
+                <a href="colecao-stockpots.html">Stockpots</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Assar</div>
+                <a href="colecao-mini-cocotte.html">Mini Cocotte e Ramekins</a>
+                <a href="colecao-formas-metal-bakeware.html">Formas Metal Bakeware</a>
+                <a href="colecao-assadeiras-travessas.html">Assadeiras e Travessas</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Acessórios</div>
+                <a href="colecao-moedores-e-galheteiro.html">Moedores e Galheteiro</a>
+                <a href="#">Utensílios</a>
+                <a href="#">Utensílios de Madeira</a>
+                <a href="colecao-suporte-descansos.html">Suportes e Descansos</a>
+                <a href="#">Potes e Porta-Mantimentos</a>
+                <a href="#">Acessórios de Vinhos</a>
+                <a href="#">Sets</a>
+                <a href="#">Decoração</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Preparar e Servir</div>
+                <a href="colecao-ceramica.html">Bowls</a>
+                <a href="colecao-ceramica.html">Pratos</a>
+                <a href="colecao-ceramica.html">Canecas e Xícaras</a>
+                <a href="#">Bules e Jarras</a>
+                <a href="colecao-chaleiras.html">Chaleiras</a>
+                <a href="colecao-ceramica.html">Travessas</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Coleções</div>
+                <a href="colecao-flamme-doree.html">Flamme Dorée</a>
+                <a href="colecao-gift-collection.html">Gift Collection</a>
+                <a href="colecao-churrasco.html">Churrasco</a>
+                <a href="colecao-alpine.html">Coleção Alpine</a>
+                <a href="colecao-modern-heritage.html">Modern Heritage</a>
+                <a href="colecao-jardim.html">Coleção Jardim</a>
+                <a href="colecao-culinaria-oriental.html">Culinária Oriental</a>
+                <a href="colecao-gourmand.html">Coleção Gourmand</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Nossas Cores</div>
+                <div class="mega-colors">
+                  <div class="mega-color-dot" style="background:#2DBECD;" title="Bleu Riviera"></div>
+                  <div class="mega-color-dot" style="background:#d46820;" title="Laranja"></div>
+                  <div class="mega-color-dot" style="background:#c8102e;" title="Vermelho"></div>
+                  <div class="mega-color-dot" style="background:#C85250;" title="Cerise"></div>
+                  <div class="mega-color-dot" style="background:#6B4226;" title="Marronnier"></div>
+                  <div class="mega-color-dot" style="background:#D4C44A;" title="Nectar"></div>
+                  <div class="mega-color-dot" style="background:#B8BEC4;" title="Mist"></div>
+                  <div class="mega-color-dot" style="background:#D4779A;" title="Rose Quartz"></div>
+                  <div class="mega-color-dot" style="background:#F5F5F5;border:1px solid #ddd;" title="Branco"></div>
+                  <div class="mega-color-dot" style="background:#9B7EB0;" title="Bluebell"></div>
+                  <div class="mega-color-dot" style="background:#2060A0;" title="Azure"></div>
+                  <div class="mega-color-dot" style="background:#D4A017;" title="Flamme Dorée"></div>
+                  <div class="mega-color-dot" style="background:#5A5A5A;" title="Graphite"></div>
+                  <div class="mega-color-dot" style="background:#1C1C1C;" title="Matte Black"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="highlight"><a href="colecao-pascoa.html">Páscoa</a></li>
+        <li><a href="colecao-ofertas.html">Ofertas</a></li>
+        <li class="blue"><a href="colecao-bleu-riviera.html">Bleu Riviera</a></li>
+        <li><a href="colecao-lancamentos.html">Lançamentos</a></li>
+        <li><a href="colecao-ferro-fundido.html">Ferro Fundido</a></li>
+        <li><a href="colecao-ceramica.html">Cerâmica</a></li>
+                <li><a href="colecao-best-sellers.html">Best-Sellers</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <div class="search-box">
+        <input type="text" placeholder="Buscar..." />
+        <button><svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 5.15 5.15a7.5 7.5 0 0 0 10.5 11.5z" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></button>
+      </div>
+      <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Entrar</span></a>
+      <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Lista</span></a>
+      <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sacola</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav drawer -->
+<div class="filter-overlay" id="filterOverlay"></div>
+
+<div class="cat-banner">
+  <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites-le-creuset-br-storefront/default/dw0023fa1f/category/cat_banners/minha-primeira-lecreuset.jpg" alt="Minha Primeira Le Creuset" />
+  <div class="cat-banner-overlay">
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span>/</span>
+  <a href="#">Cozinhar</a><span>/</span>
+  <span>Minha Primeira Le Creuset</span>
+</div>
+<div class="shop-layout">
+  <aside class="sidebar">
+        <div class="filter-section">
+      <div class="filter-header open" onclick="toggleFilter(this)">Categorias
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-body">
+        <label class="filter-option"><input type="checkbox"> Ferro Fundido</label>
+        <label class="filter-option"><input type="checkbox"> Cerâmica</label>
+        <label class="filter-option"><input type="checkbox"> Moedores e Acessórios</label>
+        <label class="filter-option"><input type="checkbox"> Kits e Sets</label>
+      </div>
+    </div>
+        <div class="filter-section">
+      <div class="filter-header open" onclick="toggleFilter(this)">Cores
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="color-filters">
+
+        <div class="color-filter-swatch" style="background:#d46820;" title="Laranja"></div>
+        <div class="color-filter-swatch" style="background:#c8102e;" title="Vermelho"></div>
+        <div class="color-filter-swatch" style="background:#2DBECD;" title="Bleu Riviera"></div>
+        <div class="color-filter-swatch" style="background:#2060A0;" title="Azure"></div>
+        <div class="color-filter-swatch" style="background:#00B8D4;" title="Caribe"></div>
+        <div class="color-filter-swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue"></div>
+        <div class="color-filter-swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco"></div>
+        <div class="color-filter-swatch" style="background:#9EA5AB;" title="Flint"></div>
+        <div class="color-filter-swatch" style="background:#D4C44A;" title="Nectar"></div>
+        <div class="color-filter-swatch" style="background:#1C1C1C;" title="Black Onyx"></div>
+        <div class="color-filter-swatch" style="background:#F0B8C8;" title="Shell Pink"></div>
+        <div class="color-filter-swatch" style="background:#A8D8C0;" title="Cool Mint"></div>
+        <div class="color-filter-swatch" style="background:#6B7C45;" title="Artichaut"></div>
+        <div class="color-filter-swatch" style="background:#5A7A3A;" title="Thyme"></div>
+        <div class="color-filter-swatch" style="background:#9B7EB0;" title="Bluebell Purple">
+      </div>
+    </div>
+    </div>
+    <div class="filter-section">
+      <div class="filter-header open" onclick="toggleFilter(this)">Preço
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-body">
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="0" data-max="150.0"> Até R$ 150</label>
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="150.0" data-max="350.0"> R$ 150 – R$ 350</label>
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="350.0" data-max="1000.0"> R$ 350 – R$ 1.000</label>
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="1000.0" data-max="999999"> Acima de R$ 1.000</label>
+      </div>
+    </div>
+  </aside>
+
+  <div>
+    <button class="mobile-filter-btn" id="mobileFilterBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+      Filtrar
+    </button>
+    <!-- Mobile filter bar -->
+    <div class="mobile-filter-bar">
+      <div class="mobile-results-count"><strong>34</strong> resultados</div>
+      <div class="mobile-filter-actions">
+        <button class="mobile-filter-toggle" onclick="document.querySelector('.sidebar').classList.add('filter-open');document.getElementById('filterOverlay').classList.add('open');document.body.style.overflow='hidden';">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="8" cy="6" r="2" fill="#000"/><circle cx="16" cy="12" r="2" fill="#000"/><circle cx="10" cy="18" r="2" fill="#000"/></svg>
+          Filtro
+        </button>
+        <select class="mobile-sort-select">
+          <option>Mais Relevante</option>
+          <option>Menor Preço</option>
+          <option>Maior Preço</option>
+          <option>Mais Novo</option>
+        </select>
+      </div>
+    </div>
+    <div class="results-bar">
+      <span class="results-count">34 produtos</span>
+      <select class="sort-select"><option>Mais Relevante</option><option>Menor Preço</option><option>Maior Preço</option><option>Mais Novo</option></select>
+    </div>
+    <div class="product-grid">
+
+      <!-- 1. Caneca London -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="caneca-london.html"><img id="cp1" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit" alt="Caneca London" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf07f51d0/images/produto-lecreuset-caneca-200ml-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwd4adbf46/images/produto-lecreuset-caneca-200ml-caribe.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9B7EB0;" title="Bluebell Purple" onclick="swatchClick(event,this,'cp1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc383cbab/images/produto-lecreuset-caneca-200ml-laranja.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="caneca-london.html">
+          <div class="product-card-name">Caneca London</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 100ml / 200ml / 350ml</div>
+          <div class="product-card-price">R$ 129,00 – R$ 159,00</div>
+        </a>
+      </div>
+      <!-- 2. Panela Redonda Signature -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="panela-redonda-signature.html"><img id="cp2" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit" alt="Panela Redonda Signature" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw18870844/images/panela-redonda-azure.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw9edeedbe/images/produto-lecreuset-panela-redonda-meringue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw6df0d554/images/produto-lecreuset-panela-redonda-artichaut.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#A8D8C0;" title="Cool Mint" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B5B7B;" title="Rhone" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5E6A0;" title="Camomille" onclick="swatchClick(event,this,'cp2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5351327d/images/panela-redonda-signature-camomille.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="panela-redonda-signature.html">
+          <div class="product-card-name">Panela Redonda Signature</div>
+          <div class="product-card-sub">Ferro Fundido Esmaltado · 14cm a 34cm</div>
+          <div class="product-card-price">R$ 1.514,25 – R$ 4.399,00</div>
+        </a>
+      </div>
+      <!-- 3. Prato Raso Vancouver -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="prato-raso-vancouver.html"><img id="cp3" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcc99b044/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit" alt="Prato Raso Vancouver" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa640170f/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa640170f/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcc99b044/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw210d02d8/images/prato-raso-azure-27cm.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcc99b044/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa640170f/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe683e650/images/produto-lecreuset-prato-27cm-branco.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcc99b044/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcc99b044/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwbfd5690f/images/produto-lecreuset-prato-27cm-shellpink.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#5A7A3A;" title="Thyme" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcc99b044/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#C8A87A;" title="Bamboo" onclick="swatchClick(event,this,'cp3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcc99b044/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="prato-raso-vancouver.html">
+          <div class="product-card-name">Prato Raso Vancouver</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 17cm / 22cm / 27cm</div>
+          <div class="product-card-price">R$ 199,00 – R$ 239,00</div>
+        </a>
+      </div>
+      <!-- 4. Moedor de Pimenta -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="#"><img id="cp4" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit" alt="Moedor de Pimenta 21cm" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc027de66/images/produto-lecreuset-minicocotte-laranja-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc027de66/images/produto-lecreuset-minicocotte-laranja-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw84b7660e/images/produto-lecreuset-minicocotte-laranja-meringue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwee67cc9b/images/produto-lecreuset-minicocotte-laranja-nectar.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#5A7A3A;" title="Thyme" onclick="swatchClick(event,this,'cp4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="#">
+          <div class="product-card-name">Moedor de Pimenta 21cm</div>
+          <div class="product-card-sub">ABS Acrílico · Moagem em Cerâmica · 21cm</div>
+          <div class="product-card-price">R$ 295,20 – R$ 369,00</div>
+        </a>
+      </div>
+      <!-- 5. Bowl Redondo Vancouver -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="bowl-redondo-vancouver.html"><img id="cp5" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc3e0652f/images/produto-lecreuset-bowl-16cm-artichaut1.png?sw=650&sh=650&sm=fit" alt="Bowl Redondo Vancouver" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc3e0652f/images/produto-lecreuset-bowl-16cm-artichaut1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe9305061/images/produto-lecreuset-bowl-16cm-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw614892d9/images/produto-lecreuset-bowl-16cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwda92585c/images/70117160997099-bowl-redondo-16cm.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc292a722/images/bowl-redondo-16cm-azure.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc3e0652f/images/produto-lecreuset-bowl-16cm-artichaut1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#C8A87A;" title="Bamboo" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc3e0652f/images/produto-lecreuset-bowl-16cm-artichaut1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc3e0652f/images/produto-lecreuset-bowl-16cm-artichaut1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc3e0652f/images/produto-lecreuset-bowl-16cm-artichaut1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc3e0652f/images/produto-lecreuset-bowl-16cm-artichaut1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1ddcff55/images/produto-lecreuset-bowl-16cm-shellpink.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B5B7B;" title="Rhone" onclick="swatchClick(event,this,'cp5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc3e0652f/images/produto-lecreuset-bowl-16cm-artichaut1.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="bowl-redondo-vancouver.html">
+          <div class="product-card-name">Bowl Redondo Vancouver</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 11cm / 16cm / 24cm</div>
+          <div class="product-card-price">R$ 139,00 – R$ 439,00</div>
+        </a>
+      </div>
+      <!-- 6. Moedor de Sal -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="#"><img id="cp6" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit" alt="Moedor de Sal 21cm" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe273f14a/images/chaleira-classica-vermelho-pegador-inox.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw3aee7261/images/chaleira-artichaut-classica.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw6f4cd700/images/chaleira-classica-white-pegador-inox3.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw959d7206/images/chaleira-classica-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw2c93bbfc/images/chaleira-tradicional-blackonyx-lecreuset.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw95b65aab/images/chaleira-clássica-com-apito-pegador-coração-shell%20pink.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#5A7A3A;" title="Thyme" onclick="swatchClick(event,this,'cp6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="#">
+          <div class="product-card-name">Moedor de Sal 21cm</div>
+          <div class="product-card-sub">ABS Acrílico · Moagem em Cerâmica · 21cm</div>
+          <div class="product-card-price">R$ 295,20 – R$ 369,00</div>
+        </a>
+      </div>
+      <!-- 7. Caçarola Buffet Signature -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="cacarola-buffet-signature.html"><img id="cp7" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb398291e/images/produto-lecreuset-ca%C3%A7arola-redonda-peche.png?sw=650&sh=650&sm=fit" alt="Caçarola Buffet Signature" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb398291e/images/produto-lecreuset-ca%C3%A7arola-redonda-peche.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw3a5a6220/images/set-3-espatulas-1-pincel-craft-com-porta-utensilios-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb398291e/images/produto-lecreuset-ca%C3%A7arola-redonda-peche.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb398291e/images/produto-lecreuset-ca%C3%A7arola-redonda-peche.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw73a85cc7/images/set-3-espatulas-1-pincel-craft-com-porta-utensilios-meringue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb398291e/images/produto-lecreuset-ca%C3%A7arola-redonda-peche.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwff6c498d/images/produto-lecreuset-ca%C3%A7arola-redonda-cotton.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb398291e/images/produto-lecreuset-ca%C3%A7arola-redonda-peche.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#A8D8C0;" title="Cool Mint" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb398291e/images/produto-lecreuset-ca%C3%A7arola-redonda-peche.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B5B7B;" title="Rhone" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwff69be8c/images/cacarola-buffet-signature-bluebell.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5E6A0;" title="Camomille" onclick="swatchClick(event,this,'cp7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb398291e/images/produto-lecreuset-ca%C3%A7arola-redonda-peche.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="cacarola-buffet-signature.html">
+          <div class="product-card-name">Caçarola Buffet Signature</div>
+          <div class="product-card-sub">Ferro Fundido Esmaltado · 22cm / 26cm / 30cm</div>
+          <div class="product-card-price">R$ 2.069,25 – R$ 3.269,00</div>
+        </a>
+      </div>
+      <!-- 8. Pote de Manteiga -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="pote-de-manteiga.html"><img id="cp8" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe2c6a579/images/produto-lecreuset-pote-manteiga-vermelho%20(1).png?sw=650&sh=650&sm=fit" alt="Pote de Manteiga" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp8','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe2c6a579/images/produto-lecreuset-pote-manteiga-vermelho (1).png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp8','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe2c6a579/images/produto-lecreuset-pote-manteiga-vermelho%20(1).png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp8','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe2c6a579/images/produto-lecreuset-pote-manteiga-vermelho%20(1).png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp8','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe2c6a579/images/produto-lecreuset-pote-manteiga-vermelho%20(1).png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp8','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe2c6a579/images/produto-lecreuset-pote-manteiga-vermelho%20(1).png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#A8D8C0;" title="Cool Mint" onclick="swatchClick(event,this,'cp8','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe2c6a579/images/produto-lecreuset-pote-manteiga-vermelho%20(1).png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="pote-de-manteiga.html">
+          <div class="product-card-name">Pote de Manteiga</div>
+          <div class="product-card-sub">Cerâmica Esmaltada</div>
+          <div class="product-card-price">R$ 319,00</div>
+        </a>
+      </div>
+      <!-- 9. Mini Cocotte -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="mini-cocotte.html"><img id="cp9" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw11ea8ba7/images/produto-lecreuset-minicocotte-laranja.png?sw=650&sh=650&sm=fit" alt="Mini Cocotte" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw18abb8aa/images/produto-lecreuset-prato-fundo-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa640170f/images/produto-lecreuset-prato-fundo-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw11ea8ba7/images/produto-lecreuset-minicocotte-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw11ea8ba7/images/produto-lecreuset-minicocotte-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1d08d118/images/produto-lecreuset-minicocotte-laranja-caribe.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw9dace2e6/images/produto-lecreuset-prato-fundo-meringue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw11e3da05/images/produto-lecreuset-prato-fundo-artichaut.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw21418d08/images/produto-lecreuset-prato-fundo-branco.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw04a4889a/images/produto-lecreuset-prato-fundo-nectar.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw11ea8ba7/images/produto-lecreuset-minicocotte-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#5A7A3A;" title="Thyme" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw11ea8ba7/images/produto-lecreuset-minicocotte-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2C3E6B;" title="Nuit" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw11ea8ba7/images/produto-lecreuset-minicocotte-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#C8A87A;" title="Bamboo" onclick="swatchClick(event,this,'cp9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw2a6ac032/images/produto-lecreuset-prato-fundo-bamboo.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="mini-cocotte.html">
+          <div class="product-card-name">Mini Cocotte</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 250ml</div>
+          <div class="product-card-price">R$ 167,30 – R$ 239,00</div>
+        </a>
+      </div>
+      <!-- 10. Pote de Alho -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="#"><img id="cp10" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw84fd544b/images/pote-para-alho-vermelho.png?sw=650&sh=650&sm=fit" alt="Pote de Alho" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp10','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw84fd544b/images/pote-para-alho-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp10','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw7e6363f0/images/porta-alho-meringue.jpg?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="#">
+          <div class="product-card-name">Pote de Alho</div>
+          <div class="product-card-sub">Cerâmica Esmaltada</div>
+          <div class="product-card-price">R$ 229,00</div>
+        </a>
+      </div>
+      <!-- 11. Ramekin 200ml -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="#"><img id="cp11" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf126f9dd/images/ramekin_medio_azul_marseille_galeria-2.jpg?sw=650&sh=650&sm=fit" alt="Ramekin 200ml" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp11','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf126f9dd/images/ramekin_medio_azul_marseille_galeria-2.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp11','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf126f9dd/images/ramekin_medio_azul_marseille_galeria-2.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp11','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf126f9dd/images/ramekin_medio_azul_marseille_galeria-2.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp11','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf126f9dd/images/ramekin_medio_azul_marseille_galeria-2.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp11','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf126f9dd/images/ramekin_medio_azul_marseille_galeria-2.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp11','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf126f9dd/images/ramekin_medio_azul_marseille_galeria-2.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp11','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf126f9dd/images/ramekin_medio_azul_marseille_galeria-2.jpg?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="#">
+          <div class="product-card-name">Ramekin 200ml</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 200ml</div>
+          <div class="product-card-price">R$ 139,00</div>
+        </a>
+      </div>
+      <!-- 12. Açucareiro -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="#"><img id="cp12" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw982a3489/images/acucareiro_vermelho_cerise.jpg?sw=650&sh=650&sm=fit" alt="Açucareiro" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp12','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw982a3489/images/acucareiro_vermelho_cerise.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp12','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw982a3489/images/acucareiro_vermelho_cerise.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp12','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw982a3489/images/acucareiro_vermelho_cerise.jpg?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="#">
+          <div class="product-card-name">Açucareiro</div>
+          <div class="product-card-sub">Cerâmica Esmaltada</div>
+          <div class="product-card-price">R$ 259,00</div>
+        </a>
+      </div>
+
+    
+      <!-- 13. Travessa Retangular Heritage -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/travessa-retangular-heritage/71102.html"><img id="cp13" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf31b1dc6/images/travessas-produto-lecreuset-heritage-laranja.png?sw=650&sh=650&sm=fit" alt="Travessa Retangular Heritage" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf8e4e3a6/images/produto-lecreuset-utensilio-pegadores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw309d5819/images/produto-lecreuset-utensilio-pegadores-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwaa2a8d47/images/travessas-produto-lecreuset-heritage-caribe.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2C3E6B;" title="Nuit" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe1816222/images/travessa-retangular-heritage-nuit-23cm.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf31b1dc6/images/travessas-produto-lecreuset-heritage-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf31b1dc6/images/travessas-produto-lecreuset-heritage-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf31b1dc6/images/travessas-produto-lecreuset-heritage-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf31b1dc6/images/travessas-produto-lecreuset-heritage-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw9abe5cad/images/produto-lecreuset-utensilio-pegadores-meringue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw87039a69/images/produto-lecreuset-utensilio-pegadores-nectar.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf31b1dc6/images/travessas-produto-lecreuset-heritage-laranja.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/travessa-retangular-heritage/71102.html">
+          <div class="product-card-name">Travessa Retangular Heritage</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 23cm / 32cm</div>
+          <div class="product-card-price">R$ 349,00 – R$ 499,00</div>
+        </a>
+      </div>
+      <!-- 14. Manteigueira -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/manteigueira-lecreuset/91015800.html"><img id="cp14" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcb6d18b9/images/manteigueira_vermelho_leceruset.jpg?sw=650&sh=650&sm=fit" alt="Manteigueira" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp14','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcb6d18b9/images/manteigueira_vermelho_leceruset.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp14','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb0c75a0d/images/manteigueira_laranja_leceruset-1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp14','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcb6d18b9/images/manteigueira_vermelho_leceruset.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp14','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcb6d18b9/images/manteigueira_vermelho_leceruset.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp14','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcb6d18b9/images/manteigueira_vermelho_leceruset.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp14','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcb6d18b9/images/manteigueira_vermelho_leceruset.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp14','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcb6d18b9/images/manteigueira_vermelho_leceruset.jpg?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/manteigueira-lecreuset/91015800.html">
+          <div class="product-card-name">Manteigueira</div>
+          <div class="product-card-sub">Cerâmica Esmaltada</div>
+          <div class="product-card-price">R$ 429,00</div>
+        </a>
+      </div>
+      <!-- 15. Suporte para Ovo -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/porta-ovo/7170200.html"><img id="cp15" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5965a290/images/produto-lecreuset-porta-ovo-laranja.png?sw=650&sh=650&sm=fit" alt="Suporte para Ovo" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw96391238/images/porta-condimento-laranja-lecreuset4.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdf451dfa/images/porta-condimento-vermelho-lecreuset1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw4cda4535/images/suporte-para-ovo-azure.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#4080B0;" title="Marseille" onclick="swatchClick(event,this,'cp15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw88496a9c/images/porta-condimento-marseille-lecreuset1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb82eaadd/images/produto-lecreuset-porta-ovo-meringue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw919ceaff/images/produto-lecreuset-porta-ovo-nectar.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw499c819d/images/porta-condimento-branco-lecreuset1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5965a290/images/produto-lecreuset-porta-ovo-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5965a290/images/produto-lecreuset-porta-ovo-laranja.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/porta-ovo/7170200.html">
+          <div class="product-card-name">Suporte para Ovo</div>
+          <div class="product-card-sub">Cerâmica Esmaltada</div>
+          <div class="product-card-price">R$ 79,00</div>
+        </a>
+      </div>
+      <!-- 16. Chaleira Clássica -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/chaleira-classica/920095.html"><img id="cp16" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc4ad1a8d/images/92009500490000.jpg?sw=650&sh=650&sm=fit" alt="Chaleira Clássica" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc4ad1a8d/images/92009500490000.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc4ad1a8d/images/92009500490000.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc4ad1a8d/images/92009500490000.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc4ad1a8d/images/92009500490000.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw959d7206/images/chaleira-classica-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc4ad1a8d/images/92009500490000.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc4ad1a8d/images/92009500490000.jpg?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/chaleira-classica/920095.html">
+          <div class="product-card-name">Chaleira Clássica</div>
+          <div class="product-card-sub">Aço com Alça Fenólica · 1,6L / 2,1L</div>
+          <div class="product-card-price">R$ 650,30 – R$ 1.059,00</div>
+        </a>
+      </div>
+      <!-- 17. Moedor de Pimenta 30cm -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/moedor-de-pimenta-30cm/960027.html"><img id="cp17" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw385cddde/images/tardes%20de%20verao/moedor-de-pimenta-30cm-laranja.png?sw=650&sh=650&sm=fit" alt="Moedor de Pimenta 30cm" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp17','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw385cddde/images/tardes%20de%20verao/moedor-de-pimenta-30cm-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp17','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw6de01276/images/tardes%20de%20verao/moedor-de-pimenta-30cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp17','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw703f2293/images/tardes%20de%20verao/moedor-de-pimenta-30cm-blackonyx.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/moedor-de-pimenta-30cm/960027.html">
+          <div class="product-card-name">Moedor de Pimenta 30cm</div>
+          <div class="product-card-sub">ABS Acrílico · Moagem em Cerâmica · 30cm</div>
+          <div class="product-card-price">R$ 479,00</div>
+        </a>
+      </div>
+      <!-- 18. Porta Utensílios Clássico -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/porta-utensilios-classico-lecreuset/71501.html"><img id="cp18" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw42382f9a/images/produto-lecreuset-utensil-flint.png?sw=650&sh=650&sm=fit" alt="Porta Utensílios Clássico" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw42382f9a/images/produto-lecreuset-utensil-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw42382f9a/images/produto-lecreuset-utensil-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw3a5a6220/images/set-3-espatulas-1-pincel-craft-com-porta-utensilios-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw42382f9a/images/produto-lecreuset-utensil-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw42382f9a/images/produto-lecreuset-utensil-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw73a85cc7/images/set-3-espatulas-1-pincel-craft-com-porta-utensilios-meringue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw42382f9a/images/produto-lecreuset-utensil-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw42382f9a/images/produto-lecreuset-utensil-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw42382f9a/images/produto-lecreuset-utensil-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw42382f9a/images/produto-lecreuset-utensil-flint.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/porta-utensilios-classico-lecreuset/71501.html">
+          <div class="product-card-name">Porta Utensílios Clássico</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · Médio / Grande</div>
+          <div class="product-card-price">R$ 223,30 – R$ 449,00</div>
+        </a>
+      </div>
+      <!-- 19. Skillet Redonda Signature -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/skillet-redonda-signature-lecreuset/20182.html"><img id="cp19" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw02921f58/images/produto-lecreuset-skillet-laranja.png?sw=650&sh=650&sm=fit" alt="Skillet Redonda Signature" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw02921f58/images/produto-lecreuset-skillet-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw3a6991b9/images/produto-lecreuset-skillet-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#C8A87A;" title="Bamboo" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw32dc5870/images/produto-lecreuset-skillet-bamboo.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#4080B0;" title="Marseille" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwadde9fdc/images/produto-lecreuset-skillet-marseille.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw02921f58/images/produto-lecreuset-skillet-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw02921f58/images/produto-lecreuset-skillet-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1c7ede4a/images/produto-lecreuset-skillet-artichaut.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw02921f58/images/produto-lecreuset-skillet-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcd7d83cc/images/produto-lecreuset-skillet-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfc38c6d1/images/produto-lecreuset-skillet-nectar.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw02921f58/images/produto-lecreuset-skillet-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B5B7B;" title="Rhone" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwba5fef0d/images/produto-lecreuset-skillet-rhone.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5E6A0;" title="Camomille" onclick="swatchClick(event,this,'cp19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw196b3688/images/Skillet-Redonda-signature-camomille-26cm.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/skillet-redonda-signature-lecreuset/20182.html">
+          <div class="product-card-name">Skillet Redonda Signature</div>
+          <div class="product-card-sub">Ferro Fundido Esmaltado · 20cm a 30cm</div>
+          <div class="product-card-price">R$ 1.304,25 – R$ 1.999,00</div>
+        </a>
+      </div>
+      <!-- 20. Stockpot Pegador Fenólico -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/stockpot/921000.html"><img id="cp20" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw2b048ca4/images/stockpot-laranja-lecreuset-2025.png?sw=650&sh=650&sm=fit" alt="Stockpot Pegador Fenólico" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp20','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw2b048ca4/images/stockpot-laranja-lecreuset-2025.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp20','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa51ddab9/images/stockpot-vermelho-lecreuset-2025.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp20','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw6e670b95/images/stockpot-meringue-lecreuset-2025.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp20','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc94f5e4c/images/stockpot-artichaut-lecreuset-2025.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp20','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw2b048ca4/images/stockpot-laranja-lecreuset-2025.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp20','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw2b048ca4/images/stockpot-laranja-lecreuset-2025.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#A8D8C0;" title="Cool Mint" onclick="swatchClick(event,this,'cp20','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw2b048ca4/images/stockpot-laranja-lecreuset-2025.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/stockpot/921000.html">
+          <div class="product-card-name">Stockpot Pegador Fenólico</div>
+          <div class="product-card-sub">Ferro Fundido Esmaltado · 20cm / 22cm / 26cm</div>
+          <div class="product-card-price">R$ 671,30 – R$ 1.279,00</div>
+        </a>
+      </div>
+      <!-- 21. Pote para Biscoito 2,4L -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/pote-para-biscoito/910267.html"><img id="cp21" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw374a4000/images/produto-lecreuset-vermelho-pote.png?sw=650&sh=650&sm=fit" alt="Pote para Biscoito 2,4L" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp21','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw6ee94a55/images/pote-biscoito-vermelho-lecreuset.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp21','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwbf6e90a3/images/pote-biscoito-laranja-lecreuset4.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp21','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw374a4000/images/produto-lecreuset-vermelho-pote.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp21','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw374a4000/images/produto-lecreuset-vermelho-pote.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp21','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5d5c5336/images/pote-biscoito-meringue-lc.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp21','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw9a9fca94/images/pote-biscoito-shellpink-lc.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/pote-para-biscoito/910267.html">
+          <div class="product-card-name">Pote para Biscoito 2,4L</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 2,4L</div>
+          <div class="product-card-price">R$ 649,00</div>
+        </a>
+      </div>
+      <!-- 22. Grelha Quadrada Signature -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/grelha-quadrada-lecreuset/20183.html"><img id="cp22" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc458a909/images/produto-lecreuset-grelha-laranja.png?sw=650&sh=650&sm=fit" alt="Grelha Quadrada Signature" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp22','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc458a909/images/produto-lecreuset-grelha-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp22','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw417fa1d0/images/produto-lecreuset-grelha-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp22','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc458a909/images/produto-lecreuset-grelha-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp22','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw10d36dd5/images/produto-lecreuset-grelha-artichaut.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp22','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa3e9f7a5/images/produto-lecreuset-grelha-branco.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'cp22','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5daec425/images/produto-lecreuset-grelha-flint.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp22','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw93952518/images/produto-lecreuset-grelha-nectar.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp22','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc458a909/images/produto-lecreuset-grelha-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B5B7B;" title="Rhone" onclick="swatchClick(event,this,'cp22','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw68a888fb/images/produto-lecreuset-grelha-rhone.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/grelha-quadrada-lecreuset/20183.html">
+          <div class="product-card-name">Grelha Quadrada Signature</div>
+          <div class="product-card-sub">Ferro Fundido · 26cm / 30cm</div>
+          <div class="product-card-price">R$ 1.759,00 – R$ 1.859,00</div>
+        </a>
+      </div>
+      <!-- 23. Moedor de Sal 30cm -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/moedor-de-sal/960028.html"><img id="cp23" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw385cddde/images/tardes%20de%20verao/moedor-de-pimenta-30cm-laranja.png?sw=650&sh=650&sm=fit" alt="Moedor de Sal 30cm" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp23','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw385cddde/images/tardes%20de%20verao/moedor-de-pimenta-30cm-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp23','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw6de01276/images/tardes%20de%20verao/moedor-de-pimenta-30cm-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp23','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw703f2293/images/tardes%20de%20verao/moedor-de-pimenta-30cm-blackonyx.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/moedor-de-sal/960028.html">
+          <div class="product-card-name">Moedor de Sal 30cm</div>
+          <div class="product-card-sub">ABS Acrílico · Moagem em Cerâmica · 30cm</div>
+          <div class="product-card-price">R$ 479,00</div>
+        </a>
+      </div>
+      <!-- 24. Porta Utensílios Signature -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/porta-utensilios-signature-1l/71502.html"><img id="cp24" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwff8efbe1/images/produto-lecreuset-porta-utensilios-sig-laranja.png?sw=650&sh=650&sm=fit" alt="Porta Utensílios Signature" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp24','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5a6b2fa5/images/cacarola-buffet-28Cm-Modern-laranja-Heritage.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp24','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw33b55c5c/images/produto-lecreuset-porta-utensilios-sig-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp24','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe50cc6ff/images/produto-lecreuset-porta-utensilios-sig-caribe.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp24','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf63b3362/images/produto-lecreuset-porta-utensilios-sig-nectar.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp24','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw42b02d93/images/produto-lecreuset-porta-utensilios-sig-shellpink.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp24','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwff8efbe1/images/produto-lecreuset-porta-utensilios-sig-laranja.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/porta-utensilios-signature-1l/71502.html">
+          <div class="product-card-name">Porta Utensílios Signature</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 1L</div>
+          <div class="product-card-price">R$ 319,00 – R$ 449,00</div>
+        </a>
+      </div>
+      <!-- 25. Panela Marmita Signature -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/panela-marmita-signature/21114.html"><img id="cp25" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1a9d0004/images/produto-lecreuset-panela-marmita-laranja.png?sw=650&sh=650&sm=fit" alt="Panela Marmita Signature" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp25','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8937f1cb/images/Travessa-canelada-laranja-lecreuset.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp25','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw678a9329/images/travessa-canelada-vermelho-lecreuset.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp25','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw28f2dcbd/images/produto-lecreuset-panela-marmita-caribe.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp25','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwad357c4e/images/produto-lecreuset-panela-marmita-nectar.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp25','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1a9d0004/images/produto-lecreuset-panela-marmita-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp25','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1a9d0004/images/produto-lecreuset-panela-marmita-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp25','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1a9d0004/images/produto-lecreuset-panela-marmita-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp25','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1a9d0004/images/produto-lecreuset-panela-marmita-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp25','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1a9d0004/images/produto-lecreuset-panela-marmita-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B5B7B;" title="Rhone" onclick="swatchClick(event,this,'cp25','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1a9d0004/images/produto-lecreuset-panela-marmita-laranja.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/panela-marmita-signature/21114.html">
+          <div class="product-card-name">Panela Marmita Signature</div>
+          <div class="product-card-sub">Ferro Fundido Esmaltado · 26cm / 28cm / 32cm</div>
+          <div class="product-card-price">R$ 2.091,75 – R$ 3.279,00</div>
+        </a>
+      </div>
+      <!-- 26. Porta Condimento -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/porta-condimento-lecreuset/910114.html"><img id="cp26" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdf451dfa/images/porta-condimento-vermelho-lecreuset1.png?sw=650&sh=650&sm=fit" alt="Porta Condimento" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp26','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdf451dfa/images/porta-condimento-vermelho-lecreuset1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp26','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw96391238/images/porta-condimento-laranja-lecreuset4.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#4080B0;" title="Marseille" onclick="swatchClick(event,this,'cp26','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw88496a9c/images/porta-condimento-marseille-lecreuset1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp26','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dweab9487f/images/porta-condimento-caribe-lecreuset1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp26','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw499c819d/images/porta-condimento-branco-lecreuset1.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/porta-condimento-lecreuset/910114.html">
+          <div class="product-card-name">Porta Condimento</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 200ml / 400ml / 800ml</div>
+          <div class="product-card-price">R$ 289,00 – R$ 439,00</div>
+        </a>
+      </div>
+      <!-- 27. Pote para Mostarda -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/pote-para-mostarda/91019900700000.html"><img id="cp27" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8878da41/images/pote-para-mostarda-lecreuset-djon1.png?sw=650&sh=650&sm=fit" alt="Pote para Mostarda" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#D4A830;" title="Dijon" onclick="swatchClick(event,this,'cp27','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8878da41/images/pote-para-mostarda-lecreuset-djon1.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/pote-para-mostarda/91019900700000.html">
+          <div class="product-card-name">Pote para Mostarda</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 200ml</div>
+          <div class="product-card-price">R$ 379,00</div>
+        </a>
+      </div>
+      <!-- 28. Panela Oval Signature -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/panela-oval-signature/21178.html"><img id="cp28" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8bb2f0c6/images/produto-lecreuset-panela-oval-laranja.png?sw=650&sh=650&sm=fit" alt="Panela Oval Signature" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb7c75690/images/produto-lecreuset-moedores-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw7138e9be/images/produto-lecreuset-moedores-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B7C45;" title="Artichaut" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw180546c7/images/produto-lecreuset-panela-oval-artichaut.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#00B8D4;" title="Caribe" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1c6eb7f5/images/produto-lecreuset-panela-oval-caribe.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw2efcacf8/images/produto-lecreuset-panela-oval-nectar.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8bb2f0c6/images/produto-lecreuset-panela-oval-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8bb2f0c6/images/produto-lecreuset-panela-oval-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw0d048d4a/images/produto-lecreuset-moedores-meringue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwac79859c/images/produto-lecreuset-moedores-branco.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#1C1C1C;" title="Black Onyx" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8bb2f0c6/images/produto-lecreuset-panela-oval-laranja.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#6B5B7B;" title="Rhone" onclick="swatchClick(event,this,'cp28','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8bb2f0c6/images/produto-lecreuset-panela-oval-laranja.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/panela-oval-signature/21178.html">
+          <div class="product-card-name">Panela Oval Signature</div>
+          <div class="product-card-sub">Ferro Fundido Esmaltado · 29cm a 40cm</div>
+          <div class="product-card-price">R$ 3.079,00 – R$ 4.889,00</div>
+        </a>
+      </div>
+      <!-- 29. Pote para Geleia -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/pote-para-geleia-vermelho/91020000060000.html"><img id="cp29" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa384dc5a/images/pote-para-geleia-lecreuset-vermelho.png?sw=650&sh=650&sm=fit" alt="Pote para Geleia" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp29','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa384dc5a/images/pote-para-geleia-lecreuset-vermelho.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/pote-para-geleia-vermelho/91020000060000.html">
+          <div class="product-card-name">Pote para Geleia</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 200ml</div>
+          <div class="product-card-price">R$ 379,00</div>
+        </a>
+      </div>
+      <!-- 30. Bowl de Preparo 2L -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/bowl-de-preparo-lecreuset-2l/701062.html"><img id="cp30" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw24bf448e/images/produto-lecreuset-bowl-de-prepraro-vermelho4.png?sw=650&sh=650&sm=fit" alt="Bowl de Preparo 2L" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp30','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw24bf448e/images/produto-lecreuset-bowl-de-prepraro-vermelho4.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp30','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw24bf448e/images/produto-lecreuset-bowl-de-prepraro-vermelho4.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp30','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw24bf448e/images/produto-lecreuset-bowl-de-prepraro-vermelho4.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp30','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw24bf448e/images/produto-lecreuset-bowl-de-prepraro-vermelho4.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp30','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw772c03d7/images/produto-lecreuset-bowl-preparo-shellpink.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/bowl-de-preparo-lecreuset-2l/701062.html">
+          <div class="product-card-name">Bowl de Preparo 2L</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 2L</div>
+          <div class="product-card-price">R$ 300,30 – R$ 429,00</div>
+        </a>
+      </div>
+      <!-- 31. Travessa Retangular Clássica -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/travessa-retangular-classica/910047.html"><img id="cp31" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfe78ea59/images/tardes%20de%20verao/travessa-classica-azure-blue.png?sw=650&sh=650&sm=fit" alt="Travessa Retangular Clássica" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp31','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfe78ea59/images/tardes%20de%20verao/travessa-classica-azure-blue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp31','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfe78ea59/images/tardes%20de%20verao/travessa-classica-azure-blue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp31','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfe78ea59/images/tardes%20de%20verao/travessa-classica-azure-blue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp31','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb515cf4c/images/travessa-retangular-meringue-classica.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'cp31','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfe78ea59/images/tardes%20de%20verao/travessa-classica-azure-blue.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp31','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfe78ea59/images/tardes%20de%20verao/travessa-classica-azure-blue.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/travessa-retangular-classica/910047.html">
+          <div class="product-card-name">Travessa Retangular Clássica</div>
+          <div class="product-card-sub">Cerâmica Esmaltada</div>
+          <div class="product-card-price">R$ 519,00 – R$ 709,00</div>
+        </a>
+      </div>
+      <!-- 32. Panela de Arroz Every -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/panela-arroz-every-lecreuset/4111018.html"><img id="cp32" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw854d155d/images/produto-lecreuset-panela-arroz-laranja1.png?sw=650&sh=650&sm=fit" alt="Panela de Arroz Every" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp32','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw854d155d/images/produto-lecreuset-panela-arroz-laranja1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#8BAABE;" title="Chambray" onclick="swatchClick(event,this,'cp32','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw615f5a46/images/produto-lecreuset-panela-arroz-chambray.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp32','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1a1a95a2/images/multi-bowl-holly-vermelho2.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'cp32','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw854d155d/images/produto-lecreuset-panela-arroz-laranja1.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F0B8C8;" title="Shell Pink" onclick="swatchClick(event,this,'cp32','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw772c03d7/images/produto-lecreuset-bowl-preparo-shellpink.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/panela-arroz-every-lecreuset/4111018.html">
+          <div class="product-card-name">Panela de Arroz Every</div>
+          <div class="product-card-sub">Cerâmica com Ferro Fundido · 18cm / 20cm</div>
+          <div class="product-card-price">R$ 2.519,00 – R$ 2.769,00</div>
+        </a>
+      </div>
+      <!-- 33. Garrafa de Hidratação -->
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/garrafa-de-hidratacao-em-aco-inox/4120850.html"><img id="cp33" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1c240449/images/garrafa_hidratacao_squeeze_laranja_flame-7.jpg?sw=650&sh=650&sm=fit" alt="Garrafa de Hidratação" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'cp33','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1c240449/images/garrafa_hidratacao_squeeze_laranja_flame-7.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'cp33','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf2749dc7/images/garrafa_hidratacao_squeeze_vermelho_cerise-5.jpg?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#4080B0;" title="Marseille" onclick="swatchClick(event,this,'cp33','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw28dae310/images/garrafa_hidratacao_squeeze_azul_marseille-6.jpg?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/garrafa-de-hidratacao-em-aco-inox/4120850.html">
+          <div class="product-card-name">Garrafa de Hidratação</div>
+          <div class="product-card-sub">Aço Inoxidável · 500ml</div>
+          <div class="product-card-price">R$ 319,00</div>
+        </a>
+      </div>
+      <!-- 34. Pote para Mel -->
+      <div class="product-card" data-price-min="379.0" data-colors="Nectar,Meringue">
+        <div class="product-card-img">
+          <a href="https://www.lecreuset.com.br/pote-para-mel/690954.html"><img id="cp34" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw7ad6078c/images/pote-para-mel-lecreuset-nectar7.png?sw=650&sh=650&sm=fit" alt="Pote para Mel" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors">
+          <span class="swatch active" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'cp34','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw7ad6078c/images/pote-para-mel-lecreuset-nectar7.png?sw=650&sh=650&sm=fit')"></span>
+          <span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'cp34','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcc14b7d4/images/pote-para-mel-lecreuset-meringue.png?sw=650&sh=650&sm=fit')"></span>
+        </div>
+        <a href="https://www.lecreuset.com.br/pote-para-mel/690954.html">
+          <div class="product-card-name">Pote para Mel</div>
+          <div class="product-card-sub">Cerâmica Esmaltada · 200ml</div>
+          <div class="product-card-price">R$ 379,00</div>
+        </a>
+      </div>
+    
+    </div><!-- end product-grid -->
+  </div><!-- end right col -->
+</div><!-- end shop-layout -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Le <span style="color:#c8102e">Creuset</span></a>
+        <p>Desde 1925, criamos peças excepcionais que transformam a experiência culinária e duram gerações.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">f</a>
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">yt</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Produtos</h4><ul>
+        <li><a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a></li>
+        <li><a href="colecao-frigideiras-e-skillets.html">Frigideiras</a></li>
+        <li><a href="colecao-cacarolas.html">Caçarolas</a></li>
+        <li><a href="colecao-ceramica.html">Cerâmica</a></li>
+        <li><a href="colecao-antiaderente.html">Antiaderente</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Atendimento</h4><ul>
+        <li><a href="#">Central de Ajuda</a></li>
+        <li><a href="#">Rastrear Pedido</a></li>
+        <li><a href="#">Trocas e Devoluções</a></li>
+        <li><a href="#">Garantia</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul>
+        <li><a href="#">Sobre Nós</a></li>
+        <li><a href="#">Lojas Físicas</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Receitas</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Termos de Uso</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Le Creuset do Brasil. Todos os direitos reservados.</p>
+      <div class="payment-icons">
+        <span class="payment-icon">VISA</span>
+        <span class="payment-icon">MASTER</span>
+        <span class="payment-icon">PIX</span>
+        <span class="payment-icon">BOLETO</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  function toggleFilter(el) {
+    el.classList.toggle('open');
+    var body = el.nextElementSibling;
+    if (body) body.style.display = el.classList.contains('open') ? '' : 'none';
+  }
+
+function fixSwatchesMobile() {
+  if (window.innerWidth > 768) return;
+  var MAX = 5;
+  document.querySelectorAll('.product-colors').forEach(function(el) {
+    if (el.dataset.fixed) return;
+    el.dataset.fixed = '1';
+    var swatches = el.querySelectorAll('.swatch');
+    if (swatches.length <= MAX) return;
+    for (var i = MAX; i < swatches.length; i++) swatches[i].style.display = 'none';
+    var more = document.createElement('span');
+    more.className = 'swatch-more';
+    more.textContent = '+' + (swatches.length - MAX);
+    el.appendChild(more);
+  });
+}
+document.addEventListener('DOMContentLoaded', fixSwatchesMobile);
+
+function swatchClick(e, el, imgId, newSrc) {
+  e.stopPropagation();
+  el.parentElement.querySelectorAll('.swatch').forEach(function(s) { s.classList.remove('active'); });
+  el.classList.add('active');
+  var img = document.getElementById(imgId);
+  if (!img) return;
+  if (newSrc) img.src = newSrc;
+  var colorFilters = {
+    'Laranja':        '',
+    'Vermelho':       'hue-rotate(-38deg)',
+    'Bleu Riviera':   'hue-rotate(160deg)',
+    'Azure':          'hue-rotate(190deg)',
+    'Caribe':         'hue-rotate(163deg)',
+    'Meringue':       'saturate(0.12) brightness(1.45)',
+    'Artichaut':      'hue-rotate(58deg)',
+    'Branco':         'saturate(0.05) brightness(1.85)',
+    'Flint':          'saturate(0.15) brightness(0.98)',
+    'Nectar':         'hue-rotate(30deg)',
+    'Black Onyx':     'grayscale(1) brightness(0.13)',
+    'Shell Pink':     'hue-rotate(-43deg) saturate(0.38)',
+    'Cool Mint':      'hue-rotate(126deg) saturate(0.5)',
+    'Rhone':          'hue-rotate(244deg) saturate(0.55)',
+    'Camomille':      'hue-rotate(22deg) saturate(0.55)',
+    'Thyme':          'hue-rotate(65deg) saturate(0.65) brightness(0.8)',
+    'Nuit':           'hue-rotate(194deg) saturate(0.65) brightness(0.65)',
+    'Bamboo':         'hue-rotate(5deg) saturate(0.42)',
+    'Bluebell Purple':'hue-rotate(254deg) saturate(0.55)'
+  };
+  var f = colorFilters[el.getAttribute('title')];
+  img.style.filter = (f !== undefined ? f : '');
+  img.style.transition = 'filter 0.3s ease';
+}
+
+// ── Promo bar carousel ──
+(function() {
+  var slides = document.querySelectorAll('.promo-slide');
+  var cur = 0;
+  function show(i) {
+    slides[cur].classList.remove('active');
+    cur = (i + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+  }
+  var timer = setInterval(function(){ show(cur + 1); }, 5000);
+  var prev = document.getElementById('promoPrev');
+  var next = document.getElementById('promoNext');
+  if (prev) prev.addEventListener('click', function(){ clearInterval(timer); show(cur - 1); timer = setInterval(function(){ show(cur + 1); }, 5000); });
+  if (next) next.addEventListener('click', function(){ clearInterval(timer); show(cur + 1); timer = setInterval(function(){ show(cur + 1); }, 5000); });
+})();
+
+// ── Mobile menu ──
+(function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var nav = document.getElementById('mobileNav');
+  var overlay = document.getElementById('mobileOverlay');
+  var closeBtn = document.getElementById('mobileNavClose');
+  function openNav() { nav.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeNav() { nav.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  if (btn) btn.addEventListener('click', openNav);
+  if (closeBtn) closeBtn.addEventListener('click', closeNav);
+  if (overlay) overlay.addEventListener('click', closeNav);
+
+  // Accordion
+  document.querySelectorAll('.nav-acc-btn').forEach(function(b) {
+    b.addEventListener('click', function() {
+      var li = b.closest('.nav-accordion');
+      li.classList.toggle('open');
+    });
+  });
+
+  // Mobile filter
+  var filterBtn = document.getElementById('mobileFilterBtn');
+  var sidebar = document.querySelector('.sidebar');
+  var filterOverlay = document.getElementById('filterOverlay');
+  function openFilter() { sidebar.classList.add('filter-open'); filterOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeFilter() { sidebar.classList.remove('filter-open'); filterOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+  if (filterBtn) filterBtn.addEventListener('click', openFilter);
+  if (filterOverlay) filterOverlay.addEventListener('click', closeFilter);
+
+  // Search overlay
+  var searchOverlay = document.getElementById('mobileSearchOverlay');
+  var searchCloseBtn = document.getElementById('searchOverlayClose');
+  var bottomSearchBtn = document.getElementById('bottomSearchBtn');
+  var searchInput = document.getElementById('mobileSearchInput');
+  function openSearch(e) { if(e) e.preventDefault(); searchOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; if(searchInput) setTimeout(function(){ searchInput.focus(); }, 100); }
+  function closeSearch() { searchOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+  if (bottomSearchBtn) bottomSearchBtn.addEventListener('click', openSearch);
+  if (searchCloseBtn) searchCloseBtn.addEventListener('click', closeSearch);
+})();
+
+// ── Filter Logic ──
+(function() {
+  var cards = document.querySelectorAll('.product-card');
+  var colorSwatches = document.querySelectorAll('.color-filter-swatch');
+  var countEl = document.querySelector('.results-count strong') || document.querySelector('.results-count');
+
+  // Detect filter sections by header text
+  var priceCbs = [];
+  var capCbs = [];
+  var typeCbs = [];
+
+  document.querySelectorAll('.filter-group, .filter-section').forEach(function(section) {
+    var header = section.querySelector('.filter-title, .filter-header');
+    if (!header) return;
+    var headerText = header.textContent.trim().toLowerCase();
+    var checkboxes = section.querySelectorAll('input[type="checkbox"]');
+
+    if (headerText.indexOf('pre') === 0 || headerText.indexOf('preço') >= 0 || headerText.indexOf('preco') >= 0 || headerText.indexOf('valor') >= 0) {
+      checkboxes.forEach(function(cb) { priceCbs.push(cb); });
+    } else if (headerText.indexOf('capac') >= 0 || headerText.indexOf('volume') >= 0 || headerText.indexOf('litro') >= 0) {
+      checkboxes.forEach(function(cb) { capCbs.push(cb); });
+    } else if (headerText.indexOf('cor') < 3 && headerText.indexOf('cor') >= 0) {
+      // "Cor" section - skip, handled by swatches
+    } else {
+      // Type/category filter
+      checkboxes.forEach(function(cb) { typeCbs.push(cb); });
+    }
+  });
+
+  function parsePrice(text) {
+    var nums = text.match(/[\d.,]+/g);
+    if (!nums) return 0;
+    return parseFloat(nums[0].replace(/\./g, '').replace(',', '.')) || 0;
+  }
+
+  function getPriceRange(label) {
+    // Clone label and remove filter-count span to avoid polluting price parsing
+    var clone = label.cloneNode(true);
+    var countSpan = clone.querySelector('.filter-count');
+    if (countSpan) countSpan.remove();
+    var text = clone.textContent || clone.innerText || '';
+    var nums = text.match(/[\d.,]+/g);
+    if (!nums) return {min:0, max:999999};
+    var lower = text.toLowerCase();
+    if (lower.indexOf('mais') >= 0 || lower.indexOf('acima') >= 0 || text.indexOf('+') >= 0) {
+      return {min: parsePrice('R$ ' + nums[0]), max: 999999};
+    }
+    if (lower.indexOf('at') >= 0 && nums.length === 1) {
+      return {min:0, max: parsePrice('R$ ' + nums[0])};
+    }
+    if (nums.length >= 2) {
+      return {min: parsePrice('R$ ' + nums[0]), max: parsePrice('R$ ' + nums[1])};
+    }
+    return {min:0, max:999999};
+  }
+
+  // Color swatch toggle
+  colorSwatches.forEach(function(sw) {
+    sw.addEventListener('click', function() {
+      sw.classList.toggle('active');
+      applyFilters();
+    });
+  });
+
+  // Checkbox listeners
+  priceCbs.concat(capCbs).concat(typeCbs).forEach(function(cb) {
+    cb.addEventListener('change', applyFilters);
+  });
+
+  function applyFilters() {
+    // Active price ranges
+    var activePrices = [];
+    priceCbs.forEach(function(cb) {
+      if (cb.checked) {
+        var label = cb.closest('label') || cb.parentElement;
+        activePrices.push(getPriceRange(label));
+      }
+    });
+
+    // Active capacities
+    var activeCaps = [];
+    capCbs.forEach(function(cb) {
+      if (cb.checked) {
+        var label = cb.closest('label') || cb.parentElement;
+        var text = (label.textContent || '').trim();
+        activeCaps.push(text.replace(/^\s+|\s+$/g, ''));
+      }
+    });
+
+    // Active colors
+    var activeColors = [];
+    colorSwatches.forEach(function(sw) {
+      if (sw.classList.contains('active')) activeColors.push(sw.getAttribute('title'));
+    });
+
+    // Active types
+    var activeTypes = [];
+    typeCbs.forEach(function(cb) {
+      if (cb.checked) {
+        var label = cb.closest('label') || cb.parentElement;
+        activeTypes.push((label.textContent || '').trim());
+      }
+    });
+
+    var visible = 0;
+    cards.forEach(function(card) {
+      var show = true;
+
+      // Price filter
+      if (activePrices.length > 0) {
+        var priceMin = parseFloat(card.dataset.priceMin) || 0;
+        var priceMatch = false;
+        activePrices.forEach(function(range) {
+          if (priceMin >= range.min && priceMin <= range.max) priceMatch = true;
+        });
+        if (!priceMatch) show = false;
+      }
+
+      // Capacity filter - check if card text contains the capacity value
+      if (show && activeCaps.length > 0) {
+        var cardText = card.textContent || '';
+        var capMatch = false;
+        activeCaps.forEach(function(cap) {
+          if (cardText.indexOf(cap) >= 0) capMatch = true;
+        });
+        // Also check data-caps attribute
+        if (!capMatch && card.dataset.caps) {
+          var cardCaps = card.dataset.caps.split(',');
+          activeCaps.forEach(function(cap) {
+            if (cardCaps.indexOf(cap) >= 0) capMatch = true;
+          });
+        }
+        if (!capMatch) show = false;
+      }
+
+      // Color filter
+      if (show && activeColors.length > 0 && card.dataset.colors) {
+        var cardColors = card.dataset.colors.split(',');
+        var colorMatch = false;
+        activeColors.forEach(function(color) {
+          if (cardColors.indexOf(color) !== -1) colorMatch = true;
+        });
+        if (!colorMatch) show = false;
+      }
+
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    // Update count
+    if (countEl) {
+      if (countEl.tagName === 'STRONG') {
+        countEl.textContent = visible;
+      } else {
+        var strong = countEl.querySelector('strong');
+        if (strong) {
+          strong.textContent = visible;
+        } else {
+          countEl.textContent = visible + ' resultados';
+        }
+      }
+    }
+  }
+})();
+
+
+</script>
+
+<!-- Mobile overlay -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="document.getElementById('mobileNav').classList.remove('open');this.classList.remove('open');"></div>
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header">
+    <button class="mobile-nav-close" onclick="this.closest('.mobile-nav').classList.remove('open');document.getElementById('mobileOverlay').classList.remove('open');">&times;</button>
+  </div>
+  <div class="mnav-search">
+    <input type="text" placeholder="O que voc&ecirc; est&aacute; procurando?" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Cozinhar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a>
+      <a href="colecao-frigideiras-e-skillets.html">Frigideiras e Skillets</a>
+      <a href="colecao-grelhas.html">Grelhas</a>
+      <a href="colecao-antiaderente.html">Antiaderente</a>
+      <a href="colecao-cacarolas.html">Ca&ccedil;arolas</a>
+      <a href="colecao-chaleiras.html">Chaleiras de A&ccedil;o Esmaltado</a>
+      <a href="colecao-3ply-aco-inox.html">3-Ply A&ccedil;o Inox</a>
+      <a href="colecao-formatos-especiais.html">Formatos Especiais</a>
+      <a href="colecao-primeira-le-creuset.html">Minha Primeira Le Creuset</a>
+      <a href="colecao-stockpots.html">Stockpots</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Assar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-mini-cocotte.html">Mini Cocotte e Ramekins</a>
+      <a href="colecao-formas-metal-bakeware.html">Formas Metal Bakeware</a>
+      <a href="colecao-assadeiras-travessas.html">Assadeiras e Travessas</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Acess&oacute;rios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-moedores-e-galheteiro.html">Moedores e Galheteiro</a>
+      <a href="colecao-utensilios.html">Utens&iacute;lios</a>
+      <a href="colecao-utensilios-madeira.html">Utens&iacute;lios de Madeira</a>
+      <a href="colecao-suporte-descansos.html">Suportes e Descansos</a>
+      <a href="colecao-potes-e-porta-mantimentos.html">Potes e Porta-Mantimentos</a>
+      <a href="colecao-acessorios-de-vinhos.html">Acess&oacute;rios de Vinhos</a>
+      <a href="colecao-sets.html">Sets</a>
+      <a href="colecao-vasos.html">Decora&ccedil;&atilde;o</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Preparar e Servir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-bowls.html">Bowls</a>
+      <a href="colecao-pratos.html">Pratos</a>
+      <a href="colecao-canecas-e-xicaras.html">Canecas e X&iacute;caras</a>
+      <a href="colecao-bules-e-jarras.html">Bules e Jarras</a>
+      <a href="colecao-chaleiras.html">Chaleiras</a>
+      <a href="colecao-travessas.html">Travessas</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Cole&ccedil;&otilde;es <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-flamme-doree.html">Flamme Dor&eacute;e</a>
+      <a href="colecao-gift-collection.html">Gift Collection</a>
+      <a href="colecao-churrasco.html">Churrasco</a>
+      <a href="colecao-alpine.html">Cole&ccedil;&atilde;o Alpine</a>
+      <a href="colecao-modern-heritage.html">Modern Heritage</a>
+      <a href="colecao-jardim.html">Cole&ccedil;&atilde;o Jardim</a>
+      <a href="colecao-culinaria-oriental.html">Culin&aacute;ria Oriental</a>
+      <a href="colecao-gourmand.html">Cole&ccedil;&atilde;o Gourmand</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Nossas Cores <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body" style="padding:0;"></div>
+  </div>
+  <div class="mnav-colors">
+    <a href="colecao-bleu-riviera.html" class="mnav-color" style="background:#2DBECD;" title="Bleu Riviera"></a>
+    <a href="colecao-flamme-doree.html" class="mnav-color" style="background:#D4A017;" title="Flamme Doree"></a>
+  </div>
+  <ul class="mnav-links">
+    <li class="highlight"><a href="#">Dia das M&atilde;es</a></li>
+    <li><a href="colecao-ofertas.html">Ofertas</a></li>
+    <li><a href="colecao-bleu-riviera.html">Bleu Riviera</a></li>
+    <li><a href="colecao-lancamentos.html">Lan&ccedil;amentos</a></li>
+    <li><a href="colecao-ferro-fundido.html">Ferro Fundido</a></li>
+    <li><a href="colecao-ceramica.html">Cer&acirc;mica</a></li>
+        <li><a href="colecao-best-sellers.html">Best-sellers</a></li>
+  </ul>
+</nav>
+<!-- Mobile search overlay -->
+<div class="mobile-search-overlay" id="mobileSearchOverlay">
+  <div class="mobile-search-bar">
+    <button class="search-overlay-close" onclick="document.getElementById('mobileSearchOverlay').classList.remove('open');">&times;</button>
+    <input type="text" placeholder="O que você está procurando?" id="mobileSearchInput" />
+    <button class="search-overlay-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  </div>
+</div>
+
+<!-- Mobile bottom navigation -->
+<nav class="bottom-nav" id="bottomNav">
+  <a href="index.html" class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9,22 9,12 15,12 15,22" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="#" class="bottom-nav-item" onclick="document.getElementById('mobileSearchOverlay').classList.add('open');">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+    <span>Buscar</span>
+  </a>
+  <a href="colecao-best-sellers.html" class="bottom-nav-item active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span>Produtos</span>
+  </a>
+  <a href="#" class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Lista</span>
+  </a>
+  <a href="#" class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Sacola</span>
+  </a>
+</nav>
+
+<script src="cart.js"></script>
+</body>
+</html>

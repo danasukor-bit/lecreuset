@@ -1,0 +1,1203 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Suportes e Descansos | Le Creuset Brasil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+  <style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito Sans', sans-serif; color: #000; background: #fff; }
+    a { text-decoration: none; color: inherit; }
+    .top-bar { background: #1a1a1a; color: #fff; font-size: 12px; text-align: center; padding: 8px 16px; }
+    header { background: #fff; border-bottom: 1px solid #e5e5e5; position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; height: 64px; gap: 24px; }
+    .logo { flex-shrink: 0; display: flex; align-items: center; } .logo img { height: 45px; width: auto; }
+    
+    nav { flex: 1; }
+    .nav-list { display: flex; list-style: none; align-items: center; }
+    .nav-list > li { position: relative; }
+    .nav-list > li > a { display: block; padding: 22px 14px; font-size: 13px; font-weight: 600; color: #000; white-space: nowrap; border-bottom: 2px solid transparent; transition: border-color 0.2s; }
+    .nav-list > li > a:hover { border-bottom-color: #000; }
+    .nav-list > li.highlight > a { color: #c8102e; }
+    .nav-list > li.blue > a { color: #2563ab; }
+    .mega-menu { display: none; position: fixed; left: 0; right: 0; top: 64px; background: #fff; border-top: 2px solid #e5e5e5; box-shadow: 0 8px 32px rgba(0,0,0,0.13); z-index: 200; padding: 28px 0 24px; }
+    .nav-list > li:hover .mega-menu { display: block; }
+    .mega-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 170px 150px 170px 170px 170px 140px; gap: 0 20px; align-items: start; }
+    .mega-col-title { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #000; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid #e5e5e5; }
+    .mega-col a { display: block; font-size: 13px; color: #444; padding: 4px 0; transition: color 0.15s; }
+    .mega-col a:hover { color: #c8102e; }
+    .mega-colors { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+    .mega-color-dot { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid transparent; cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
+    .mega-color-dot:hover { border-color: #000; transform: scale(1.12); }
+    .header-icons { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .header-icons a { font-size: 12px; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #000; }
+    .header-icons svg { width: 22px; height: 22px; }
+    .search-box { display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; height: 36px; }
+    .search-box input { border: none; outline: none; padding: 0 12px; font-size: 13px; width: 180px; font-family: inherit; }
+    .search-box button { background: #000; border: none; cursor: pointer; padding: 0 12px; height: 100%; display: flex; align-items: center; }
+    .search-box button svg { fill: #fff; width: 16px; height: 16px; }
+    .cat-banner { width: 100%; display: grid; grid-template-columns: 1fr 1fr; min-height: 380px; overflow: hidden; }
+    .cat-banner-text { background: #f0f4f8; padding: 48px 60px; display: flex; flex-direction: column; justify-content: center; }
+    .cat-banner-bc { font-size: 12px; color: #778899; margin-bottom: 20px; }
+    .cat-banner-bc a { color: #556677; } .cat-banner-bc a:hover { text-decoration: underline; }
+    .cat-banner-title { font-family: 'Playfair Display', serif; font-size: 36px; font-style: italic; font-weight: 400; color: #1a1a1a; margin-bottom: 18px; }
+    .cat-banner-desc { font-size: 13.5px; line-height: 1.75; color: #445566; }
+    .cat-banner-desc p { margin-bottom: 14px; }
+    .cat-banner-img { overflow: hidden; }
+    .cat-banner-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .shop-layout { max-width: 1400px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; }
+    .sidebar { position: sticky; top: 80px; }
+    .filter-section { border-bottom: 1px solid #e5e5e5; }
+    .filter-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; cursor: pointer; font-size: 13px; font-weight: 700; letter-spacing: 0.3px; user-select: none; }
+    .filter-header svg { width: 16px; height: 16px; transition: transform 0.2s; }
+    .filter-header.open svg { transform: rotate(180deg); }
+    .filter-body { margin-top: 0; padding-bottom: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .filter-body.closed { display: none; }
+    .filter-option { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; color: #333; }
+    .filter-option input[type="checkbox"] { accent-color: #000; width: 14px; height: 14px; cursor: pointer; }
+    .filter-option:hover { color: #000; }
+    .filter-count { color: #aaa; font-size: 11px; margin-left: auto; }
+    .color-filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 0 14px; }
+    .color-filter-swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
+    .color-filter-swatch:hover, .color-filter-swatch.active { border-color: #000; transform: scale(1.15); }
+
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .product-card { position: relative; text-align: center; transition: transform 0.2s ease; }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-card-img { position: relative; overflow: hidden; background: transparent; aspect-ratio: 1; margin-bottom: 12px; }
+    .product-card-img img { width: 100%; height: 100%; object-fit: contain; padding: 16px; transition: transform 0.4s ease; }
+    .product-card-img:hover img { transform: scale(1.06); }
+    .product-wishlist { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .product-wishlist svg { width: 16px; height: 16px; }
+    .badge-new { position: absolute; top: 10px; left: 10px; background: #000; color: #fff; font-size: 10px; font-weight: 700; padding: 3px 8px; letter-spacing: 0.5px; text-transform: uppercase; z-index: 1; }
+    .badge-sale { position: absolute; top: 10px; left: 10px; background: #c8102e; color: #fff; font-size: 10px; font-weight: 700; padding: 3px 8px; letter-spacing: 0.5px; text-transform: uppercase; z-index: 1; }
+    .product-card-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: #1a2a38; }
+    .product-card-sub { font-size: 12px; color: #7a8a9a; margin-bottom: 6px; }
+    .product-card-price { font-size: 15px; font-weight: 700; color: #1a2a38; }
+    .product-colors { display: flex; gap: 5px; flex-wrap: wrap; margin: 8px 0 6px; }
+    .swatch { width: 18px; height: 18px; border-radius: 50%; cursor: pointer; border: 1.5px solid rgba(0,0,0,0.15); display: inline-block; transition: transform 0.2s, border-color 0.2s; }
+    .swatch:hover, .swatch.active { border-color: #000; transform: scale(1.15); }
+    .results-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .results-count { font-size: 13px; color: #7a8a9a; }
+    .sort-select { font-size: 13px; border: 1px solid #c8d4de; padding: 6px 12px; font-family: inherit; cursor: pointer; background: #f5f8fb; color: #2a3a4a; }
+    footer { background: #111; color: #fff; padding: 60px 24px 30px; }
+    .footer-inner { max-width: 1400px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .logo { margin-bottom: 16px; display: block; } .footer-brand .logo img { height: 28px; width: auto; }
+    .footer-brand p { font-size: 13px; color: #aaa; line-height: 1.7; max-width: 280px; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn { width: 36px; height: 36px; border: 1px solid #444; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; transition: border-color 0.2s, background 0.2s; }
+    .social-btn:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+    .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 13px; color: #aaa; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid #333; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 12px; color: #666; }
+    .payment-icons { display: flex; gap: 8px; }
+    .payment-icon { background: #222; border: 1px solid #444; border-radius: 4px; padding: 4px 8px; font-size: 10px; font-weight: 700; color: #aaa; }
+    .top-bar { position: relative; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .promo-track { flex: 1; text-align: center; overflow: hidden; height: 20px; position: relative; }
+    .promo-slide { position: absolute; width: 100%; left: 0; top: 0; opacity: 0; transition: opacity 0.5s; white-space: nowrap; }
+    .promo-slide.active { opacity: 1; }
+    .promo-arrow { background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; padding: 0 6px; opacity: 0.7; line-height: 1; flex-shrink: 0; }
+    .promo-arrow:hover { opacity: 1; }
+
+    /* ========== MOBILE STANDARD ========== */
+    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; justify-content: center; gap: 5px; flex-shrink: 0; }
+    .mobile-menu-btn span { display: block; width: 22px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
+    .header-search-icon { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .header-search-icon svg { width: 22px; height: 22px; }
+    .mobile-nav { display: block; position: fixed; top: 0; left: 0; width: 82%; max-width: 300px; height: 100%; background: #fff; z-index: 999; overflow-y: auto; transform: translateX(-100%); transition: transform 0.3s ease; box-shadow: 4px 0 24px rgba(0,0,0,0.18); }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 996; }
+    .mobile-overlay.open { display: block; }
+    .mobile-nav-header { display: flex; align-items: center; justify-content: flex-end; padding: 14px 16px; }
+    .mobile-nav-close { background: none; border: none; cursor: pointer; font-size: 28px; color: #000; line-height: 1; padding: 2px; }
+    /* Nav search */
+    .mnav-search { display: flex; align-items: center; gap: 10px; padding: 0 18px 16px; border-bottom: 1px solid #e5e5e5; }
+    .mnav-search input { flex: 1; border: none; outline: none; font-size: 15px; font-family: inherit; color: #333; }
+    .mnav-search input::placeholder { color: #999; }
+    .mnav-search svg { width: 20px; height: 20px; flex-shrink: 0; opacity: 0.4; }
+    .mnav-accordion { border-bottom: 1px solid #e5e5e5; }
+    .mnav-accordion-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 16px 18px; background: none; border: none; cursor: pointer; font-size: 14px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #000; font-family: inherit; }
+    .mnav-accordion-btn svg { width: 14px; height: 14px; transition: transform 0.2s; flex-shrink: 0; }
+    .mnav-accordion.open .mnav-accordion-btn svg { transform: rotate(90deg); }
+    .mnav-accordion-body { display: none; padding: 0 18px 14px; }
+    .mnav-accordion.open .mnav-accordion-body { display: block; }
+    .mnav-accordion-body a { display: block; padding: 8px 0; font-size: 14px; color: #444; }
+    .mnav-accordion-body a:hover { color: #c8102e; }
+    .mnav-colors { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 18px 16px; border-bottom: 1px solid #e5e5e5; }
+    .mnav-color { width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s, transform 0.2s; display: block; }
+    .mnav-color:hover { border-color: #000; transform: scale(1.1); }
+    .mnav-links { list-style: none; padding: 8px 0 80px; }
+    .mnav-links li > a { display: block; padding: 14px 18px; font-size: 15px; font-weight: 500; color: #333; }
+    .mnav-links li.highlight > a { color: #c8102e; font-weight: 700; }
+    
+    
+    
+    
+    
+    
+    .mobile-search-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; background: #fff; z-index: 1000; padding: 12px 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .mobile-search-overlay.open { display: block; }
+    .mobile-search-bar { display: flex; align-items: center; gap: 10px; border: 1.5px solid #000; border-radius: 4px; overflow: hidden; height: 44px; }
+    .search-overlay-close { background: none; border: none; font-size: 24px; padding: 0 12px; cursor: pointer; color: #000; line-height: 1; flex-shrink: 0; }
+    .mobile-search-bar input { flex: 1; border: none; outline: none; font-size: 15px; font-family: inherit; padding: 0; }
+    .search-overlay-go { background: #000; border: none; padding: 0 14px; cursor: pointer; height: 100%; display: flex; align-items: center; flex-shrink: 0; }
+    .filter-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 996; }
+    .filter-overlay.open { display: block; }
+    .mobile-filter-bar { display: none; }
+    .bottom-nav { display: none; }
+
+    @media (max-width: 768px) {
+      .top-bar { font-size: 11px; padding: 8px 4px; }
+      .header-inner { padding: 0 12px; height: 56px; gap: 0; justify-content: space-between; }
+      nav { display: none; }
+      .search-box { display: none; }
+      .mobile-menu-btn { display: flex; order: 1; margin-right: 6px; }
+      .header-search-icon { display: flex; order: 2; margin-right: 4px; }
+      .logo { flex: 0 0 auto; order: 3; margin: 0 auto; } .logo img { height: 32px; }
+      .header-icons { gap: 10px; margin-left: 0; order: 4; }
+      .header-icons a span { display: none; }
+      .header-icons a { gap: 0; }
+      .header-icons svg { width: 22px; height: 22px; }
+      /* Banner */
+      .cat-banner { grid-template-columns: 1fr; min-height: unset; }
+      .cat-banner-text { order: 2; padding: 20px 16px; }
+      .cat-banner-title { font-size: 24px; margin-bottom: 10px; }
+      .cat-banner-desc { font-size: 12px; }
+      .cat-banner-img { order: 1; height: 220px; }
+      .breadcrumb { padding: 10px 12px; font-size: 11px; }
+      /* Layout - hide sidebar/filters on mobile */
+      .shop-layout { grid-template-columns: 1fr !important; padding: 14px 12px 80px; gap: 0; }
+      .collection-wrap { grid-template-columns: 1fr !important; padding: 0 12px 80px; gap: 0; }
+      .sidebar, .filters {
+        display: none;
+        position: fixed; top: 0; left: 0; width: 85%; max-width: 320px; height: 100%;
+        background: #fff; z-index: 997; overflow-y: auto; padding: 20px;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+      }
+      .sidebar.filter-open, .filters.filter-open { display: block; }
+      .mobile-filter-btn { display: none; }
+      /* Mobile filter bar */
+      .mobile-filter-bar {
+        display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+        padding: 14px 0; margin-bottom: 4px;
+      }
+      .mobile-results-count { width: 100%; text-align: center; font-size: 14px; color: #888; margin-bottom: 12px; }
+      .mobile-results-count strong { color: #c8102e; }
+      .mobile-filter-actions { display: flex; width: 100%; gap: 10px; }
+      .mobile-filter-toggle {
+        flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+        background: #fff; border: 1.5px solid #ccc; padding: 10px 0;
+        font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+        font-family: inherit; cursor: pointer;
+      }
+      .mobile-filter-toggle svg { width: 16px; height: 16px; }
+      .mobile-sort-select {
+        flex: 1; background: #fff; border: 1.5px solid #ccc; padding: 10px 12px;
+        font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+        font-family: inherit; cursor: pointer;
+        appearance: none; -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px;
+      }
+      .collection-header { display: none; }
+      .results-bar { display: none; }
+      /* Product grid 2 cols */
+      .product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+      .product-card { background: transparent; border-radius: 6px; overflow: hidden; }
+      .product-card-media { aspect-ratio: 1; background: transparent; border-radius: 6px 6px 0 0; }
+      .product-card-media img { padding: 8px; }
+      .product-card-img { border-radius: 6px; background: transparent; }
+      .product-card-img img { padding: 10px; }
+      .product-quick-buy { display: none; }
+      .product-wishlist { opacity: 1; width: 28px; height: 28px; top: 6px; right: 6px; box-shadow: none; background: rgba(255,255,255,0.85); }
+      .product-wishlist svg { width: 14px; height: 14px; }
+      .product-info { padding: 8px 8px 10px; }
+      .product-name { font-size: 12px; font-weight: 600; line-height: 1.35; margin-bottom: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .product-name a { color: #1a1a1a; }
+      .product-card-name { font-size: 12px; font-weight: 600; line-height: 1.3; }
+      .product-card-sub { font-size: 10.5px; margin-bottom: 4px; }
+      .product-card-price { font-size: 13px; }
+      .product-sizes { font-size: 10px; color: #999; margin-bottom: 4px; }
+      .product-price { font-size: 13px; font-weight: 800; }
+      .product-installment { font-size: 10px; color: #888; margin-top: 1px; }
+      .product-colors { margin-top: 6px; gap: 4px; }
+      .swatch { width: 16px; height: 16px; }
+      .product-badge { font-size: 9px; padding: 2px 6px; top: 6px; left: 6px; border-radius: 2px; }
+      /* Section headers */
+      .section-header { padding-bottom: 8px; margin-bottom: 14px; }
+      .section-title { font-size: 16px; }
+      .section-link { font-size: 11px; }
+      /* Hub section */
+      .hub-section { padding: 16px 12px 80px; }
+      .hub-title { font-size: 12px; margin-bottom: 18px; }
+      .category-tiles { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 32px; }
+      .cat-tile { aspect-ratio: 3/2; border-radius: 4px; }
+      .cat-tile-title { font-size: 13px; margin-bottom: 4px; }
+      .cat-tile-btn { font-size: 9px; padding: 4px 10px; }
+      .cat-tile-overlay { padding: 10px; }
+      /* Footer */
+      footer { padding: 36px 14px 80px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      /* Bottom nav */
+      .bottom-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e5e5; z-index: 500; height: 56px; height: calc(56px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); }
+      .bottom-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 10px; font-weight: 600; color: #666; text-decoration: none; padding: 6px 0; }
+      .bottom-nav-item svg { width: 22px; height: 22px; }
+      .bottom-nav-item.active { color: #c8102e; }
+      .bottom-nav-item.active svg { stroke: #c8102e; }
+    }
+    @media (max-width: 480px) {
+      .top-bar { font-size: 10.5px; }
+      .header-inner { padding: 0 10px; height: 52px; }
+      .cat-banner { height: 150px; }
+      .cat-banner-title { font-size: 21px; }
+      .collection-wrap { padding: 0 10px 80px; }
+      .shop-layout { padding: 12px 10px 80px; }
+      .hub-section { padding: 12px 10px 80px; }
+      .product-grid { gap: 8px; }
+      .product-card-name { font-size: 11.5px; }
+      .product-card-price { font-size: 12.5px; }
+      .product-name { font-size: 11.5px; }
+      .product-price { font-size: 12.5px; }
+      .product-info { padding: 6px 6px 8px; }
+      .swatch { width: 14px; height: 14px; }
+      .category-tiles { gap: 8px; margin-bottom: 24px; }
+      .cat-tile-title { font-size: 12px; }
+      .cat-tile-btn { font-size: 8px; padding: 3px 8px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+
+    /* ─── COLLECTION PAGE TITLE ─── */
+    .collection-page-header { text-align: center; padding: 32px 24px 20px; border-bottom: 1px solid #e5e5e5; margin-bottom: 0; }
+    .collection-page-title {
+      font-size: 36px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #6080A8; letter-spacing: 0;
+    }
+    @media(max-width:768px) { .collection-page-title {
+      font-size: 36px; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: #6080A8; letter-spacing: 0;
+    } .collection-page-header { padding: 20px 16px 16px; } }
+  </style>
+</head>
+<body>
+<div class="top-bar" id="promoBar">
+  <button class="promo-arrow" id="promoPrev">&#8249;</button>
+  <div class="promo-track" id="promoTrack">
+    <span class="promo-slide active">&#x1F69A; Frete Grátis em compras acima de R$&nbsp;1.500,00</span>
+    <span class="promo-slide">&#x1F4B3; 5% OFF em pagamentos via PIX</span>
+    <span class="promo-slide">&#x2728; 10x Sem Juros no cartão de crédito</span>
+    <span class="promo-slide">&#x1F3E0; Suportes e descansos que completam sua cozinha</span>
+  </div>
+<button class="promo-arrow" id="promoNext">&#8250;</button>
+</div>
+<header>
+  <div class="header-inner">
+    
+    <button class="mobile-menu-btn" onclick="document.getElementById('mobileNav').classList.add('open');document.getElementById('mobileOverlay').classList.add('open');">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="header-search-icon" onclick="document.getElementById('mobileSearchOverlay').classList.add('open');">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+    </button>
+    <a href="index.html" class="logo"><img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites/default/dwd459bb3e/images/logo.svg" alt="Le Creuset" /></a>
+    <nav>
+      <ul class="nav-list">
+        <li>
+          <a href="#">Comprar</a>
+          <div class="mega-menu">
+            <div class="mega-inner">
+              <div class="mega-col">
+                <div class="mega-col-title">Cozinhar</div>
+                <a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a>
+                <a href="colecao-frigideiras-e-skillets.html">Frigideiras e Skillets</a>
+                <a href="colecao-grelhas.html">Grelhas</a>
+                <a href="colecao-antiaderente.html">Antiaderente</a>
+                <a href="colecao-cacarolas.html">Caçarolas</a>
+                <a href="colecao-chaleiras.html">Chaleiras de Aço Esmaltado</a>
+                <a href="colecao-3ply-aco-inox.html">3-Ply Aço Inox</a>
+                <a href="#">Aço Inox</a>
+                <a href="colecao-stockpots.html">Stockpots</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Assar</div>
+                <a href="colecao-mini-cocotte.html">Mini Cocotte e Ramekins</a>
+                <a href="colecao-formas-metal-bakeware.html">Formas Metal Bakeware</a>
+                <a href="colecao-assadeiras-travessas.html">Assadeiras e Travessas</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Acessórios</div>
+                <a href="colecao-moedores-e-galheteiro.html">Moedores e Galheteiro</a>
+                <a href="colecao-utensilios.html">Utensílios</a>
+                <a href="colecao-utensilios-madeira.html">Utensílios de Madeira</a>
+                <a href="colecao-suporte-descansos.html">Suportes e Descansos</a>
+                <a href="#">Potes e Porta-Mantimentos</a>
+                <a href="#">Acessórios de Vinhos</a>
+                <a href="#">Sets</a>
+                <a href="#">Decoração</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Preparar e Servir</div>
+                <a href="colecao-ceramica.html">Bowls</a>
+                <a href="colecao-ceramica.html">Pratos</a>
+                <a href="colecao-ceramica.html">Canecas e Xícaras</a>
+                <a href="#">Bules e Jarras</a>
+                <a href="colecao-chaleiras.html">Chaleiras</a>
+                <a href="colecao-ceramica.html">Travessas</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Coleções</div>
+                <a href="colecao-flamme-doree.html">Flamme Dorée</a>
+                <a href="colecao-gift-collection.html">Gift Collection</a>
+                <a href="colecao-churrasco.html">Churrasco</a>
+                <a href="colecao-alpine.html">Coleção Alpine</a>
+                <a href="colecao-modern-heritage.html">Modern Heritage</a>
+                <a href="colecao-jardim.html">Coleção Jardim</a>
+                <a href="colecao-culinaria-oriental.html">Culinária Oriental</a>
+                <a href="colecao-gourmand.html">Coleção Gourmand</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Nossas Cores</div>
+                <div class="mega-colors">
+                  <div class="mega-color-dot" style="background:#2DBECD;" title="Bleu Riviera"></div>
+                  <div class="mega-color-dot" style="background:#d46820;" title="Laranja"></div>
+                  <div class="mega-color-dot" style="background:#c8102e;" title="Vermelho"></div>
+                  <div class="mega-color-dot" style="background:#C85250;" title="Cerise"></div>
+                  <div class="mega-color-dot" style="background:#6B4226;" title="Marronnier"></div>
+                  <div class="mega-color-dot" style="background:#D4C44A;" title="Nectar"></div>
+                  <div class="mega-color-dot" style="background:#B8BEC4;" title="Mist"></div>
+                  <div class="mega-color-dot" style="background:#D4779A;" title="Rose Quartz"></div>
+                  <div class="mega-color-dot" style="background:#F5F5F5;border:1px solid #ddd;" title="Branco"></div>
+                  <div class="mega-color-dot" style="background:#9B7EB0;" title="Bluebell"></div>
+                  <div class="mega-color-dot" style="background:#2060A0;" title="Azure"></div>
+                  <div class="mega-color-dot" style="background:#D4A017;" title="Flamme Dorée"></div>
+                  <div class="mega-color-dot" style="background:#5A5A5A;" title="Graphite"></div>
+                  <div class="mega-color-dot" style="background:#1C1C1C;" title="Matte Black"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="highlight"><a href="colecao-pascoa.html">Páscoa</a></li>
+        <li><a href="colecao-ofertas.html">Ofertas</a></li>
+        <li class="blue"><a href="colecao-bleu-riviera.html">Bleu Riviera</a></li>
+        <li><a href="colecao-lancamentos.html">Lançamentos</a></li>
+        <li><a href="colecao-ferro-fundido.html">Ferro Fundido</a></li>
+        <li><a href="colecao-ceramica.html">Cerâmica</a></li>
+                <li><a href="colecao-best-sellers.html">Best-Sellers</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <div class="search-box">
+        <input type="text" placeholder="Buscar..." />
+        <button><svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 5.15 5.15a7.5 7.5 0 0 0 10.5 11.5z" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></button>
+      </div>
+      <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Entrar</span></a>
+      <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Lista</span></a>
+      <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sacola</span></a>
+    </div>
+  </div>
+</header>
+<div class="filter-overlay" id="filterOverlay"></div>
+<div class="cat-banner">
+  <div class="cat-banner-text">
+    <div class="cat-banner-bc">
+      <a href="index.html">Início</a> / <a href="colecao-acessorios.html">Acessórios</a> / Suportes e Descansos
+    </div>
+    <div class="cat-banner-desc">
+      <p>Da bancada à mesa, cada detalhe importa. Os suportes e descansos Le Creuset unem funcionalidade e elegância em cerâmica e silicone premium — protegendo suas superfícies e elevando o visual da cozinha.</p>
+      <p>Explore nossa coleção de descansos para colher, suportes para bolo, porta-ovos, dispensers e muito mais. Peças pensadas para servir, decorar e organizar com o estilo inconfundível Le Creuset.</p>
+    </div>
+  </div>
+  <div class="cat-banner-img">
+    <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites-le-creuset-br-storefront/default/dw61d334f6/category/cat_banners/categoria-descanso4.jpeg" alt="Suportes e Descansos Le Creuset"/>
+  </div>
+</div>
+<div class="shop-layout">
+  <aside class="sidebar">
+        <div class="filter-section">
+      <div class="filter-header open" onclick="toggleFilter(this)">Categorias
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-body">
+        <label class="filter-option"><input type="checkbox"> Descansos para Colher</label>
+        <label class="filter-option"><input type="checkbox"> Suportes para Ovo</label>
+        <label class="filter-option"><input type="checkbox"> Suportes para Bolo</label>
+        <label class="filter-option"><input type="checkbox"> Dispensers e Porta-Temperos</label>
+        <label class="filter-option"><input type="checkbox"> Protetores de Panela</label>
+        <label class="filter-option"><input type="checkbox"> Porta-Guardanapo e Velas</label>
+      </div>
+    </div>
+        <div class="filter-section">
+      <div class="filter-header open" onclick="toggleFilter(this)">Cores
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="color-filters">
+
+        <div class="color-filter-swatch" style="background:#c8102e;" title="Vermelho"></div>
+        <div class="color-filter-swatch" style="background:#d46820;" title="Laranja"></div>
+        <div class="color-filter-swatch" style="background:#2DBECD;" title="Bleu Riviera"></div>
+        <div class="color-filter-swatch" style="background:#2060A0;" title="Azure"></div>
+        <div class="color-filter-swatch" style="background:#1e4d8c;" title="Marseille"></div>
+        <div class="color-filter-swatch" style="background:#D4C44A;" title="Nectar"></div>
+        <div class="color-filter-swatch" style="background:#7d9a5e;" title="Artichaut"></div>
+        <div class="color-filter-swatch" style="background:#a8d5d5;border:1px solid #ccc;" title="Sea Salt"></div>
+        <div class="color-filter-swatch" style="background:#f4b8c0;border:1px solid #ccc;" title="Shell Pink"></div>
+        <div class="color-filter-swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue"></div>
+        <div class="color-filter-swatch" style="background:#9EA5AB;" title="Flint"></div>
+        <div class="color-filter-swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco"></div>
+        <div class="color-filter-swatch" style="background:#f0c4a8;border:1px solid #ccc;" title="Peche">
+      </div>
+    </div>
+    </div>
+    <div class="filter-section">
+      <div class="filter-header open" onclick="toggleFilter(this)">Preço
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-body">
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="0" data-max="150.0"> Até R$ 150</label>
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="150.0" data-max="350.0"> R$ 150 – R$ 350</label>
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="350.0" data-max="700.0"> R$ 350 – R$ 700</label>
+        <label class="filter-option"><input type="checkbox" class="filter-price-cb" data-min="700.0" data-max="999999"> Acima de R$ 700</label>
+      </div>
+    </div>
+        <div class="filter-section">
+      <div class="filter-header open" onclick="toggleFilter(this)">Material
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="filter-body">
+        <label class="filter-option"><input type="checkbox"> Cerâmica</label>
+        <label class="filter-option"><input type="checkbox"> Silicone</label>
+        <label class="filter-option"><input type="checkbox"> Feltro</label>
+      </div>
+    </div>
+  </aside>
+  <div>
+    <button class="mobile-filter-btn" id="mobileFilterBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+      Filtrar
+    </button>
+    <!-- Mobile filter bar -->
+    <div class="mobile-filter-bar">
+      <div class="mobile-results-count"><strong>21</strong> resultados</div>
+      <div class="mobile-filter-actions">
+        <button class="mobile-filter-toggle" onclick="document.querySelector('.sidebar').classList.add('filter-open');document.getElementById('filterOverlay').classList.add('open');document.body.style.overflow='hidden';">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="8" cy="6" r="2" fill="#000"/><circle cx="16" cy="12" r="2" fill="#000"/><circle cx="10" cy="18" r="2" fill="#000"/></svg>
+          Filtro
+        </button>
+        <select class="mobile-sort-select">
+          <option>Mais Relevantes</option>
+          <option>Menor Preço</option>
+          <option>Maior Preço</option>
+          <option>Novidades</option>
+        </select>
+      </div>
+    </div>
+    <div class="results-bar">
+      <span class="results-count">21 produtos</span>
+      <select class="sort-select">
+        <option>Mais Relevantes</option>
+        <option>Menor Preço</option>
+        <option>Maior Preço</option>
+        <option>Novidades</option>
+      </select>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="suporte-silicone-french.html"><img id="sd1" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw7c62123a/images/suporte_silicone_flint_lecreuset11.jpg?sw=650&sh=650&sm=fit" alt="Suporte Silicone French" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#9EA5AB;" title="Flint" onclick="swatchClick(event,this,'sd1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw7c62123a/images/suporte_silicone_flint_lecreuset11.jpg?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'sd1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw00e28482/images/suporte_silicone_french_laranja_flame.jpg?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw860bde68/images/suporte_silicone_french_vermelho_cerise.jpg?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'sd1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1a7ffa36/images/silicone_french_branco_le_creuset.jpg?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'sd1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw23c3827a/images/produto-lecreuset-suporte-silicone-meringuee1.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'sd1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwad845381/images/suporte_de_silicone-nectar-lecreuset.jpg?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'sd1','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfb9b1f93/images/suporte-silicone-azure-panela.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="suporte-silicone-french.html">
+          <div class="product-card-name">Suporte Silicone French</div>
+          <div class="product-card-sub">Silicone</div>
+          <div class="product-card-price">R$ 139,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="porta-guardanapo-15cm.html"><img id="sd2" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5e14ebc7/images/porta-guardanapo-15cm-seasalt (3).png?sw=650&sh=650&sm=fit" alt="Porta Guardanapo 15cm" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#a8d5d5;border:1px solid #ccc;" title="Sea Salt" onclick="swatchClick(event,this,'sd2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5e14ebc7/images/porta-guardanapo-15cm-seasalt (3).png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwd586ada1/images/porta-guardanapo-15cm-vermelho (2).png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'sd2','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe2acc49b/images/porta-guardanapo-15cm-meringue (2).png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="porta-guardanapo-15cm.html">
+          <div class="product-card-name">Porta Guardanapo 15cm</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 289,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="suporte-para-ovo.html"><img id="sd3" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw87cbb4d8/images/produto-lecreuset-porta-ovo-vermelho.png?sw=650&sh=650&sm=fit" alt="Suporte para Ovo" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw87cbb4d8/images/produto-lecreuset-porta-ovo-vermelho.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'sd3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5965a290/images/produto-lecreuset-porta-ovo-laranja.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#1e4d8c;" title="Marseille" onclick="swatchClick(event,this,'sd3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw6a7bee87/images/produto-lecreuset-porta-ovo-marseille.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'sd3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb82eaadd/images/produto-lecreuset-porta-ovo-meringue.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'sd3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw919ceaff/images/produto-lecreuset-porta-ovo-nectar.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'sd3','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw4cda4535/images/suporte-para-ovo-azure.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="suporte-para-ovo.html">
+          <div class="product-card-name">Suporte para Ovo</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 79,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="suporte-para-bolo.html"><img id="sd4" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw369dbcda/images/suporte-para-bolo1.png?sw=650&sh=650&sm=fit" alt="Suporte para Bolo" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'sd4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw369dbcda/images/suporte-para-bolo1.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd4','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw369dbcda/images/suporte-para-bolo1.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="suporte-para-bolo.html">
+          <div class="product-card-name">Suporte para Bolo</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 496,30</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="bandeja-para-6-ovos.html"><img id="sd5" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwaf0871e9/images/bandeja-para-6-ovos-laranja.png?sw=650&sh=650&sm=fit" alt="Bandeja Para 6 Ovos" /></a>
+          <span class="badge-sale">SALE</span>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'sd5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwaf0871e9/images/bandeja-para-6-ovos-laranja.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw0b72223c/images/bandeja-para-6-ovos-vermelho.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'sd5','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5af4cfad/images/bandeja-para-6-ovos-branco.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="bandeja-para-6-ovos.html">
+          <div class="product-card-name">Bandeja Para 6 Ovos</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price"><span style="text-decoration:line-through;color:#aaa;font-size:13px;font-weight:400;">R$ 209,00</span> R$ 167,20</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="prato-para-aperitivos-e-molhos.html"><img id="sd6" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw7856d2d4/images/prato-para-aperitivos-e-molhos1.png?sw=650&sh=650&sm=fit" alt="Prato para Aperitivos e Molhos" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'sd6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw7856d2d4/images/prato-para-aperitivos-e-molhos1.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa8ada214/images/prato-para-aperitivos-e-molhos2.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'sd6','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw9731c675/images/prato-para-aperitivos-e-molhos3.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="prato-para-aperitivos-e-molhos.html">
+          <div class="product-card-name">Prato para Aperitivos e Molhos</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 889,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="dispenser-para-sabao-580ml.html"><img id="sd7" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw550a8664/images/dispenser-para-sabao-580ml-1.png?sw=650&sh=650&sm=fit" alt="Dispenser para Sabão 580ml" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd7','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw550a8664/images/dispenser-para-sabao-580ml-1.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="dispenser-para-sabao-580ml.html">
+          <div class="product-card-name">Dispenser para Sabão 580ml</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 439,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="set-3-protetores.html"><img id="sd8" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw646049c0/images/set-protetor-para-panela (1).png?sw=650&sh=650&sm=fit" alt="Set 3 Protetores" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'sd8','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw646049c0/images/set-protetor-para-panela (1).png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="set-3-protetores.html">
+          <div class="product-card-name">Set 3 Protetores</div>
+          <div class="product-card-sub">Feltro</div>
+          <div class="product-card-price">R$ 239,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="set-suportes-para-ovo-jardin.html"><img id="sd9" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw22d32c92/images/set-2 suportes-suportes para-para ovo-ovo jardin-sea salt.png?sw=650&sh=650&sm=fit" alt="Set 2 Suportes Para Ovo Jardin" /></a>
+          <span class="badge-sale">SALE</span>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#a8d5d5;border:1px solid #ccc;" title="Sea Salt" onclick="swatchClick(event,this,'sd9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw22d32c92/images/set-2 suportes-suportes para-para ovo-ovo jardin-sea salt.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#f4b8c0;border:1px solid #ccc;" title="Shell Pink" onclick="swatchClick(event,this,'sd9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw2124bdf5/images/set-2 suportes-suportes para-para ovo-ovo jardin-shell pink.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'sd9','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc0fa4dbb/images/set-2 suportes-suportes para-para ovo-ovo jardin-meringue.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="set-suportes-para-ovo-jardin.html">
+          <div class="product-card-name">Set 2 Suportes Para Ovo Jardin</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price"><span style="text-decoration:line-through;color:#aaa;font-size:13px;font-weight:400;">R$ 199,00</span> R$ 139,30</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="suporte-para-bolo-ruffle-28cm.html"><img id="sd10" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw3d7d0ba6/images/suporte-para-bolo-ruffle-28cm-branco.png?sw=650&sh=650&sm=fit" alt="Suporte para Bolo Ruffle 28cm" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'sd10','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw3d7d0ba6/images/suporte-para-bolo-ruffle-28cm-branco.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#f4b8c0;border:1px solid #ccc;" title="Shell Pink" onclick="swatchClick(event,this,'sd10','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw612fe9e2/images/suporte-para-bolo-ruffle-28cm-shell-pink.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="suporte-para-bolo-ruffle-28cm.html">
+          <div class="product-card-name">Suporte para Bolo Ruffle 28cm</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 989,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="tampa-interna-panela-arroz-18cm.html"><img id="sd11" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc38f378c/images/tampa-interna-panela-dearroz.png?sw=650&sh=650&sm=fit" alt="Tampa Interna Panela De Arroz 18cm" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"></div>
+        <a href="tampa-interna-panela-arroz-18cm.html">
+          <div class="product-card-name">Tampa Interna Panela De Arroz 18cm</div>
+          <div class="product-card-sub">Acessório</div>
+          <div class="product-card-price">R$ 439,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="tampa-interna-panela-arroz-20cm.html"><img id="sd12" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwc38f378c/images/tampa-interna-panela-dearroz.png?sw=650&sh=650&sm=fit" alt="Tampa Interna Panela De Arroz 20cm" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"></div>
+        <a href="tampa-interna-panela-arroz-20cm.html">
+          <div class="product-card-name">Tampa Interna Panela De Arroz 20cm</div>
+          <div class="product-card-sub">Acessório</div>
+          <div class="product-card-price">R$ 549,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="prato-para-pao-16cm.html"><img id="sd13" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe854514b/images/pires-16cm-azure.png?sw=650&sh=650&sm=fit" alt="Prato para Pão 16cm" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'sd13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe854514b/images/pires-16cm-azure.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#D4C44A;" title="Nectar" onclick="swatchClick(event,this,'sd13','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw0e83efa8/images/pires-16cm-nectar.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="prato-para-pao-16cm.html">
+          <div class="product-card-name">Prato para Pão 16cm</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 109,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="descanso-redondo-para-colher.html"><img id="sd14" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw4eb76486/images/descanso-redondo-para-colher.png?sw=650&sh=650&sm=fit" alt="Descanso Redondo para Colher" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'sd14','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw4eb76486/images/descanso-redondo-para-colher.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd14','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwbc22236e/images/descanso-redondo-para-colher-laranja.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="descanso-redondo-para-colher.html">
+          <div class="product-card-name">Descanso Redondo para Colher</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 179,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="porta-oleo-600ml.html"><img id="sd15" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw4b9f9a78/images/porta-oleo-lecreuset-2.png?sw=650&sh=650&sm=fit" alt="Porta Óleo 600ml" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw4b9f9a78/images/porta-oleo-lecreuset-2.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#2060A0;" title="Azure" onclick="swatchClick(event,this,'sd15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw3ccdbd46/images/porta-oleo-lecreuset-6%20(2).png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'sd15','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw7ac533d2/images/porta-oleo-lecreuset-4.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="porta-oleo-600ml.html">
+          <div class="product-card-name">Porta Óleo 600ml</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 299,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="descanso-oval-para-colher.html"><img id="sd16" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwd320efe2/images/descanso-oval-nuit.png?sw=650&sh=650&sm=fit" alt="Descanso Oval para Colher" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'sd16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwd320efe2/images/descanso-oval-nuit.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwd320efe2/images/descanso-oval-nuit.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#2DBECD;" title="Bleu Riviera" onclick="swatchClick(event,this,'sd16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwd320efe2/images/descanso-oval-nuit.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#F5F0E8;border:1px solid #ccc;" title="Meringue" onclick="swatchClick(event,this,'sd16','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwd320efe2/images/descanso-oval-nuit.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="descanso-oval-para-colher.html">
+          <div class="product-card-name">Descanso Oval para Colher</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 199,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="suporte-silicone-coracao.html"><img id="sd17" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw36a8baf3/images/844x660-receita-lecreuset-suporte-coração.png?sw=650&sh=650&sm=fit" alt="Suporte de Silicone Coração" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd17','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw36a8baf3/images/844x660-receita-lecreuset-suporte-coração.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="suporte-silicone-coracao.html">
+          <div class="product-card-name">Suporte de Silicone Coração</div>
+          <div class="product-card-sub">Silicone</div>
+          <div class="product-card-price">R$ 159,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="descanso-arvore-natal-colher.html"><img id="sd18" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw6e86bdd4/images/Descanso-Arvore-de-Natal-para-Colher-artichaut-Colher.png?sw=650&sh=650&sm=fit" alt="Descanso para Colher Árvore de Natal" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#7d9a5e;" title="Artichaut" onclick="swatchClick(event,this,'sd18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw6e86bdd4/images/Descanso-Arvore-de-Natal-para-Colher-artichaut-Colher.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#F5F5F5;border:1px solid #ccc;" title="Branco" onclick="swatchClick(event,this,'sd18','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw671d300f/images/Descanso-Arvore-de-Natal-para-Colher-branco-Colher.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="descanso-arvore-natal-colher.html">
+          <div class="product-card-name">Descanso para Colher Árvore de Natal</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 249,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="set-2-suportes-para-velas.html"><img id="sd19" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw0867dbb8/images/suporte-para-vela-lecreuset2.png?sw=650&sh=650&sm=fit" alt="Set 2 Suportes para Velas" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#c8102e;" title="Vermelho" onclick="swatchClick(event,this,'sd19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw0867dbb8/images/suporte-para-vela-lecreuset2.png?sw=650&sh=650&sm=fit')"></span><span class="swatch" style="background:#d46820;" title="Laranja" onclick="swatchClick(event,this,'sd19','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw0867dbb8/images/suporte-para-vela-lecreuset2.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="set-2-suportes-para-velas.html">
+          <div class="product-card-name">Set 2 Suportes para Velas</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 239,00</div>
+        </a>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <a href="set-suporte-ovo-gift-collection.html"><img id="sd20" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw95548df0/images/porta-ovo-gift-lecreuset2.png?sw=650&sh=650&sm=fit" alt="Set Suporte Ovo Gift Collection" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"></div>
+        <a href="set-suporte-ovo-gift-collection.html">
+          <div class="product-card-name">Set Suporte Ovo Gift Collection</div>
+          <div class="product-card-sub">Cerâmica</div>
+          <div class="product-card-price">R$ 409,00</div>
+        </a>
+      </div>
+      <div class="product-card" data-price-min="179.0" data-colors="Peche">
+        <div class="product-card-img">
+          <a href="set-4-protetores.html"><img id="sd21" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa8412510/images/x4-lecreuset-suporte-trived-peche.png?sw=650&sh=650&sm=fit" alt="Set 4 Protetores" /></a>
+          <div class="product-wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        
+          <span class="product-card-star">&#9733;</span>
+        </div>
+        <div class="product-colors"><span class="swatch active" style="background:#f0c4a8;border:1px solid #ccc;" title="Peche" onclick="swatchClick(event,this,'sd21','https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa8412510/images/x4-lecreuset-suporte-trived-peche.png?sw=650&sh=650&sm=fit')"></span></div>
+        <a href="set-4-protetores.html">
+          <div class="product-card-name">Set 4 Protetores</div>
+          <div class="product-card-sub">Silicone</div>
+          <div class="product-card-price">R$ 179,00</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites/default/dwd459bb3e/images/logo.svg" alt="Le Creuset" /></a>
+        <p>Desde 1925, criando peças excepcionais que transformam o cozinhar em arte.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">f</a><a href="#" class="social-btn">in</a><a href="#" class="social-btn">yt</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Produtos</h4><ul>
+        <li><a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a></li>
+        <li><a href="colecao-3ply-aco-inox.html">3-Ply Aço Inox</a></li>
+        <li><a href="colecao-formatos-especiais.html">Formatos Especiais</a></li>
+        <li><a href="colecao-acessorios.html">Acessórios</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Atendimento</h4><ul>
+        <li><a href="#">Central de Ajuda</a></li>
+        <li><a href="#">Rastrear Pedido</a></li>
+        <li><a href="#">Trocas e Devoluções</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul>
+        <li><a href="#">Sobre Nós</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul>
+        <li><a href="#">Privacidade</a></li>
+        <li><a href="#">Termos</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Le Creuset Brasil. Todos os direitos reservados.</p>
+      <div class="payment-icons">
+        <span class="payment-icon">VISA</span><span class="payment-icon">MASTER</span>
+        <span class="payment-icon">PIX</span><span class="payment-icon">AMEX</span>
+        <span class="payment-icon">BOLETO</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  function toggleFilter(el) {
+    el.classList.toggle('open');
+    var body = el.nextElementSibling;
+    if (body) body.style.display = el.classList.contains('open') ? '' : 'none';
+  }
+
+function swatchClick(e, el, imgId, newSrc) {
+  e.stopPropagation();
+  el.parentElement.querySelectorAll('.swatch').forEach(function(s){ s.classList.remove('active'); });
+  el.classList.add('active');
+  var img = document.getElementById(imgId);
+  if (!img) return;
+  if (newSrc) img.src = newSrc;
+  var colorFilters = {
+    'Vermelho':'hue-rotate(-38deg) saturate(1.5)',
+    'Laranja':'',
+    'Branco':'saturate(0) brightness(2.2)',
+    'Meringue':'saturate(0.1) brightness(1.65)',
+    'Flint':'grayscale(0.8) brightness(0.9)',
+    'Sea Salt':'hue-rotate(155deg) saturate(0.55) brightness(1.25)',
+    'Shell Pink':'hue-rotate(-25deg) saturate(0.38) brightness(1.3)',
+    'Bleu Riviera':'hue-rotate(160deg) saturate(1.3)',
+    'Azure':'hue-rotate(178deg) saturate(0.85) brightness(0.82)',
+    'Marseille':'hue-rotate(200deg) saturate(0.85) brightness(0.68)',
+    'Nectar':'hue-rotate(28deg) saturate(0.95)',
+    'Artichaut':'hue-rotate(95deg) saturate(0.7) brightness(0.85)',
+    'Peche':'hue-rotate(-15deg) saturate(0.45) brightness(1.2)',
+  };
+  var f = colorFilters[el.getAttribute('title')];
+  img.style.filter = (f !== undefined ? f : '');
+  img.style.transition = 'filter 0.3s ease';
+}
+(function() {
+  var slides = document.querySelectorAll('.promo-slide');
+  var cur = 0;
+  function show(i) { slides[cur].classList.remove('active'); cur = (i + slides.length) % slides.length; slides[cur].classList.add('active'); }
+  var timer = setInterval(function(){ show(cur + 1); }, 5000);
+  var prev = document.getElementById('promoPrev');
+  var next = document.getElementById('promoNext');
+  if (prev) prev.addEventListener('click', function(){ clearInterval(timer); show(cur-1); timer = setInterval(function(){ show(cur+1); }, 5000); });
+  if (next) next.addEventListener('click', function(){ clearInterval(timer); show(cur+1); timer = setInterval(function(){ show(cur+1); }, 5000); });
+})();
+(function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var nav = document.getElementById('mobileNav');
+  var overlay = document.getElementById('mobileOverlay');
+  var closeBtn = document.getElementById('mobileNavClose');
+  function openNav() { nav.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeNav() { nav.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow=''; }
+  if (btn) btn.addEventListener('click', openNav);
+  if (closeBtn) closeBtn.addEventListener('click', closeNav);
+  if (overlay) overlay.addEventListener('click', closeNav);
+  document.querySelectorAll('.nav-acc-btn').forEach(function(b) {
+    b.addEventListener('click', function() { b.closest('.nav-accordion').classList.toggle('open'); });
+  });
+  var filterBtn = document.getElementById('mobileFilterBtn');
+  var sidebar = document.querySelector('.sidebar');
+  var filterOverlay = document.getElementById('filterOverlay');
+  function openFilter() { sidebar.classList.add('filter-open'); filterOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeFilter() { sidebar.classList.remove('filter-open'); filterOverlay.classList.remove('open'); document.body.style.overflow=''; }
+  if (filterBtn) filterBtn.addEventListener('click', openFilter);
+  if (filterOverlay) filterOverlay.addEventListener('click', closeFilter);
+})();
+
+// ── Filter Logic ──
+(function() {
+  var cards = document.querySelectorAll('.product-card');
+  var colorSwatches = document.querySelectorAll('.color-filter-swatch');
+  var countEl = document.querySelector('.results-count strong') || document.querySelector('.results-count');
+
+  // Detect filter sections by header text
+  var priceCbs = [];
+  var capCbs = [];
+  var typeCbs = [];
+
+  document.querySelectorAll('.filter-group, .filter-section').forEach(function(section) {
+    var header = section.querySelector('.filter-title, .filter-header');
+    if (!header) return;
+    var headerText = header.textContent.trim().toLowerCase();
+    var checkboxes = section.querySelectorAll('input[type="checkbox"]');
+
+    if (headerText.indexOf('pre') === 0 || headerText.indexOf('preço') >= 0 || headerText.indexOf('preco') >= 0 || headerText.indexOf('valor') >= 0) {
+      checkboxes.forEach(function(cb) { priceCbs.push(cb); });
+    } else if (headerText.indexOf('capac') >= 0 || headerText.indexOf('volume') >= 0 || headerText.indexOf('litro') >= 0) {
+      checkboxes.forEach(function(cb) { capCbs.push(cb); });
+    } else if (headerText.indexOf('cor') < 3 && headerText.indexOf('cor') >= 0) {
+      // "Cor" section - skip, handled by swatches
+    } else {
+      // Type/category filter
+      checkboxes.forEach(function(cb) { typeCbs.push(cb); });
+    }
+  });
+
+  function parsePrice(text) {
+    var nums = text.match(/[\d.,]+/g);
+    if (!nums) return 0;
+    return parseFloat(nums[0].replace(/\./g, '').replace(',', '.')) || 0;
+  }
+
+  function getPriceRange(label) {
+    // Clone label and remove filter-count span to avoid polluting price parsing
+    var clone = label.cloneNode(true);
+    var countSpan = clone.querySelector('.filter-count');
+    if (countSpan) countSpan.remove();
+    var text = clone.textContent || clone.innerText || '';
+    var nums = text.match(/[\d.,]+/g);
+    if (!nums) return {min:0, max:999999};
+    var lower = text.toLowerCase();
+    if (lower.indexOf('mais') >= 0 || lower.indexOf('acima') >= 0 || text.indexOf('+') >= 0) {
+      return {min: parsePrice('R$ ' + nums[0]), max: 999999};
+    }
+    if (lower.indexOf('at') >= 0 && nums.length === 1) {
+      return {min:0, max: parsePrice('R$ ' + nums[0])};
+    }
+    if (nums.length >= 2) {
+      return {min: parsePrice('R$ ' + nums[0]), max: parsePrice('R$ ' + nums[1])};
+    }
+    return {min:0, max:999999};
+  }
+
+  // Color swatch toggle
+  colorSwatches.forEach(function(sw) {
+    sw.addEventListener('click', function() {
+      sw.classList.toggle('active');
+      applyFilters();
+    });
+  });
+
+  // Checkbox listeners
+  priceCbs.concat(capCbs).concat(typeCbs).forEach(function(cb) {
+    cb.addEventListener('change', applyFilters);
+  });
+
+  function applyFilters() {
+    // Active price ranges
+    var activePrices = [];
+    priceCbs.forEach(function(cb) {
+      if (cb.checked) {
+        var label = cb.closest('label') || cb.parentElement;
+        activePrices.push(getPriceRange(label));
+      }
+    });
+
+    // Active capacities
+    var activeCaps = [];
+    capCbs.forEach(function(cb) {
+      if (cb.checked) {
+        var label = cb.closest('label') || cb.parentElement;
+        var text = (label.textContent || '').trim();
+        activeCaps.push(text.replace(/^\s+|\s+$/g, ''));
+      }
+    });
+
+    // Active colors
+    var activeColors = [];
+    colorSwatches.forEach(function(sw) {
+      if (sw.classList.contains('active')) activeColors.push(sw.getAttribute('title'));
+    });
+
+    // Active types
+    var activeTypes = [];
+    typeCbs.forEach(function(cb) {
+      if (cb.checked) {
+        var label = cb.closest('label') || cb.parentElement;
+        activeTypes.push((label.textContent || '').trim());
+      }
+    });
+
+    var visible = 0;
+    cards.forEach(function(card) {
+      var show = true;
+
+      // Price filter
+      if (activePrices.length > 0) {
+        var priceMin = parseFloat(card.dataset.priceMin) || 0;
+        var priceMatch = false;
+        activePrices.forEach(function(range) {
+          if (priceMin >= range.min && priceMin <= range.max) priceMatch = true;
+        });
+        if (!priceMatch) show = false;
+      }
+
+      // Capacity filter - check if card text contains the capacity value
+      if (show && activeCaps.length > 0) {
+        var cardText = card.textContent || '';
+        var capMatch = false;
+        activeCaps.forEach(function(cap) {
+          if (cardText.indexOf(cap) >= 0) capMatch = true;
+        });
+        // Also check data-caps attribute
+        if (!capMatch && card.dataset.caps) {
+          var cardCaps = card.dataset.caps.split(',');
+          activeCaps.forEach(function(cap) {
+            if (cardCaps.indexOf(cap) >= 0) capMatch = true;
+          });
+        }
+        if (!capMatch) show = false;
+      }
+
+      // Color filter
+      if (show && activeColors.length > 0 && card.dataset.colors) {
+        var cardColors = card.dataset.colors.split(',');
+        var colorMatch = false;
+        activeColors.forEach(function(color) {
+          if (cardColors.indexOf(color) !== -1) colorMatch = true;
+        });
+        if (!colorMatch) show = false;
+      }
+
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    // Update count
+    if (countEl) {
+      if (countEl.tagName === 'STRONG') {
+        countEl.textContent = visible;
+      } else {
+        var strong = countEl.querySelector('strong');
+        if (strong) {
+          strong.textContent = visible;
+        } else {
+          countEl.textContent = visible + ' resultados';
+        }
+      }
+    }
+  }
+})();
+
+
+</script>
+
+<!-- Mobile overlay -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="document.getElementById('mobileNav').classList.remove('open');this.classList.remove('open');"></div>
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header">
+    <button class="mobile-nav-close" onclick="this.closest('.mobile-nav').classList.remove('open');document.getElementById('mobileOverlay').classList.remove('open');">&times;</button>
+  </div>
+  <div class="mnav-search">
+    <input type="text" placeholder="O que voc&ecirc; est&aacute; procurando?" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Cozinhar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a>
+      <a href="colecao-frigideiras-e-skillets.html">Frigideiras e Skillets</a>
+      <a href="colecao-grelhas.html">Grelhas</a>
+      <a href="colecao-antiaderente.html">Antiaderente</a>
+      <a href="colecao-cacarolas.html">Ca&ccedil;arolas</a>
+      <a href="colecao-chaleiras.html">Chaleiras de A&ccedil;o Esmaltado</a>
+      <a href="colecao-3ply-aco-inox.html">3-Ply A&ccedil;o Inox</a>
+      <a href="colecao-formatos-especiais.html">Formatos Especiais</a>
+      <a href="colecao-primeira-le-creuset.html">Minha Primeira Le Creuset</a>
+      <a href="colecao-stockpots.html">Stockpots</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Assar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-mini-cocotte.html">Mini Cocotte e Ramekins</a>
+      <a href="colecao-formas-metal-bakeware.html">Formas Metal Bakeware</a>
+      <a href="colecao-assadeiras-travessas.html">Assadeiras e Travessas</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Acess&oacute;rios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-moedores-e-galheteiro.html">Moedores e Galheteiro</a>
+      <a href="colecao-utensilios.html">Utens&iacute;lios</a>
+      <a href="colecao-utensilios-madeira.html">Utens&iacute;lios de Madeira</a>
+      <a href="colecao-suporte-descansos.html">Suportes e Descansos</a>
+      <a href="colecao-potes-e-porta-mantimentos.html">Potes e Porta-Mantimentos</a>
+      <a href="colecao-acessorios-de-vinhos.html">Acess&oacute;rios de Vinhos</a>
+      <a href="colecao-sets.html">Sets</a>
+      <a href="colecao-vasos.html">Decora&ccedil;&atilde;o</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Preparar e Servir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-bowls.html">Bowls</a>
+      <a href="colecao-pratos.html">Pratos</a>
+      <a href="colecao-canecas-e-xicaras.html">Canecas e X&iacute;caras</a>
+      <a href="colecao-bules-e-jarras.html">Bules e Jarras</a>
+      <a href="colecao-chaleiras.html">Chaleiras</a>
+      <a href="colecao-travessas.html">Travessas</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Cole&ccedil;&otilde;es <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-flamme-doree.html">Flamme Dor&eacute;e</a>
+      <a href="colecao-gift-collection.html">Gift Collection</a>
+      <a href="colecao-churrasco.html">Churrasco</a>
+      <a href="colecao-alpine.html">Cole&ccedil;&atilde;o Alpine</a>
+      <a href="colecao-modern-heritage.html">Modern Heritage</a>
+      <a href="colecao-jardim.html">Cole&ccedil;&atilde;o Jardim</a>
+      <a href="colecao-culinaria-oriental.html">Culin&aacute;ria Oriental</a>
+      <a href="colecao-gourmand.html">Cole&ccedil;&atilde;o Gourmand</a>
+    </div>
+  </div>
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Nossas Cores <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body" style="padding:0;"></div>
+  </div>
+  <div class="mnav-colors">
+    <a href="colecao-bleu-riviera.html" class="mnav-color" style="background:#2DBECD;" title="Bleu Riviera"></a>
+    <a href="colecao-flamme-doree.html" class="mnav-color" style="background:#D4A017;" title="Flamme Doree"></a>
+  </div>
+  <ul class="mnav-links">
+    <li class="highlight"><a href="#">Dia das M&atilde;es</a></li>
+    <li><a href="colecao-ofertas.html">Ofertas</a></li>
+    <li><a href="colecao-bleu-riviera.html">Bleu Riviera</a></li>
+    <li><a href="colecao-lancamentos.html">Lan&ccedil;amentos</a></li>
+    <li><a href="colecao-ferro-fundido.html">Ferro Fundido</a></li>
+    <li><a href="colecao-ceramica.html">Cer&acirc;mica</a></li>
+        <li><a href="colecao-best-sellers.html">Best-sellers</a></li>
+  </ul>
+</nav>
+<!-- Mobile search overlay -->
+<div class="mobile-search-overlay" id="mobileSearchOverlay">
+  <div class="mobile-search-bar">
+    <button class="search-overlay-close" onclick="document.getElementById('mobileSearchOverlay').classList.remove('open');">&times;</button>
+    <input type="text" placeholder="O que você está procurando?" id="mobileSearchInput" />
+    <button class="search-overlay-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  </div>
+</div>
+
+<!-- Mobile bottom navigation -->
+<nav class="bottom-nav" id="bottomNav">
+  <a href="index.html" class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9,22 9,12 15,12 15,22" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Home</span>
+  </a>
+  <a href="#" class="bottom-nav-item" onclick="document.getElementById('mobileSearchOverlay').classList.add('open');">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+    <span>Buscar</span>
+  </a>
+  <a href="colecao-best-sellers.html" class="bottom-nav-item active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span>Produtos</span>
+  </a>
+  <a href="#" class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Lista</span>
+  </a>
+  <a href="#" class="bottom-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Sacola</span>
+  </a>
+</nav>
+
+<script src="cart.js"></script>
+</body>
+</html>

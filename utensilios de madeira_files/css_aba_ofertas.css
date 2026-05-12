@@ -1,0 +1,16 @@
+.CaixaDeOfertas{width: 260px;padding: 2px;height: 380px;position: fixed;background: white;z-index: 1;top: 200px;right: -262px;box-shadow: 0px 0px 6px rgba(0, 0, 0, .25);visibility: hidden;transition: right 0.5s ease; overflow-x: auto;}
+.Linkcx{display: flex;align-items: center;margin: 5px 0;}
+.Linkcx:hover {background-color: #f8f8f8;}
+.CXgeral{padding: 6px;height: auto;}
+.CXimgOfer{width: 40%;float: left;margin-right: 15px;}
+.textoCX{width: 59%;font-size: .875em;line-height: 16px;}
+.BotaoOfertas {position: fixed;top: 252px;right: -53px;z-index: 1;transform: rotate(270deg);border-radius: 10px 10px 0px 0px;border: none;background-color: white;box-shadow: 0px 0px 6px rgba(0, 0, 0, .25);padding: 4px 10px 0px 5px;transition: right 0.5s ease;width: 146px;}
+.LayoutBotao{left: 9px;z-index: 1;position: relative;color: white;}
+#Contadordeofertas{transform: rotate(270deg);max-width: 23px;position: relative;left: -11px;top: -3px;}
+#botaodeofertas{}
+#fecharOfertas{position: fixed;color: gray;right: 8px;top: 204PX;transition: right 0.5s ease;border: none;transform: rotate(270deg);background: none;z-index: 2;}
+#fecharOfertas:hover{color: black;}
+.BotaoCX{color: #000;text-align: center;text-decoration: none;background-color: #DDDDDD;display: block;border: 1px solid #CCCCCC;padding: 10px;margin-top: 10px;}
+.ChamadaOfer{font-weight: 400;margin-bottom: 0;}
+.ComplementoOfer{font-weight: 200;margin-bottom: 0;}
+.CTAOfer{font-weight: 300;margin-bottom: 0;}

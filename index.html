@@ -1,0 +1,2968 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Le Creuset Brasil - Panelas, Utensílios e Acessórios de Cozinha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      color: #000;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── TOP BAR ─── */
+    .top-bar {
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 12px;
+      text-align: center;
+      padding: 8px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .top-bar-track {
+      display: flex;
+      transition: opacity 0.5s;
+    }
+    .top-bar-item {
+      display: none;
+      width: 100%;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .top-bar-item.active { display: block; }
+    .top-bar-item a {
+      color: #fff;
+      text-decoration: underline;
+      margin-left: 4px;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      height: 64px;
+      gap: 24px;
+    }
+    .logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+    .logo img { height: 45px; width: auto; }
+    
+
+    /* ─── NAV ─── */
+    nav { flex: 1; }
+    .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 0;
+      align-items: center;
+    }
+    .nav-list > li {
+      position: relative;
+    }
+    .nav-list > li > a {
+      display: block;
+      padding: 22px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #000;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .nav-list > li > a:hover { border-bottom-color: #000; }
+    .nav-list > li.highlight > a { color: #c8102e; }
+    .nav-list > li.blue > a { color: #2563ab; }
+
+    /* Dropdown */
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-top: none;
+      min-width: 200px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      z-index: 200;
+      padding: 12px 0;
+    }
+    .nav-list > li:hover .dropdown { display: block; }
+    .dropdown a {
+      display: block;
+      padding: 8px 20px;
+      font-size: 13px;
+      color: #333;
+    }
+    .dropdown a:hover { background: #f5f5f5; }
+
+    /* ─── MEGA MENU ─── */
+    .mega-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-top: 3px solid #c8102e;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      z-index: 200;
+    }
+    .nav-list > li:hover .mega-menu { display: block; }
+    .mega-inner {
+      display: flex;
+      padding: 28px 32px;
+      gap: 36px;
+    }
+    .mega-col {
+      display: flex;
+      flex-direction: column;
+      min-width: 120px;
+    }
+    .mega-col-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #999;
+      padding-bottom: 10px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #eee;
+    }
+    .mega-col a {
+      font-size: 13px;
+      color: #333;
+      padding: 5px 0;
+      display: block;
+      white-space: nowrap;
+    }
+    .mega-col a:hover { color: #c8102e; }
+    .mega-colors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .mega-color-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .mega-color-dot:hover {
+      transform: scale(1.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .mega-img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+    }
+
+    /* Header icons */
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .header-icons a {
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      color: #000;
+    }
+    .header-icons svg { width: 22px; height: 22px; }
+
+    /* Search */
+    .search-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 36px;
+    }
+    .search-box input {
+      border: none;
+      outline: none;
+      padding: 0 12px;
+      font-size: 13px;
+      width: 180px;
+      font-family: inherit;
+    }
+    .search-box button {
+      background: #000;
+      border: none;
+      cursor: pointer;
+      padding: 0 12px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .search-box button svg { fill: #fff; width: 16px; height: 16px; }
+
+    /* ─── HERO BANNER ─── */
+    @keyframes kenBurns {
+      0%   { transform: scale(1)    translateX(0)      translateY(0); }
+      100% { transform: scale(1.08) translateX(-1%)    translateY(-1%); }
+    }
+    @keyframes kenBurns2 {
+      0%   { transform: scale(1)    translateX(0)      translateY(0); }
+      100% { transform: scale(1.08) translateX(1%)     translateY(-0.5%); }
+    }
+
+    /* Door opening animation */
+    @keyframes doorLeft {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    @keyframes doorRight {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(100%); }
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 32vw;
+      min-height: 340px;
+      overflow: hidden;
+      background: #1a1a1a;
+      user-select: none;
+    }
+
+    /* Door overlay panels */
+    .hero-door {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      display: none;
+    }
+    .hero-door.active { display: block; }
+    .hero-door-left,
+    .hero-door-right {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: #111;
+    }
+    .hero-door-left  { left: 0; }
+    .hero-door-right { right: 0; }
+    .hero-door.opening .hero-door-left  { animation: doorLeft  0.9s cubic-bezier(0.77,0,0.18,1) forwards; }
+    .hero-door.opening .hero-door-right { animation: doorRight 0.9s cubic-bezier(0.77,0,0.18,1) forwards; }
+
+    /* Slides */
+    .hero-slides {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0s;
+      overflow: hidden;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
+    .hero-slide.prev {
+      opacity: 1;
+      z-index: 1;
+    }
+    .hero-slide a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transform-origin: center center;
+    }
+    .hero-slide.active img {
+      animation: kenBurns 6s ease-out forwards;
+    }
+    .hero-slide:nth-child(2).active img {
+      animation: kenBurns2 6s ease-out forwards;
+    }
+
+    /* Arrow buttons */
+    .hero-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s;
+      padding: 0;
+      backdrop-filter: blur(4px);
+    }
+    .hero-arrow:hover { background: rgba(255,255,255,0.35); }
+    .hero-arrow-prev { left: 20px; }
+    .hero-arrow-next { right: 20px; }
+    .hero-arrow svg {
+      width: 28px;
+      height: 28px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-reveal="left"] { transform: translateX(-40px); }
+    [data-reveal="left"].revealed { transform: translateX(0); }
+    [data-reveal="right"] { transform: translateX(40px); }
+    [data-reveal="right"].revealed { transform: translateX(0); }
+    [data-reveal-delay="1"] { transition-delay: 0.1s; }
+    [data-reveal-delay="2"] { transition-delay: 0.2s; }
+    [data-reveal-delay="3"] { transition-delay: 0.3s; }
+    [data-reveal-delay="4"] { transition-delay: 0.4s; }
+    [data-reveal-delay="5"] { transition-delay: 0.5s; }
+    [data-reveal-delay="6"] { transition-delay: 0.6s; }
+    [data-reveal-delay="7"] { transition-delay: 0.7s; }
+    [data-reveal-delay="8"] { transition-delay: 0.8s; }
+
+    .hero-btn {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      padding: 14px 36px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 2px solid #000;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .hero-btn:hover { background: transparent; color: #000; }
+    .hero-btn.outline {
+      background: transparent;
+      color: #000;
+      margin-left: 12px;
+    }
+    .hero-btn.outline:hover { background: #000; color: #fff; }
+
+    /* ─── SECTION COMMON ─── */
+    .section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .section-subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-top: 4px;
+    }
+    .view-all {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #000;
+      padding-bottom: 2px;
+    }
+
+    /* ─── PRODUCTS GRID ─── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .product-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card-media {
+      overflow: hidden;
+      background: transparent;
+    }
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.06);
+    }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #c8102e;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      letter-spacing: 0.5px;
+    }
+    .product-badge.gold { background: #946d36; }
+    .product-badge.black { background: #000; }
+    .product-info { padding: 12px 0 16px; }
+    .product-name {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .product-price {
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .product-price-old {
+      font-size: 12px;
+      color: #999;
+      text-decoration: line-through;
+      margin-right: 6px;
+    }
+    .product-price-new { color: #c8102e; }
+    .product-installment {
+      font-size: 11px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    /* ─── SCROLLABLE CAROUSEL ─── */
+    .products-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+    }
+    .products-scroll::-webkit-scrollbar { height: 4px; }
+    .products-scroll::-webkit-scrollbar-track { background: #eee; }
+    .products-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+    .products-scroll .product-card {
+      flex: 0 0 220px;
+      scroll-snap-align: start;
+    }
+
+    /* ─── PRICE RANGE FILTER ─── */
+    .price-range-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+    }
+    .price-range-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .price-range-card {
+      display: block;
+      text-align: center;
+      cursor: pointer;
+    }
+    .price-range-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .price-range-card:hover img {
+      transform: scale(1.03);
+    }
+    .price-range-card span {
+      display: block;
+      margin-top: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    /* ─── COLLECTION CARDS (2-col) ─── */
+    .collection-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+    .collection-card {
+      position: relative;
+      height: 380px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 36px;
+      background-size: cover;
+      background-position: center;
+    }
+    .collection-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+      z-index: 1;
+    }
+    .collection-card-content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+    }
+    .collection-card-content h3 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .collection-card-content p {
+      font-size: 14px;
+      opacity: 0.85;
+      margin-bottom: 20px;
+      max-width: 340px;
+      line-height: 1.5;
+    }
+    .collection-card-btn {
+      display: inline-block;
+      padding: 10px 24px;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+    }
+    .collection-card-btn:hover { background: #fff; color: #000; }
+
+    /* ─── NON-STICK BANNER ─── */
+    .nonstick-section {
+      background: #fff;
+      padding: 60px 24px;
+    }
+    .nonstick-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .nonstick-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .nonstick-banner img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+    }
+    .nonstick-banner-text h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .nonstick-banner-text p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    /* ─── BRAND VALUES ─── */
+    .brand-values {
+      background: #fff;
+      padding: 60px 24px;
+    }
+    .brand-values-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .brand-value-item h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .brand-value-item p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+    }
+    .brand-value-icon {
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .brand-value-icon svg {
+      width: 64px;
+      height: 64px;
+    }
+
+    /* ─── PROMO BANNER FULL ─── */
+    .promo-banner {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .promo-banner-inner { max-width: 700px; margin: 0 auto; }
+    .promo-banner h2 {
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .promo-banner p { font-size: 16px; color: #aaa; margin-bottom: 28px; }
+    .promo-banner .hero-btn {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+    .promo-banner .hero-btn:hover { background: transparent; color: #fff; }
+
+    /* ─── COLORS SECTION ─── */
+    .colors-section {
+      background: #f8f8f8;
+      padding: 60px 24px;
+    }
+    .colors-inner { max-width: 1400px; margin: 0 auto; }
+    .colors-title {
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .colors-subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 36px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .colors-featured {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .colors-featured img {
+      max-width: 280px;
+      width: 100%;
+      display: block;
+      margin: 0 auto 12px;
+    }
+    .colors-featured-badge {
+      display: inline-block;
+      background: #c8841c;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 5px 14px;
+      margin-bottom: 8px;
+    }
+    .colors-featured-name {
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .colors-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .color-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .color-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #e0e0e0;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .color-swatch:hover .color-circle { transform: scale(1.12); border-color: #000; }
+    .color-name { font-size: 10px; font-weight: 600; text-align: center; max-width: 60px; }
+
+    /* ─── NEWSLETTER BANNER ─── */
+    .newsletter {
+      background: linear-gradient(135deg, #f5dfc0 0%, #e8c090 100%);
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .newsletter h2 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    .newsletter p { font-size: 15px; color: #555; margin-bottom: 28px; }
+    .newsletter-form {
+      display: flex;
+      gap: 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      border: 2px solid #000;
+      border-right: none;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      background: #fff;
+    }
+    .newsletter-form button {
+      background: #000;
+      color: #fff;
+      border: 2px solid #000;
+      padding: 12px 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, color 0.2s;
+    }
+    .newsletter-form button:hover { background: #333; }
+
+    /* ─── RECIPE SECTION ─── */
+    .recipe-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .recipe-img-wrap {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .recipe-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .recipe-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #946d36;
+      margin-bottom: 12px;
+    }
+    .recipe-title { font-size: 36px; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+    .recipe-text { font-size: 15px; color: #555; margin-bottom: 28px; line-height: 1.7; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 60px 24px 30px;
+    }
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .logo { margin-bottom: 16px; display: block; } .footer-brand .logo img { height: 28px; width: auto; }
+    .footer-brand p { font-size: 13px; color: #aaa; line-height: 1.7; max-width: 280px; margin-bottom: 20px; }
+    .footer-logo-img { max-width: 150px; margin-bottom: 16px; display: block; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn {
+      width: 36px; height: 36px;
+      border: 1px solid #444;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .social-btn:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      font-size: 13px;
+      color: #aaa;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p { font-size: 12px; color: #666; }
+    .footer-legal { font-size: 11px; color: #555; margin-top: 12px; line-height: 1.6; }
+    .payment-icons { display: flex; gap: 8px; align-items: center; }
+    .payment-icon {
+      background: #222;
+      border: 1px solid #444;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #aaa;
+    }
+
+    /* ─── SECTION DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: #e5e5e5;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: #f8f8f8;
+      padding: 28px 24px;
+    }
+    .trust-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .trust-icon { font-size: 24px; }
+    .trust-text-title { font-size: 13px; font-weight: 700; }
+    .trust-text-sub { font-size: 11px; color: #666; }
+
+    /* Section CTA centered */
+    .section-cta {
+      text-align: center;
+      margin-top: 36px;
+    }
+
+    /* ══════════════════════════════════════
+       MOBILE COMPONENTS
+    ══════════════════════════════════════ */
+    /* ── MOBILE QUICK MENU (homepage, below hero) ── */
+    .mobile-quick-menu { display: none; }
+
+    /* ── MOBILE SEARCH BAR (below header, always visible) ── */
+    .mobile-header-search { display: none; padding: 8px 14px 10px; background: #fff; border-bottom: 1px solid #eee; }
+    .mobile-header-search-inner {
+      display: flex; align-items: center; gap: 10px; background: #f5f5f5;
+      border-radius: 24px; padding: 0 16px; height: 42px; cursor: pointer;
+    }
+    .mobile-header-search-inner svg { width: 18px; height: 18px; flex-shrink: 0; opacity: .45; }
+    .mobile-header-search-inner span { font-size: 14px; color: #999; flex: 1; }
+    .mobile-search-bar input::placeholder { color: #aaa; }
+    .search-cat-tag:hover { background: #eaeaea; }
+
+    /* ══════════════════════════════════════
+       BREAKPOINT 768px
+    ══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .search-box { display: none; }
+      .header-icons { gap: 10px; }
+      .header-icons a span { display: none; }
+      .header-icons a { gap: 0; }
+      .header-icons svg { width: 22px; height: 22px; }
+      .logo { flex: 1; text-align: center; justify-content: center; } .logo img { height: 32px; }
+      /* Mobile search bar below header */
+      .mobile-header-search { display: block; }
+      /* Mobile quick menu */
+      .mobile-quick-menu {
+        display: flex; flex-wrap: wrap; background: #f8f8f8; padding: 0;
+      }
+      .mobile-quick-menu a {
+        flex: 1 1 auto; min-width: 25%; padding: 12px 8px; text-align: center;
+        font-size: 13px; font-weight: 600; color: #333; border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+      }
+      .mobile-quick-menu a:last-child { border-right: none; }
+
+      /* Hero — full-width, auto height so banners are not cropped */
+      .hero { height: auto; min-height: 0; max-height: none; aspect-ratio: auto; }
+      .hero-slides { height: auto; position: relative; }
+      .hero-slide { position: relative; inset: auto; display: none; }
+      .hero-slide.active { display: block; opacity: 1; }
+      .hero-slide.prev { display: none; opacity: 0; }
+      .hero-slide picture { display: block; width: 100%; }
+      .hero-slide img { width: 100%; height: auto; object-fit: contain; object-position: center; }
+      .hero-slide.active img { animation: none; }
+      .hero-arrow { width: 36px; height: 36px; }
+      .hero-arrow svg { width: 20px; height: 20px; }
+      .hero-arrow-prev { left: 8px; }
+      .hero-arrow-next { right: 8px; }
+
+      /* Trust bar */
+      .trust-inner { gap: 20px; flex-wrap: wrap; justify-content: center; }
+      .trust-item { flex: 0 0 calc(50% - 10px); }
+      .trust-bar { padding: 20px 14px; }
+
+      /* Sections */
+      .section { padding: 36px 14px; }
+      .section-title { font-size: 22px; }
+      .section-header { margin-bottom: 20px; }
+
+      /* Products 4col -> 2col */
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .product-name { font-size: 12px; }
+      .product-price { font-size: 13px; }
+      .product-installment { font-size: 10px; }
+
+      /* Scroll cards */
+      .products-scroll .product-card { flex: 0 0 170px; }
+
+      /* Collection row -> stack */
+      .collection-row { grid-template-columns: 1fr; padding: 0 14px 36px; gap: 10px; }
+      .collection-card { height: 220px; padding: 24px 20px; border-radius: 6px; }
+      .collection-card-content h3 { font-size: 20px; }
+      .collection-card-content p { font-size: 13px; margin-bottom: 14px; }
+      .collection-card-btn { font-size: 10px; padding: 8px 18px; }
+
+      /* Buttons mobile */
+      .hero-btn { padding: 12px 24px; font-size: 12px; }
+      .section-cta { margin-top: 24px; }
+      .view-all { font-size: 11px; }
+
+      /* Non-stick */
+      .nonstick-banner { grid-template-columns: 1fr; gap: 20px; }
+      .nonstick-banner-text h2 { font-size: 26px; }
+      .nonstick-section { padding: 36px 14px; }
+
+      /* Brand values */
+      .brand-values-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .brand-values { padding: 36px 14px; }
+
+      /* Colors section */
+      .colors-section { padding: 36px 14px; }
+      .color-circle { width: 38px; height: 38px; }
+      .colors-grid { gap: 12px; }
+
+      /* Recipe -> stack */
+      .recipe-card { grid-template-columns: 1fr; gap: 24px; padding: 36px 14px; }
+      .recipe-title { font-size: 24px; }
+
+      /* Newsletter */
+      .newsletter { padding: 40px 14px; }
+      .newsletter h2 { font-size: 24px; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form input { border-right: 2px solid #000; border-bottom: none; }
+      .newsletter-form button { width: 100%; }
+
+      /* Price range */
+      .price-range-section { padding: 0 14px 28px; }
+      .price-range-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .price-range-card span { font-size: 14px; margin-top: 10px; }
+
+      /* Promo banner */
+      .promo-banner { padding: 40px 14px; }
+      .promo-banner h2 { font-size: 24px; }
+      .promo-banner p { font-size: 14px; margin-bottom: 20px; }
+
+      /* Footer */
+      footer { padding: 36px 14px 80px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+      /* Bottom nav */
+      .bottom-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 10px; font-weight: 600; color: #666; text-decoration: none; }
+      .bottom-nav-item svg { width: 22px; height: 22px; }
+      .bottom-nav-item.active { color: #c8102e; }
+      .bottom-nav-item.active svg { stroke: #c8102e; }
+    }
+
+    /* ══════════════════════════════════════
+       BREAKPOINT 480px
+    ══════════════════════════════════════ */
+    @media (max-width: 480px) {
+      .header-inner { padding: 0 10px; height: 50px; }
+      .section { padding: 28px 10px; }
+      .products-grid { gap: 9px; }
+      .collection-card { height: 220px; padding: 22px 18px; }
+      .collection-card-content h3 { font-size: 17px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .brand-values-inner { grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+  
+    /* ========== MOBILE STANDARD ========== */
+    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; justify-content: center; gap: 5px; flex-shrink: 0; }
+    .mobile-menu-btn span { display: block; width: 22px; height: 2px; background: #000; border-radius: 2px; transition: all 0.3s; }
+    .header-search-icon { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .header-search-icon svg { width: 22px; height: 22px; }
+    .mobile-nav { display: block; position: fixed; top: 0; left: 0; width: 85%; max-width: 360px; height: 100%; background: #fff; z-index: 999; overflow-y: auto; transform: translateX(-100%); transition: transform 0.3s ease; box-shadow: 4px 0 24px rgba(0,0,0,0.18); }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 996; }
+    .mobile-overlay.open { display: block; }
+    .mobile-nav-header { display: flex; align-items: center; justify-content: flex-end; padding: 14px 16px; }
+    .mobile-nav-close { background: none; border: none; cursor: pointer; font-size: 28px; color: #000; line-height: 1; padding: 2px; }
+    /* Nav search */
+    .mnav-search { display: flex; align-items: center; gap: 10px; padding: 0 18px 16px; border-bottom: 1px solid #e5e5e5; }
+    .mnav-search input { flex: 1; border: none; outline: none; font-size: 15px; font-family: inherit; color: #333; }
+    .mnav-search input::placeholder { color: #999; }
+    .mnav-search svg { width: 20px; height: 20px; flex-shrink: 0; opacity: 0.4; }
+    /* Nav accordion categories */
+    .mnav-accordion { border-bottom: 1px solid #e5e5e5; }
+    .mnav-accordion-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 16px 18px; background: none; border: none; cursor: pointer; font-size: 14px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #000; font-family: inherit; }
+    .mnav-accordion-btn svg { width: 14px; height: 14px; transition: transform 0.2s; flex-shrink: 0; }
+    .mnav-accordion.open .mnav-accordion-btn svg { transform: rotate(90deg); }
+    .mnav-accordion-body { display: none; padding: 0 18px 14px; }
+    .mnav-accordion.open .mnav-accordion-body { display: block; }
+    .mnav-accordion-body a { display: block; padding: 8px 0; font-size: 14px; color: #444; }
+    .mnav-accordion-body a:hover { color: #c8102e; }
+    /* Nav colors grid */
+    .mnav-colors { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 18px 16px; border-bottom: 1px solid #e5e5e5; }
+    .mnav-color { width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s, transform 0.2s; }
+    .mnav-color:hover { border-color: #000; transform: scale(1.1); }
+    /* Nav direct links */
+    .mnav-links { list-style: none; padding: 8px 0 80px; }
+    .mnav-links li > a { display: block; padding: 14px 18px; font-size: 15px; font-weight: 500; color: #333; }
+    .mnav-links li.highlight > a { color: #c8102e; font-weight: 700; }
+    .mobile-search-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; z-index: 1100; flex-direction: column; overflow: hidden; }
+    .mobile-search-overlay.open { display: flex; }
+    .search-overlay-header { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid #e5e5e5; flex-shrink: 0; }
+    .mobile-search-bar { display: flex; align-items: center; gap: 8px; border: 1.5px solid #000; border-radius: 4px; overflow: hidden; height: 42px; flex: 1; padding: 0 10px; }
+    .mobile-search-bar input { flex: 1; border: none; outline: none; font-size: 15px; font-family: inherit; padding: 0; background: transparent; }
+    .mobile-search-bar svg { width: 16px; height: 16px; flex-shrink: 0; opacity: .4; }
+    .search-overlay-close { background: none; border: none; font-size: 22px; padding: 4px 8px; cursor: pointer; color: #000; line-height: 1; flex-shrink: 0; }
+    .search-overlay-body { flex: 1; overflow-y: auto; padding: 0; }
+    .search-section { border-bottom: 1px solid #e8e8e8; padding: 16px 18px; }
+    .search-section-title { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: #999; margin-bottom: 10px; }
+    .search-result-list { list-style: none; }
+    .search-result-list li a { display: block; padding: 8px 0; font-size: 14px; color: #333; text-decoration: none; border-bottom: 1px solid #f5f5f5; }
+    .search-result-list li:last-child a { border-bottom: none; }
+    .search-result-list li a:hover { color: #c8102e; }
+    .search-recent-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5f5f5; }
+    .search-recent-item span { font-size: 14px; color: #333; cursor: pointer; flex: 1; }
+    .search-recent-item span:hover { color: #c8102e; }
+    .search-recent-remove { background: none; border: none; cursor: pointer; color: #bbb; font-size: 16px; padding: 0 0 0 8px; line-height: 1; }
+    .search-recent-remove:hover { color: #000; }
+    .search-no-results { padding: 40px 18px; text-align: center; color: #999; font-size: 14px; }
+    .search-trending-pill { display: inline-flex; align-items: center; gap: 5px; background: #f5f5f5; border-radius: 20px; padding: 7px 14px; font-size: 12px; font-weight: 600; color: #555; text-decoration: none; margin: 4px; transition: background .15s; }
+    .search-trending-pill:hover { background: #eaeaea; }
+    .filter-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 996; }
+    .filter-overlay.open { display: block; }
+    .mobile-filter-bar { display: none; }
+    .bottom-nav { display: none; }
+
+    @media (max-width: 768px) {
+      .top-bar { font-size: 11px; padding: 8px 4px; }
+      .header-inner { padding: 0 12px; height: 56px; gap: 0; justify-content: space-between; }
+      nav { display: none; }
+      .search-box { display: none; }
+      .mobile-menu-btn { display: flex; order: 1; margin-right: 6px; }
+      .header-search-icon { display: flex; order: 2; margin-right: 4px; }
+      .logo { flex: 0 0 auto; order: 3; margin: 0 auto; } .logo img { height: 32px; }
+      .header-icons { gap: 10px; margin-left: 0; order: 4; }
+      .header-icons a span { display: none; }
+      .header-icons a { gap: 0; }
+      .header-icons svg { width: 22px; height: 22px; }
+      /* Banner */
+      .cat-banner { height: 180px; }
+      .cat-banner-overlay { padding: 0 20px; }
+      .cat-banner-title { font-size: 24px; }
+      .cat-banner-sub { font-size: 12px; }
+      .breadcrumb { padding: 10px 12px; font-size: 11px; }
+      /* Layout - hide sidebar/filters on mobile */
+      .shop-layout { grid-template-columns: 1fr !important; padding: 14px 12px 80px; gap: 0; }
+      .collection-wrap { grid-template-columns: 1fr !important; padding: 0 12px 80px; gap: 0; }
+      .sidebar, .filters {
+        display: none;
+        position: fixed; top: 0; left: 0; width: 85%; max-width: 320px; height: 100%;
+        background: #fff; z-index: 997; overflow-y: auto; padding: 20px;
+        box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+      }
+      .sidebar.filter-open, .filters.filter-open { display: block; }
+      .mobile-filter-btn { display: none; }
+      /* Mobile filter bar */
+      .mobile-filter-bar {
+        display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+        padding: 14px 0; margin-bottom: 4px;
+      }
+      .mobile-results-count { width: 100%; text-align: center; font-size: 14px; color: #888; margin-bottom: 12px; }
+      .mobile-results-count strong { color: #c8102e; }
+      .mobile-filter-actions { display: flex; width: 100%; gap: 10px; }
+      .mobile-filter-toggle {
+        flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+        background: #fff; border: 1.5px solid #ccc; padding: 10px 0;
+        font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+        font-family: inherit; cursor: pointer;
+      }
+      .mobile-filter-toggle svg { width: 16px; height: 16px; }
+      .mobile-sort-select {
+        flex: 1; background: #fff; border: 1.5px solid #ccc; padding: 10px 12px;
+        font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+        font-family: inherit; cursor: pointer;
+        appearance: none; -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px;
+      }
+      .collection-header { display: none; }
+      .results-bar { display: none; }
+      /* Product grid 2 cols */
+      .product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+      .product-card { background: transparent; border-radius: 6px; overflow: hidden; }
+      .product-card-media { aspect-ratio: 1; background: transparent; border-radius: 6px 6px 0 0; }
+      .product-card-media img { padding: 8px; }
+      .product-card-img { border-radius: 6px; background: transparent; }
+      .product-card-img img { padding: 10px; }
+      .product-quick-buy { display: none; }
+      .product-wishlist { opacity: 1; width: 28px; height: 28px; top: 6px; right: 6px; box-shadow: none; background: rgba(255,255,255,0.85); }
+      .product-wishlist svg { width: 14px; height: 14px; }
+      .product-info { padding: 8px 8px 10px; }
+      .product-name { font-size: 12px; font-weight: 600; line-height: 1.35; margin-bottom: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .product-name a { color: #1a1a1a; }
+      .product-card-name { font-size: 12px; font-weight: 600; line-height: 1.3; }
+      .product-card-sub { font-size: 10.5px; margin-bottom: 4px; }
+      .product-card-price { font-size: 13px; }
+      .product-sizes { font-size: 10px; color: #999; margin-bottom: 4px; }
+      .product-price { font-size: 13px; font-weight: 800; }
+      .product-installment { font-size: 10px; color: #888; margin-top: 1px; }
+      .product-colors { margin-top: 6px; gap: 4px; }
+      .swatch { width: 16px; height: 16px; }
+      .product-badge { font-size: 9px; padding: 2px 6px; top: 6px; left: 6px; border-radius: 2px; }
+      /* Section headers — only for collection/hub pages, not homepage */
+      .hub-section .section-header { padding-bottom: 8px; margin-bottom: 14px; }
+      .hub-section .section-title { font-size: 16px; }
+      .hub-section .section-link { font-size: 11px; }
+      /* Hub section */
+      .hub-section { padding: 16px 12px 80px; }
+      .hub-title { font-size: 12px; margin-bottom: 18px; }
+      .category-tiles { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 32px; }
+      .cat-tile { aspect-ratio: 3/2; border-radius: 4px; }
+      .cat-tile-title { font-size: 13px; margin-bottom: 4px; }
+      .cat-tile-btn { font-size: 9px; padding: 4px 10px; }
+      .cat-tile-overlay { padding: 10px; }
+      /* Footer */
+      footer { padding: 36px 14px 80px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      /* Bottom nav */
+      .bottom-nav { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e5e5; z-index: 500; height: 56px; height: calc(56px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); }
+      .bottom-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 10px; font-weight: 600; color: #666; text-decoration: none; padding: 6px 0; }
+      .bottom-nav-item svg { width: 22px; height: 22px; }
+      .bottom-nav-item.active { color: #c8102e; }
+      .bottom-nav-item.active svg { stroke: #c8102e; }
+    }
+    @media (max-width: 480px) {
+      .top-bar { font-size: 10.5px; }
+      .header-inner { padding: 0 10px; height: 52px; }
+      .cat-banner { height: 150px; }
+      .cat-banner-title { font-size: 21px; }
+      .collection-wrap { padding: 0 10px 80px; }
+      .shop-layout { padding: 12px 10px 80px; }
+      .hub-section { padding: 12px 10px 80px; }
+      .product-grid { gap: 8px; }
+      .product-card-name { font-size: 11.5px; }
+      .product-card-price { font-size: 12.5px; }
+      .product-name { font-size: 11.5px; }
+      .product-price { font-size: 12.5px; }
+      .product-info { padding: 6px 6px 8px; }
+      .swatch { width: 14px; height: 14px; }
+      .category-tiles { gap: 8px; margin-bottom: 24px; }
+      .cat-tile-title { font-size: 12px; }
+      .cat-tile-btn { font-size: 8px; padding: 3px 8px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+
+    /* ═══ FORÊT CAROUSEL SECTION ═══ */
+    .foret-section { max-width:1400px; margin:0 auto; padding:56px 24px 0; }
+    .foret-section-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; }
+    .foret-section-title { font-size:26px; font-weight:800; letter-spacing:-.3px; }
+    .foret-carousel-wrap { position:relative; }
+    .foret-carousel { display:flex; gap:20px; overflow:hidden; }
+    .foret-card { flex:0 0 calc(20% - 16px); min-width:200px; position:relative; background: transparent; text-decoration:none; color:#000; display:block; }
+    .foret-card-img { background: transparent; aspect-ratio:1; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; margin-bottom:12px; }
+    .foret-card-img img { width:100%; height:100%; object-fit:contain; padding:12px; transition:transform .4s; }
+    .foret-card:hover .foret-card-img img { transform:scale(1.06); }
+    .foret-heart { position:absolute; top:10px; right:10px; width:30px; height:30px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; border:none; cursor:pointer; box-shadow:0 1px 4px rgba(0,0,0,.12); z-index:2; }
+    .foret-heart svg { width:15px; height:15px; }
+    .foret-badge { font-size:11px; font-weight:700; color:#9B1F6A; letter-spacing:.5px; text-transform:uppercase; margin-bottom:6px; }
+    .foret-dot { display:inline-block; width:12px; height:12px; border-radius:50%; background:#3B6B3B; margin-bottom:6px; border:1px solid #ccc; vertical-align:middle; }
+    .foret-name { font-size:13px; font-weight:600; line-height:1.35; margin-bottom:3px; color:#111; }
+    .foret-price { font-size:14px; font-weight:800; margin-bottom:2px; }
+    .foret-size { font-size:12px; color:#888; margin-bottom:4px; }
+    .foret-installment { font-size:11px; color:#555; display:flex; align-items:center; gap:4px; }
+    .foret-installment svg { width:14px; height:14px; flex-shrink:0; opacity:.5; }
+    .foret-arrow { position:absolute; top:38%; transform:translateY(-50%); z-index:10; background:#fff; border:1px solid #e0e0e0; cursor:pointer; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,.12); transition:box-shadow .2s; }
+    .foret-arrow:hover { box-shadow:0 4px 14px rgba(0,0,0,.18); }
+    .foret-arrow svg { width:18px; height:18px; stroke:#333; fill:none; stroke-width:2; }
+    .foret-arrow-prev { left:-20px; }
+    .foret-arrow-next { right:-20px; }
+    .foret-cta { text-align:center; margin:36px 0 56px; }
+    .foret-cta a { display:inline-block; padding:13px 40px; border:2px solid #000; font-size:12px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#000; transition:background .2s,color .2s; text-decoration:none; }
+    .foret-cta a:hover { background:#000; color:#fff; }
+    @media(max-width:900px){ .foret-card { flex:0 0 calc(33.33% - 14px); } }
+    @media(max-width:600px){ .foret-section { padding:36px 14px 0; } .foret-card { flex:0 0 calc(50% - 10px); min-width:155px; } .foret-arrow { display:none; } }
+
+  </style>
+</head>
+<body>
+
+<!-- TOP PROMOTIONAL BAR -->
+<div class="top-bar">
+  <div class="top-bar-item active"><a href="colecao-namorados.html">Namorados. Prepare momentos compartilhados a dois.</a></div>
+  <div class="top-bar-item">Frete Gr&aacute;tis em compras acima de R$ 1.500,00 &#x1F69B;</div>
+  <div class="top-bar-item">5% OFF Para compras no PIX</div>
+  <div class="top-bar-item">10X Sem Juros | Parcela M&iacute;nima de R$100,00</div>
+  <div class="top-bar-item">10%OFF -1&ordf; Compra <a href="#">resgate o cupom aqui</a></div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    
+    <button class="mobile-menu-btn" onclick="document.getElementById('mobileNav').classList.add('open');document.getElementById('mobileOverlay').classList.add('open');">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="header-search-icon" onclick="openSearchOverlay(event);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+    </button>
+    <a href="index.html" class="logo"><img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites/default/dwd459bb3e/images/logo.svg" alt="Le Creuset" /></a>
+
+    <nav>
+      <ul class="nav-list">
+        <li>
+          <a href="#">Comprar</a>
+          <div class="mega-menu">
+            <div class="mega-inner">
+              <div class="mega-col">
+                <div class="mega-col-title">Cozinhar</div>
+                <a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a>
+                <a href="colecao-frigideiras-e-skillets.html">Frigideiras e Skillets</a>
+                <a href="colecao-grelhas.html">Grelhas</a>
+                <a href="colecao-antiaderente.html">Antiaderente</a>
+                <a href="colecao-cacarolas.html">Ca&ccedil;arolas</a>
+                <a href="colecao-chaleiras.html">Chaleiras de A&ccedil;o Esmaltado</a>
+                <a href="colecao-3ply-aco-inox.html">3-Ply A&ccedil;o Inox</a>
+                <a href="colecao-3ply-aco-inox.html">A&ccedil;o Inox</a>
+                <a href="colecao-formatos-especiais.html">Formatos Especiais</a>
+                <a href="colecao-acessorios.html">Acess&oacute;rios</a>
+                <a href="colecao-primeira-le-creuset.html">Minha Primeira Le Creuset</a>
+                <a href="colecao-stockpots.html">Stockpots</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Assar</div>
+                <a href="colecao-mini-cocotte.html">Mini Cocotte e Ramekins</a>
+                <a href="colecao-formas-metal-bakeware.html">Formas Metal Bakeware</a>
+                <a href="colecao-assadeiras-travessas.html">Assadeiras e Travessas</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Acess&oacute;rios</div>
+                <a href="colecao-moedores-e-galheteiro.html">Moedores e Galheteiro</a>
+                <a href="colecao-utensilios.html">Utens&iacute;lios</a>
+                <a href="colecao-utensilios-madeira.html">Utens&iacute;lios de Madeira</a>
+                <a href="colecao-suporte-descansos.html">Suportes e Descansos</a>
+                <a href="colecao-potes-e-porta-mantimentos.html">Potes e Porta-Mantimentos</a>
+                <a href="colecao-acessorios-de-vinhos.html">Acess&oacute;rios de Vinhos</a>
+                <a href="colecao-sets.html">Sets</a>
+                <a href="colecao-vasos.html">Decora&ccedil;&atilde;o</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Preparar e Servir</div>
+                <a href="colecao-bowls.html">Bowls</a>
+                <a href="colecao-pratos.html">Pratos</a>
+                <a href="colecao-canecas-e-xicaras.html">Canecas e X&iacute;caras</a>
+                <a href="colecao-bules-e-jarras.html">Bules e Jarras</a>
+                <a href="colecao-chaleiras.html">Chaleiras</a>
+                <a href="colecao-travessas.html">Travessas</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Cole&ccedil;&otilde;es</div>
+                <a href="colecao-flamme-doree.html">Flamme Dor&eacute;e</a>
+                <a href="colecao-gift-collection.html">Gift Collection</a>
+                <a href="colecao-churrasco.html">Churrasco</a>
+                <a href="colecao-alpine.html">Cole&ccedil;&atilde;o Alpine</a>
+                <a href="colecao-modern-heritage.html">Modern Heritage</a>
+                <a href="colecao-jardim.html">Cole&ccedil;&atilde;o Jardim</a>
+                <a href="colecao-culinaria-oriental.html">Culin&aacute;ria Oriental</a>
+                <a href="colecao-gourmand.html">Cole&ccedil;&atilde;o Gourmand</a>
+              </div>
+              <div class="mega-col">
+                <div class="mega-col-title">Nossas Cores</div>
+                <div class="mega-colors">
+                  <div class="mega-color-dot" style="background:#2DBECD;" title="Bleu Riviera"></div>
+                  <div class="mega-color-dot" style="background:#d46820;" title="Laranja"></div>
+                  <div class="mega-color-dot" style="background:#c8102e;" title="Vermelho"></div>
+                  <div class="mega-color-dot" style="background:#C85250;" title="Cerise"></div>
+                  <div class="mega-color-dot" style="background:#6B4226;" title="Marronnier"></div>
+                  <div class="mega-color-dot" style="background:#D4C44A;" title="Nectar"></div>
+                  <div class="mega-color-dot" style="background:#B8BEC4;" title="Mist"></div>
+                  <div class="mega-color-dot" style="background:#D4779A;" title="Rose Quartz"></div>
+                  <div class="mega-color-dot" style="background:#F5F5F5;border:1px solid #ddd;" title="Branco"></div>
+                  <div class="mega-color-dot" style="background:#9B7EB0;" title="Bluebell"></div>
+                  <div class="mega-color-dot" style="background:#2060A0;" title="Azure"></div>
+                  <div class="mega-color-dot" style="background:#D4A017;" title="Flamme Dor&eacute;e"></div>
+                  <div class="mega-color-dot" style="background:#5A5A5A;" title="Graphite"></div>
+                  <div class="mega-color-dot" style="background:#1C1C1C;" title="Matte Black"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="highlight"><a href="#">Dia das M&atilde;es</a></li>
+        <li><a href="colecao-ofertas.html">Ofertas</a></li>
+        <li class="blue"><a href="colecao-bleu-riviera.html">Bleu Riviera</a></li>
+        <li><a href="colecao-lancamentos.html">Lan&ccedil;amentos</a></li>
+        <li><a href="colecao-ferro-fundido.html">Ferro Fundido</a></li>
+        <li><a href="colecao-ceramica.html">Cer&acirc;mica</a></li>
+                <li><a href="colecao-best-sellers.html">Best-Sellers</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-icons">
+      <div class="search-box" onclick="openSearchOverlay(event)" style="cursor:pointer">
+        <input type="text" placeholder="Buscar..." readonly onfocus="this.blur();openSearchOverlay(event);" />
+        <button onclick="openSearchOverlay(event)">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 5.15 5.15a7.5 7.5 0 0 0 10.5 11.5z" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <a href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Entrar</span>
+      </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Lista</span>
+      </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Sacola</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE SEARCH BAR (below header) -->
+<div class="mobile-header-search" id="mobileHeaderSearch">
+  <div class="mobile-header-search-inner" onclick="openSearchOverlay()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+    <span>O que voc&ecirc; est&aacute; procurando?</span>
+  </div>
+</div>
+
+<!-- HERO BANNER -->
+<section class="hero" aria-label="Banner principal">
+  <div class="hero-door" id="heroDoor">
+    <div class="hero-door-left"></div>
+    <div class="hero-door-right"></div>
+  </div>
+
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active">
+      <a href="colecao-foret.html">
+        <picture>
+          <source media="(max-width: 768px)" srcset="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dw507b1eac/images/homepage/2026/05%20-%20Maio/banner_foret-mobile_v2.webp" />
+          <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dw507b1eac/images/homepage/2026/05%20-%20Maio/banner_foret-desk_v2.webp" alt="Cole&ccedil;&atilde;o For&ecirc;t - Le Creuset" draggable="false" />
+        </picture>
+      </a>
+    </div>
+    <div class="hero-slide">
+      <a href="colecao-namorados.html">
+        <picture>
+          <source media="(max-width: 768px)" srcset="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dw507b1eac/images/homepage/2026/05%20-%20Maio/banner_namorados-mobile_v2.webp" />
+          <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dw507b1eac/images/homepage/2026/05%20-%20Maio/banner_namorados-desk_v2.webp" alt="Namorados - Le Creuset" draggable="false" />
+        </picture>
+      </a>
+    </div>
+    <div class="hero-slide">
+      <a href="#">
+        <picture>
+          <source media="(max-width: 768px)" srcset="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dw507b1eac/images/homepage/2026/04%20-%20Abril/maes-compre_e_ganhe-flamme_doree-desk.webp" />
+          <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dw507b1eac/images/homepage/2026/04%20-%20Abril/maes-compre_e_ganhe-flamme_doree-desk.webp" alt="M&atilde;es - Compre e Ganhe - Le Creuset" draggable="false" />
+        </picture>
+      </a>
+    </div>
+  </div>
+
+  <button class="hero-arrow hero-arrow-prev" id="heroPrev" aria-label="Slide anterior">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="hero-arrow hero-arrow-next" id="heroNext" aria-label="Pr&oacute;ximo slide">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+</section>
+
+<!-- MOBILE QUICK MENU (like lecreuset.com.br) -->
+<div class="mobile-quick-menu">
+  <a href="colecao-lancamentos.html">Lan&ccedil;amentos</a>
+  <a href="colecao-nossas-cores.html">Nossas Cores</a>
+  <a href="colecao-ofertas.html">Ofertas</a>
+  <a href="colecao-flamme-doree.html">Flamme Dor&eacute;e</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FORÊT CAROUSEL — Immediately after hero (site real order)
+═══════════════════════════════════════════════════════════ -->
+<div class="foret-section">
+  <div class="foret-section-header">
+    <h2 class="foret-section-title">Conhe&ccedil;a a Cole&ccedil;&atilde;o For&ecirc;t</h2>
+  </div>
+  <div class="foret-carousel-wrap">
+    <button class="foret-arrow foret-arrow-prev" id="foretPrev2" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="foret-carousel" id="foretCarousel2">
+      <a href="panela-redonda-signature-foret.html" class="foret-card">
+        <div class="foret-card-img">
+          <button class="foret-heart" onclick="event.preventDefault()"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg></button>
+          <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw5cb33aa8/images/21177240984450-panela-redonda-foret.jpg?sw=650&sh=650&sm=fit" alt="Panela Redonda Signature For&ecirc;t" />
+        </div>
+        <div class="foret-badge">LAN&Ccedil;AMENTO</div>
+        <span class="foret-dot"></span>
+        <div class="foret-name">Panela Redonda Signature</div>
+        <div class="foret-size">28 CM</div>
+        <div class="foret-price">R$ 3.429,00</div>
+        <div class="foret-installment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>10x R$ 342,90 sem Juros</div>
+      </a>
+      <a href="panela-oval-signature-foret.html" class="foret-card">
+        <div class="foret-card-img">
+          <button class="foret-heart" onclick="event.preventDefault()"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg></button>
+          <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw1047b189/images/21178310984450-panela-oval.jpg?sw=650&sh=650&sm=fit" alt="Panela Oval Signature For&ecirc;t" />
+        </div>
+        <div class="foret-badge">LAN&Ccedil;AMENTO</div>
+        <span class="foret-dot"></span>
+        <div class="foret-name">Panela Oval Signature</div>
+        <div class="foret-size">31 CM</div>
+        <div class="foret-price">R$ 3.399,00</div>
+        <div class="foret-installment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>10x R$ 339,90 sem Juros</div>
+      </a>
+      <a href="cacarola-buffet-signature-foret.html" class="foret-card">
+        <div class="foret-card-img">
+          <button class="foret-heart" onclick="event.preventDefault()"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg></button>
+          <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw913d8b67/images/21180300984450-cacarola-buffet-foret.png?sw=650&sh=650&sm=fit" alt="Ca&ccedil;arola Buffet Signature For&ecirc;t" />
+        </div>
+        <div class="foret-badge">LAN&Ccedil;AMENTO</div>
+        <span class="foret-dot"></span>
+        <div class="foret-name">Ca&ccedil;arola Buffet Signature</div>
+        <div class="foret-size">30 CM</div>
+        <div class="foret-price">R$ 2.999,00</div>
+        <div class="foret-installment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>10x R$ 299,90 sem Juros</div>
+      </a>
+      <a href="travessa-quadrada-san-francisco-foret.html" class="foret-card">
+        <div class="foret-card-img">
+          <button class="foret-heart" onclick="event.preventDefault()"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg></button>
+          <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw62754017/images/71026230980280-travessa-quadrada-com-tampa-san-francisco.jpg?sw=650&sh=650&sm=fit" alt="Travessa Quadrada San Francisco For&ecirc;t" />
+        </div>
+        <div class="foret-badge">LAN&Ccedil;AMENTO</div>
+        <span class="foret-dot"></span>
+        <div class="foret-name">Travessa Quadrada com Tampa San Francisco</div>
+        <div class="foret-size">&nbsp;</div>
+        <div class="foret-price">R$ 899,00</div>
+        <div class="foret-installment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>8x R$ 112,38 sem Juros</div>
+      </a>
+      <a href="chaleira-classica-foret.html" class="foret-card">
+        <div class="foret-card-img">
+          <button class="foret-heart" onclick="event.preventDefault()"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg></button>
+          <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw05492d65/images/40104010981000-chaleira-classica-foret.jpg?sw=650&sh=650&sm=fit" alt="Chaleira Cl&aacute;ssica For&ecirc;t" />
+        </div>
+        <div class="foret-badge">LAN&Ccedil;AMENTO</div>
+        <span class="foret-dot"></span>
+        <div class="foret-name">Chaleira Cl&aacute;ssica</div>
+        <div class="foret-size">&nbsp;</div>
+        <div class="foret-price">R$ 929,00</div>
+        <div class="foret-installment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>9x R$ 103,22 sem Juros</div>
+      </a>
+      <a href="moedor-sal-foret.html" class="foret-card">
+        <div class="foret-card-img">
+          <button class="foret-heart" onclick="event.preventDefault()"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg></button>
+          <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8a52997b/images/44002210985200-moedor-foret.jpg?sw=650&sh=650&sm=fit" alt="Moedor de Sal For&ecirc;t" />
+        </div>
+        <div class="foret-badge">LAN&Ccedil;AMENTO</div>
+        <span class="foret-dot"></span>
+        <div class="foret-name">Moedor de Sal 21 cm</div>
+        <div class="foret-size">&nbsp;</div>
+        <div class="foret-price">R$ 369,00</div>
+        <div class="foret-installment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>3x R$ 123,00 sem Juros</div>
+      </a>
+      <a href="moedor-bleu-foret.html" class="foret-card">
+        <div class="foret-card-img">
+          <button class="foret-heart" onclick="event.preventDefault()"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg></button>
+          <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw33faad65/images/44001210995200-moedor-bleu.jpg?sw=650&sh=650&sm=fit" alt="Moedor Bleu Foret" />
+        </div>
+        <div class="foret-badge">LAN&Ccedil;AMENTO</div>
+        <span class="foret-dot"></span>
+        <div class="foret-name">Moedor de Pimenta 21 cm</div>
+        <div class="foret-size">&nbsp;</div>
+        <div class="foret-price">R$ 369,00</div>
+        <div class="foret-installment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>3x R$ 123,00 sem Juros</div>
+      </a>
+      <a href="prato-raso-bleu-22cm.html" class="foret-card">
+        <div class="foret-card-img">
+          <button class="foret-heart" onclick="event.preventDefault()"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg></button>
+          <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw99b3e915/images/70202270997099-prato-raso22cm-bleu.png?sw=650&sh=650&sm=fit" alt="Prato Raso 22cm Bleu" />
+        </div>
+        <div class="foret-badge">LAN&Ccedil;AMENTO</div>
+        <span class="foret-dot"></span>
+        <div class="foret-name">Prato Raso 22 cm (Bleu)</div>
+        <div class="foret-size">&nbsp;</div>
+        <div class="foret-price">R$ 269,00</div>
+        <div class="foret-installment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>2x R$ 134,50 sem Juros</div>
+      </a>
+      <a href="cacarola-buffet-bleu.html" class="foret-card">
+        <div class="foret-card-img">
+          <button class="foret-heart" onclick="event.preventDefault()"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg></button>
+          <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe61a242b/images/21180300994450-cacarola-buffet-bleu.jpg?sw=650&sh=650&sm=fit" alt="Ca&ccedil;arola Buffet Bleu" />
+        </div>
+        <div class="foret-badge">LAN&Ccedil;AMENTO</div>
+        <span class="foret-dot"></span>
+        <div class="foret-name">Ca&ccedil;arola Buffet Signature (Bleu)</div>
+        <div class="foret-size">30 CM</div>
+        <div class="foret-price">R$ 2.999,00</div>
+        <div class="foret-installment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>10x R$ 299,90 sem Juros</div>
+      </a>
+    </div>
+    <button class="foret-arrow foret-arrow-next" id="foretNext2" aria-label="Pr&oacute;ximo">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+  <div class="foret-cta">
+    <a href="colecao-foret.html">CONHE&Ccedil;A A COLE&Ccedil;&Atilde;O FOR&Ecirc;T</a>
+  </div>
+</div>
+<script>
+(function(){
+  var c2 = document.getElementById('foretCarousel2');
+  if (!c2) return;
+  var cw2 = function(){ return c2.querySelector('.foret-card').offsetWidth + 20; };
+  document.getElementById('foretNext2').addEventListener('click', function(){ c2.scrollBy({left: cw2()*2, behavior:'smooth'}); });
+  document.getElementById('foretPrev2').addEventListener('click', function(){ c2.scrollBy({left: -cw2()*2, behavior:'smooth'}); });
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAMORADOS SECTION — "Momentos compartilhados a dois"
+═══════════════════════════════════════════════════════════ -->
+<div style="background:#fff;padding:56px 24px 40px;" data-reveal>
+  <div style="max-width:1400px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:32px;">
+      <h2 style="font-family:'Nunito Sans',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px;">Momentos compartilhados a dois.</h2>
+      <p style="font-size:15px;color:#666;">Presentes que encantam e ficam para sempre.</p>
+      <hr style="max-width:80px;margin:20px auto 0;border:1px solid #ddd;" />
+    </div>
+    <!-- Carousel -->
+    <div style="position:relative;">
+      <button id="namPrev" style="position:absolute;left:-20px;top:38%;transform:translateY(-50%);z-index:10;background:#fff;border:1px solid #e0e0e0;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.12);" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#333" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div id="namCarousel" style="display:flex;gap:20px;overflow:hidden;">
+
+        <!-- N1 -->
+        <a href="panela-coracao-tradition.html" style="flex:0 0 calc(20%-16px);min-width:200px;display:block;text-decoration:none;color:#000;">
+          <div style="background:transparent;aspect-ratio:1;overflow:hidden;margin-bottom:12px;position:relative;">
+            <button onclick="event.preventDefault()" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.12);z-index:2;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg>
+            </button>
+            <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw4414522f/images/produto-lecreuset-panela-cora%C3%A7%C3%A3o-rhone.png?sw=400&sh=400&sm=fit" alt="Panela Cora&ccedil;&atilde;o Tradition" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
+          </div>
+          <div style="font-size:11px;font-weight:700;color:#9B1F6A;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;">NAMORADOS</div>
+          <div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:3px;">Panela Cora&ccedil;&atilde;o Tradition</div>
+          <div style="font-size:14px;font-weight:800;margin-bottom:2px;">R$ 1.619,00</div>
+          <div style="font-size:11px;color:#555;display:flex;align-items:center;gap:4px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>10x R$ 161,90 sem Juros
+          </div>
+        </a>
+
+        <!-- N2 -->
+        <a href="mini-cocotte-coracao.html" style="flex:0 0 calc(20%-16px);min-width:200px;display:block;text-decoration:none;color:#000;">
+          <div style="background:transparent;aspect-ratio:1;overflow:hidden;margin-bottom:12px;position:relative;">
+            <button onclick="event.preventDefault()" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.12);z-index:2;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg>
+            </button>
+            <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc25d55c/images/mini-cocotte-vermelho-pegador-cora%C3%A7%C3%A3o.png?sw=400&sh=400&sm=fit" alt="Mini Cocotte Pegador Cora&ccedil;&atilde;o" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
+          </div>
+          <div style="font-size:11px;font-weight:700;color:#9B1F6A;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;">NAMORADOS</div>
+          <div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:3px;">Mini Cocotte Pegador Cora&ccedil;&atilde;o Dourado</div>
+          <div style="font-size:14px;font-weight:800;margin-bottom:2px;">R$ 399,00</div>
+          <div style="font-size:11px;color:#555;display:flex;align-items:center;gap:4px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>3x R$ 133,00 sem Juros
+          </div>
+        </a>
+
+        <!-- N3 -->
+        <a href="set-coracao-vermelho.html" style="flex:0 0 calc(20%-16px);min-width:200px;display:block;text-decoration:none;color:#000;">
+          <div style="background:transparent;aspect-ratio:1;overflow:hidden;margin-bottom:12px;position:relative;">
+            <button onclick="event.preventDefault()" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.12);z-index:2;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg>
+            </button>
+            <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw15073e88/images/89371160600003-set-coracao-vermelho-1.png?sw=400&sh=400&sm=fit" alt="Set Cora&ccedil;&atilde;o Vermelho" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
+          </div>
+          <div style="font-size:11px;font-weight:700;color:#9B1F6A;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;">NAMORADOS</div>
+          <div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:3px;">Set Cora&ccedil;&atilde;o Vermelho</div>
+          <div style="font-size:14px;font-weight:800;margin-bottom:2px;">R$ 1.179,00</div>
+          <div style="font-size:11px;color:#555;display:flex;align-items:center;gap:4px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>10x R$ 117,90 sem Juros
+          </div>
+        </a>
+
+        <!-- N4 -->
+        <a href="ramekin-coracao-vermelho.html" style="flex:0 0 calc(20%-16px);min-width:200px;display:block;text-decoration:none;color:#000;">
+          <div style="background:transparent;aspect-ratio:1;overflow:hidden;margin-bottom:12px;position:relative;">
+            <button onclick="event.preventDefault()" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.12);z-index:2;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg>
+            </button>
+            <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwfc392ed5/images/ramekin-cora%C3%A7%C3%A3o-vermelho-set.png?sw=400&sh=400&sm=fit" alt="Ramekin Cora&ccedil;&atilde;o Vermelho Set" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
+          </div>
+          <div style="font-size:11px;font-weight:700;color:#9B1F6A;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;">NAMORADOS</div>
+          <div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:3px;">Set 4 Ramekins Cora&ccedil;&atilde;o Vermelho</div>
+          <div style="font-size:14px;font-weight:800;margin-bottom:2px;">R$ 559,00</div>
+          <div style="font-size:11px;color:#555;display:flex;align-items:center;gap:4px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>5x R$ 111,80 sem Juros
+          </div>
+        </a>
+
+        <!-- N5 -->
+        <a href="set-mini-pratos-coracao.html" style="flex:0 0 calc(20%-16px);min-width:200px;display:block;text-decoration:none;color:#000;">
+          <div style="background:transparent;aspect-ratio:1;overflow:hidden;margin-bottom:12px;position:relative;">
+            <button onclick="event.preventDefault()" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.12);z-index:2;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg>
+            </button>
+            <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe9c91dca/images/set-4mini-pratos-cora%C3%A7%C3%A3o-lecreuset-2025.png?sw=400&sh=400&sm=fit" alt="Set 4 Mini Pratos Cora&ccedil;&atilde;o" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
+          </div>
+          <div style="font-size:11px;font-weight:700;color:#9B1F6A;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;">NAMORADOS</div>
+          <div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:3px;">Set 4 Mini Bowls Cora&ccedil;&atilde;o</div>
+          <div style="font-size:14px;font-weight:800;margin-bottom:2px;">R$ 639,00</div>
+          <div style="font-size:11px;color:#555;display:flex;align-items:center;gap:4px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>6x R$ 106,50 sem Juros
+          </div>
+        </a>
+
+        <!-- N6 -->
+        <a href="pote-manteiga.html" style="flex:0 0 calc(20%-16px);min-width:200px;display:block;text-decoration:none;color:#000;">
+          <div style="background:transparent;aspect-ratio:1;overflow:hidden;margin-bottom:12px;position:relative;">
+            <button onclick="event.preventDefault()" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.12);z-index:2;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg>
+            </button>
+            <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwea4c1f64/images/lifestyle-pote-manteiga-2.png?sw=400&sh=400&sm=fit" alt="Pote de Manteiga" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
+          </div>
+          <div style="font-size:11px;font-weight:700;color:#9B1F6A;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;">NAMORADOS</div>
+          <div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:3px;">Pote de Manteiga</div>
+          <div style="font-size:14px;font-weight:800;margin-bottom:2px;">R$ 319,00</div>
+          <div style="font-size:11px;color:#555;display:flex;align-items:center;gap:4px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>3x R$ 106,33 sem Juros
+          </div>
+        </a>
+
+        <!-- N7 -->
+        <a href="cacarola-buffet-signature-rhone.html" style="flex:0 0 calc(20%-16px);min-width:200px;display:block;text-decoration:none;color:#000;">
+          <div style="background:transparent;aspect-ratio:1;overflow:hidden;margin-bottom:12px;position:relative;">
+            <button onclick="event.preventDefault()" style="position:absolute;top:10px;right:10px;width:30px;height:30px;background:#fff;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.12);z-index:2;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#000" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round"/></svg>
+            </button>
+            <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw52c81d32/images/21964269494441-panela-cacarola-petal-rhone.png?sw=400&sh=400&sm=fit" alt="Ca&ccedil;arola Buffet Petal Rhone" style="width:100%;height:100%;object-fit:contain;padding:12px;" />
+          </div>
+          <div style="font-size:11px;font-weight:700;color:#9B1F6A;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;">NAMORADOS</div>
+          <div style="font-size:13px;font-weight:600;line-height:1.35;margin-bottom:3px;">Ca&ccedil;arola Buffet Signature Petal (Rhone)</div>
+          <div style="font-size:14px;font-weight:800;margin-bottom:2px;">R$ 2.799,00</div>
+          <div style="font-size:11px;color:#555;display:flex;align-items:center;gap:4px;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>10x R$ 279,90 sem Juros
+          </div>
+        </a>
+
+      </div><!-- /namCarousel -->
+      <button id="namNext" style="position:absolute;right:-20px;top:38%;transform:translateY(-50%);z-index:10;background:#fff;border:1px solid #e0e0e0;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.12);" aria-label="Pr&oacute;ximo">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#333" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div style="text-align:center;margin:36px 0 0;">
+      <a href="colecao-namorados.html" style="display:inline-block;padding:13px 40px;border:2px solid #000;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#000;text-decoration:none;transition:background .2s,color .2s;">VER COLE&Ccedil;&Atilde;O NAMORADOS</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var c = document.getElementById('namCarousel');
+  if (!c) return;
+  var cw = function(){ var card = c.querySelector('a'); return card ? card.offsetWidth + 20 : 220; };
+  document.getElementById('namNext').addEventListener('click', function(){ c.scrollBy({left: cw()*2, behavior:'smooth'}); });
+  document.getElementById('namPrev').addEventListener('click', function(){ c.scrollBy({left: -cw()*2, behavior:'smooth'}); });
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     OTG — Novas Cores On The Go!
+═══════════════════════════════════════════════════════════ -->
+<div style="max-width:1400px;margin:0 auto;padding:56px 24px;" data-reveal>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+    <!-- OTG banner image (Cotton + Berry products side by side) -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="background:transparent;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+        <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw94dbfa52/images/41067354310001-copo-cotton-otg.png?sw=400&sh=400&sm=fit" alt="OTG Cotton" style="width:100%;object-fit:contain;padding:16px;" />
+      </div>
+      <div style="background:transparent;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+        <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw60cf70ff/images/41067194390001-otg-copo-berry.png?sw=400&sh=400&sm=fit" alt="OTG Berry" style="width:100%;object-fit:contain;padding:16px;" />
+      </div>
+      <div style="background:transparent;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+        <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw15a948c3/images/41069904310001-lancheira-otg-cotton.png?sw=400&sh=400&sm=fit" alt="Lancheira OTG Cotton" style="width:100%;object-fit:contain;padding:16px;" />
+      </div>
+      <div style="background:transparent;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+        <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw68d094ec/images/41069224390001-lancheira-otg-berry.png?sw=400&sh=400&sm=fit" alt="Lancheira OTG Berry" style="width:100%;object-fit:contain;padding:16px;" />
+      </div>
+    </div>
+    <!-- Text -->
+    <div>
+      <h2 style="font-size:36px;font-weight:800;letter-spacing:-.5px;margin-bottom:20px;line-height:1.15;">Novas Cores<br>On The Go!</h2>
+      <p style="font-size:15px;color:#555;line-height:1.75;margin-bottom:28px;">Berry e Cotton chegam &agrave; cole&ccedil;&atilde;o trazendo duas propostas cheias de estilo, que transitam entre o sofisticado e o delicado sem abrir m&atilde;o da praticidade. Perfeitas para o dia a dia, viagens ou momentos de pausa, os itens unem design ic&ocirc;nico, funcionalidade e cores que transformam at&eacute; os pequenos h&aacute;bitos em experi&ecirc;ncias mais especiais.</p>
+      <a href="colecao-on-the-go.html" style="display:inline-block;padding:13px 40px;border:2px solid #000;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#000;text-decoration:none;transition:background .2s,color .2s;">VER MAIS</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     COMPLETE SUA COLEÇÃO — 2 cards
+═══════════════════════════════════════════════════════════ -->
+<div style="max-width:1400px;margin:0 auto;padding:0 24px 20px;" data-reveal>
+  <h2 style="font-size:26px;font-weight:800;letter-spacing:-.3px;text-align:center;margin-bottom:28px;">Complete sua cole&ccedil;&atilde;o</h2>
+</div>
+<div class="collection-row" data-reveal style="padding-top:0;">
+  <a href="colecao-bleu-riviera.html" class="collection-card">
+    <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dwc5508705/images/homepage/2026/04%20-%20Abril/bleu_riviera_banner_bloco_home.webp" alt="Bleu Riviera" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+    <div class="collection-card-content" style="position:relative;z-index:2;">
+      <h3>Bleu Riviera</h3>
+      <p>O azul que evoca o mediterr&acirc;neo. Uma cor que transforma qualquer cozinha.</p>
+      <span class="collection-card-btn">Explorar Cole&ccedil;&atilde;o</span>
+    </div>
+  </a>
+  <a href="colecao-namorados.html" class="collection-card">
+    <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dw507b1eac/images/homepage/2026/05%20-%20Maio/banner_namorados-desk_v2.webp" alt="Namorados" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+    <div class="collection-card-content" style="position:relative;z-index:2;">
+      <h3>Dia dos Namorados</h3>
+      <p>Prepare momentos compartilhados a dois. Presentes que encantam e ficam para sempre.</p>
+      <span class="collection-card-btn">Ver Presentes</span>
+    </div>
+  </a>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CONHEÇA NOVOS PRODUTOS — OTG carousel + Mini Cocotte Fruits
+═══════════════════════════════════════════════════════════ -->
+<div class="section" data-reveal>
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">Conhe&ccedil;a novos produtos:</h2>
+    </div>
+    <a href="colecao-lancamentos.html" class="view-all">Ver todos</a>
+  </div>
+  <div class="products-scroll">
+    <!-- OTG 1 -->
+    <div class="product-card">
+      <a href="garrafa-otg-1l-berry.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwce47f0e3/images/41066334390001-otg-garrafa-1L-1.png?sw=400&sh=400&sm=fit" alt="Garrafa 1L OTG Berry" />
+        </div>
+        <div class="product-badge black">NOVO</div>
+        <div class="product-info">
+          <div class="product-name">Garrafa 1L On The Go (Berry)</div>
+          <div class="product-price">R$ 389,00</div>
+          <div class="product-installment">ou 3x de R$ 129,67 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- OTG 2 -->
+    <div class="product-card">
+      <a href="copo-otg-berry.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw60cf70ff/images/41067194390001-otg-copo-berry.png?sw=400&sh=400&sm=fit" alt="Copo OTG Berry" />
+        </div>
+        <div class="product-badge black">NOVO</div>
+        <div class="product-info">
+          <div class="product-name">Copo On The Go (Berry)</div>
+          <div class="product-price">R$ 279,00</div>
+          <div class="product-installment">ou 2x de R$ 139,50 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- OTG 3 -->
+    <div class="product-card">
+      <a href="pote-otg-berry.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8a6d9177/images/41068124390001-pote-otg-berry.png?sw=400&sh=400&sm=fit" alt="Pote OTG Berry" />
+        </div>
+        <div class="product-badge black">NOVO</div>
+        <div class="product-info">
+          <div class="product-name">Pote On The Go (Berry)</div>
+          <div class="product-price">R$ 299,00</div>
+          <div class="product-installment">ou 2x de R$ 149,50 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- OTG 4 -->
+    <div class="product-card">
+      <a href="lancheira-otg-berry.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw68d094ec/images/41069224390001-lancheira-otg-berry.png?sw=400&sh=400&sm=fit" alt="Lancheira OTG Berry" />
+        </div>
+        <div class="product-badge black">NOVO</div>
+        <div class="product-info">
+          <div class="product-name">Lancheira On The Go 900ml (Berry)</div>
+          <div class="product-price">R$ 419,00</div>
+          <div class="product-installment">ou 4x de R$ 104,75 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- Mini Cocotte Fruits 1 -->
+    <div class="product-card">
+      <a href="mini-cocotte-fruits-morango.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb8aa0646/images/coocotte-fruits-morango.png?sw=400&sh=400&sm=fit" alt="Mini Cocotte Fruits Morango" />
+        </div>
+        <div class="product-badge black">NOVO</div>
+        <div class="product-info">
+          <div class="product-name">Mini Cocotte Fruits Morango</div>
+          <div class="product-price">R$ 269,00</div>
+          <div class="product-installment">ou 2x de R$ 134,50 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- Mini Cocotte Fruits 2 -->
+    <div class="product-card">
+      <a href="mini-cocotte-fruits-berry.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw22ab93b3/images/cocotte-berry-fruits-vermelho.png?sw=400&sh=400&sm=fit" alt="Mini Cocotte Fruits Berry" />
+        </div>
+        <div class="product-badge black">NOVO</div>
+        <div class="product-info">
+          <div class="product-name">Mini Cocotte Fruits Berry (Vermelho)</div>
+          <div class="product-price">R$ 269,00</div>
+          <div class="product-installment">ou 2x de R$ 134,50 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- Mini Cocotte Fruits 3 -->
+    <div class="product-card">
+      <a href="mini-cocotte-fruits-pessego.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwa46a8b65/images/cocotte-pessego-fruits-peche.png?sw=400&sh=400&sm=fit" alt="Mini Cocotte Fruits P&ecirc;ssego" />
+        </div>
+        <div class="product-badge black">NOVO</div>
+        <div class="product-info">
+          <div class="product-name">Mini Cocotte Fruits P&ecirc;ssego (P&ecirc;che)</div>
+          <div class="product-price">R$ 269,00</div>
+          <div class="product-installment">ou 2x de R$ 134,50 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- Mini Cocotte Fruits 4 -->
+    <div class="product-card">
+      <a href="mini-cocotte-fruits-blueberry.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw706b9fa6/images/cocotte-blueberry-fruits-azure.png?sw=400&sh=400&sm=fit" alt="Mini Cocotte Fruits Blueberry" />
+        </div>
+        <div class="product-badge black">NOVO</div>
+        <div class="product-info">
+          <div class="product-name">Mini Cocotte Fruits Blueberry (Azure)</div>
+          <div class="product-price">R$ 269,00</div>
+          <div class="product-installment">ou 2x de R$ 134,50 sem juros</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ESCOLHA O ITEM PERFEITO — Price range filter
+═══════════════════════════════════════════════════════════ -->
+<div style="max-width:1400px;margin:0 auto;padding:0 24px 20px;" data-reveal>
+  <h2 style="font-size:26px;font-weight:800;text-align:center;margin-bottom:28px;">Escolha o item perfeito:</h2>
+</div>
+<div class="price-range-section" data-reveal style="padding-top:0;">
+  <div class="price-range-row">
+    <a href="colecao-ate-250.html" class="price-range-card">
+      <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dwf77fa7b7/images/homepage/2026/04%20-%20Abril/Maes_guia_de_presentes_2.jpeg" alt="Presentes at&eacute; R$ 250" />
+      <span>At&eacute; R$ 250</span>
+    </a>
+    <a href="colecao-ate-500.html" class="price-range-card">
+      <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw0a9940b7/images/80317400995699-caneca-seattle-bleu.jpg?sw=650&sh=650&sm=fit" alt="Presentes at&eacute; R$ 500" />
+      <span>At&eacute; R$ 500</span>
+    </a>
+    <a href="colecao-ate-999.html" class="price-range-card">
+      <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdf67a668/images/40109010991000-chaleira-cloche.jpg?sw=650&sh=650&sm=fit" alt="Presentes at&eacute; R$ 999" />
+      <span>At&eacute; R$ 999</span>
+    </a>
+    <a href="colecao-acima-1000.html" class="price-range-card">
+      <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit" alt="Presentes acima de R$ 1000" />
+      <span>Acima de R$ 1000</span>
+    </a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="divider"></div>
+
+<!-- NON-STICK CERAMIC ESSENTIAL -->
+<div class="nonstick-section" data-reveal>
+  <div class="nonstick-inner">
+    <div class="nonstick-banner">
+      <div>
+        <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dw85cd5c05/images/Non-stick%20Ceramic/non-stick3.gif" alt="Non-Stick Ceramic Essential" />
+      </div>
+      <div class="nonstick-banner-text">
+        <h2>Non-Stick Ceramic Essential</h2>
+        <p>Com um revestimento cer&acirc;mico totalmente livre de PFOA, PFAS (subst&acirc;ncias t&oacute;xicas) e PTFE, aliado a um processo de produ&ccedil;&atilde;o que consome menos recursos e emite menos CO&#x2082;, esta linha convida voc&ecirc; a transformar sua rotina, tornando-a mais leve e consciente!</p>
+        <a href="colecao-antiaderente.html" class="hero-btn">Explore a linha completa</a>
+      </div>
+    </div>
+    <div class="products-scroll">
+      <!-- NS 1 -->
+      <div class="product-card">
+        <a href="set-8-antiaderente-ceramica.html">
+          <div class="product-card-media">
+            <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw483b1554/images/New_Set8P%C3%A7s3Frigideiras+5PanelasEns(1).png?sw=650&sh=650&sm=fit" alt="Set 8 Non-Stick Ceramic Essential" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Set 8 Non-Stick Ceramic Essential</div>
+            <div class="product-price">R$ 9.239,00</div>
+            <div class="product-installment">ou 10x de R$ 923,90 sem juros</div>
+          </div>
+        </a>
+      </div>
+      <!-- NS 2 -->
+      <div class="product-card">
+        <a href="set-6-antiaderente-ceramica.html">
+          <div class="product-card-media">
+            <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwedb5731c/images/New_Set6P%C3%A7s2Frigideiras+4PanelasEnsc.png?sw=650&sh=650&sm=fit" alt="Set 6 Non-Stick Ceramic Essential" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Set 6 Non-Stick Ceramic Essential</div>
+            <div class="product-price">R$ 6.519,00</div>
+            <div class="product-installment">ou 10x de R$ 651,90 sem juros</div>
+          </div>
+        </a>
+      </div>
+      <!-- NS 3 -->
+      <div class="product-card">
+        <a href="cacarola-baixa-antiaderente.html">
+          <div class="product-card-media">
+            <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw555e43b8/images/Ca%C3%A7arolaBaixaAntiaderentedeCer%C3%A2micaEssential.png?sw=650&sh=650&sm=fit" alt="Ca&ccedil;arola Baixa 28cm" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Ca&ccedil;arola Baixa Non-Stick Ceramic Essential</div>
+            <div class="product-price">R$ 1.869,00</div>
+            <div class="product-installment">ou 10x de R$ 186,90 sem juros</div>
+          </div>
+        </a>
+      </div>
+      <!-- NS 4 -->
+      <div class="product-card">
+        <a href="frigideira-funda-alca-ceramic.html">
+          <div class="product-card-media">
+            <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw4fd3604f/images/FrigideiraRasacomAl%C3%A7aAntiaderentedeCer%C3%A2micaEssential.png?sw=650&sh=650&sm=fit" alt="Frigideira Funda 30cm" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Frigideira Funda com Al&ccedil;a Non-Stick Ceramic Essential</div>
+            <div class="product-price">R$ 1.729,00</div>
+            <div class="product-installment">ou 10x de R$ 172,90 sem juros</div>
+          </div>
+        </a>
+      </div>
+      <!-- NS 5 -->
+      <div class="product-card">
+        <a href="set-2-frigideiras-ceramic.html">
+          <div class="product-card-media">
+            <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw0553ccb0/images/Set2FrigideirasRasasantiaderentedeCer%C3%A2micaEssential.png?sw=650&sh=650&sm=fit" alt="Set 2 Frigideiras 20+26cm" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Set 2 Frigideiras Non-Stick Ceramic Essential</div>
+            <div class="product-price">R$ 1.649,00</div>
+            <div class="product-installment">ou 10x de R$ 164,90 sem juros</div>
+          </div>
+        </a>
+      </div>
+      <!-- NS 6 -->
+      <div class="product-card">
+        <a href="panela-saute-alca-antiaderente.html">
+          <div class="product-card-media">
+            <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb6a70bf6/images/PanelaSautecomAl%C3%A7aAntiaderentedeCer%C3%A2micaEssential(1).png?sw=650&sh=650&sm=fit" alt="Panela Saut&eacute; 26cm" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Panela Saute com Al&ccedil;a Non-Stick Ceramic Essential</div>
+            <div class="product-price">R$ 1.419,00</div>
+            <div class="product-installment">ou 10x de R$ 141,90 sem juros</div>
+          </div>
+        </a>
+      </div>
+      <!-- NS 7 -->
+      <div class="product-card">
+        <a href="set-2-frigideiras-rasa-funda-ceramic.html">
+          <div class="product-card-media">
+            <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw03a3330f/images/Set2FrigideirasRasaeFundacomAntiaderentedeCer%C3%A2micaEssential.png?sw=650&sh=650&sm=fit" alt="Set 2 Frigideiras Rasa e Funda" />
+          </div>
+          <div class="product-badge black">NOVO</div>
+          <div class="product-info">
+            <div class="product-name">Set 2 Frigideiras Rasa e Funda Non-Stick Ceramic Essential</div>
+            <div class="product-price">R$ 2.019,00</div>
+            <div class="product-installment">ou 10x de R$ 201,90 sem juros</div>
+          </div>
+        </a>
+      </div>
+      <!-- NS 8 -->
+      <div class="product-card">
+        <a href="molheira-alca-antiaderente.html">
+          <div class="product-card-media">
+            <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw09944880/images/MolheiracomAl%C3%A7aAntiaderentedeCer%C3%A2micaEssential.png?sw=650&sh=650&sm=fit" alt="Molheira com Al&ccedil;a" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Molheira com Al&ccedil;a Non-Stick Ceramic Essential</div>
+            <div class="product-price">R$ 1.149,00 - R$ 1.859,00</div>
+            <div class="product-installment">ou 10x de R$ 185,90 sem juros</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="section-cta">
+      <a href="colecao-antiaderente.html" class="hero-btn">Explore a linha completa</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BEST SELLERS -->
+<div class="section" data-reveal>
+  <div class="section-header">
+    <div>
+      <h2 class="section-title" style="text-transform:uppercase; letter-spacing:1px;">Best Sellers</h2>
+      <p class="section-subtitle">Quais pe&ccedil;as conquistam cora&ccedil;&otilde;es e cozinhas ao redor do mundo?</p>
+    </div>
+    <a href="colecao-best-sellers.html" class="view-all">Descubra os Favoritos</a>
+  </div>
+  <div class="products-scroll">
+    <!-- BS 1 -->
+    <div class="product-card">
+      <a href="moedor-pimenta-30cm.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw385cddde/images/tardes%20de%20verao/moedor-de-pimenta-30cm-laranja.png?sw=650&sh=650&sm=fit" alt="Moedor de Pimenta 30cm" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Moedor de Pimenta 30cm</div>
+          <div class="product-price">R$ 479,00</div>
+          <div class="product-installment">ou 4x de R$ 119,75 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- BS 2 -->
+    <div class="product-card">
+      <a href="moedor-sal-30cm.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw6de01276/images/tardes%20de%20verao/moedor-de-pimenta-30cm-vermelho.png?sw=650&sh=650&sm=fit" alt="Moedor de Sal 30cm" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Moedor de Sal 30cm</div>
+          <div class="product-price">R$ 479,00</div>
+          <div class="product-installment">ou 4x de R$ 119,75 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- BS 3 -->
+    <div class="product-card">
+      <a href="panela-redonda-signature.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwdc6347e6/images/produto-lecreuset-panela-redonda-laranja.png?sw=650&sh=650&sm=fit" alt="Panela Redonda Signature" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Panela Redonda Signature</div>
+          <div class="product-price">R$ 1.579,00 - R$ 4.399,00</div>
+          <div class="product-installment">ou 10x de R$ 439,90 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- BS 4 -->
+    <div class="product-card">
+      <a href="garrafa-hidratacao.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwf2749dc7/images/garrafa_hidratacao_squeeze_vermelho_cerise-5.jpg?sw=650&sh=650&sm=fit" alt="Garrafa de Hidrata&ccedil;&atilde;o" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Garrafa de Hidrata&ccedil;&atilde;o</div>
+          <div class="product-price">R$ 319,00</div>
+          <div class="product-installment">ou 3x de R$ 106,33 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- BS 5 -->
+    <div class="product-card">
+      <a href="cacarola-buffet-signature.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwb398291e/images/produto-lecreuset-ca%C3%A7arola-redonda-peche.png?sw=650&sh=650&sm=fit" alt="Ca&ccedil;arola Buffet Signature" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Ca&ccedil;arola Buffet Signature</div>
+          <div class="product-price">R$ 2.139,00 - R$ 3.269,00</div>
+          <div class="product-installment">ou 10x de R$ 326,90 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- BS 6 -->
+    <div class="product-card">
+      <a href="moedor-sal-21cm.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw7138e9be/images/produto-lecreuset-moedores-vermelho.png?sw=650&sh=650&sm=fit" alt="Moedor de Sal 21cm" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Moedor de Sal 21cm</div>
+          <div class="product-price">R$ 369,00</div>
+          <div class="product-installment">ou 3x de R$ 123,00 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- BS 7 -->
+    <div class="product-card">
+      <a href="travessa-retangular-heritage.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe1816222/images/travessa-retangular-heritage-nuit-23cm.png?sw=650&sh=650&sm=fit" alt="Travessa Retangular Heritage" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Travessa Retangular Heritage</div>
+          <div class="product-price">R$ 349,00 - R$ 1.389,00</div>
+          <div class="product-installment">ou 10x de R$ 138,90 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- BS 8 -->
+    <div class="product-card">
+      <a href="prato-raso-vancouver.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwcc99b044/images/produto-lecreuset-prato-27cm-vermelho.png?sw=650&sh=650&sm=fit" alt="Prato Raso Vancouver" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Prato Raso Vancouver</div>
+          <div class="product-price">R$ 199,00 - R$ 239,00</div>
+          <div class="product-installment">ou 2x de R$ 119,50 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- BS 9 -->
+    <div class="product-card">
+      <a href="pote-de-manteiga.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dwe2c6a579/images/produto-lecreuset-pote-manteiga-vermelho%20(1).png?sw=650&sh=650&sm=fit" alt="Pote de Manteiga" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Pote de Manteiga</div>
+          <div class="product-price">R$ 319,00</div>
+          <div class="product-installment">ou 3x de R$ 106,33 sem juros</div>
+        </div>
+      </a>
+    </div>
+    <!-- BS 10 -->
+    <div class="product-card">
+      <a href="skillet-redonda-signature.html">
+        <div class="product-card-media">
+          <img class="product-img" src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw3a6991b9/images/produto-lecreuset-skillet-vermelho.png?sw=650&sh=650&sm=fit" alt="Skillet Redonda Signature" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">Skillet Redonda Signature</div>
+          <div class="product-price">R$ 1.449,00 - R$ 1.999,00</div>
+          <div class="product-installment">ou 10x de R$ 199,90 sem juros</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="section-cta">
+    <a href="colecao-best-sellers.html" class="hero-btn">Descubra os favoritos</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     DESCUBRA NOSSAS CORES
+═══════════════════════════════════════════════════════════ -->
+<div class="colors-section" data-reveal>
+  <div class="colors-inner">
+    <h2 class="colors-title">Descubra Nossas Cores</h2>
+    <p class="colors-subtitle">Com uma variedade de tons vibrantes, acabamentos sofisticados e materiais de alta qualidade, a Le Creuset &eacute; refer&ecirc;ncia em ferro fundido esmaltado, reconhecido por sua durabilidade e resist&ecirc;ncia!</p>
+    <div class="colors-grid">
+      <a href="colecao-laranja.html" class="color-swatch">
+        <div class="color-circle" style="background:#d46820;"></div>
+        <span class="color-name">Laranja</span>
+      </a>
+      <a href="colecao-vermelho.html" class="color-swatch">
+        <div class="color-circle" style="background:#c8102e;"></div>
+        <span class="color-name">Vermelho</span>
+      </a>
+      <a href="colecao-foret.html" class="color-swatch">
+        <div class="color-circle" style="background:#273e30;"></div>
+        <span class="color-name">For&ecirc;t</span>
+      </a>
+      <a href="colecao-rhone.html" class="color-swatch">
+        <div class="color-circle" style="background:#4A3728;"></div>
+        <span class="color-name">Rhone</span>
+      </a>
+      <a href="colecao-berry.html" class="color-swatch">
+        <div class="color-circle" style="background:#7B2D4E;"></div>
+        <span class="color-name">Berry</span>
+      </a>
+      <a href="colecao-cotton.html" class="color-swatch">
+        <div class="color-circle" style="background:#E8E0D5;border:1px solid #ddd;"></div>
+        <span class="color-name">Cotton</span>
+      </a>
+      <a href="colecao-bleu-riviera.html" class="color-swatch">
+        <div class="color-circle" style="background:#2DBECD;"></div>
+        <span class="color-name">Bleu Riviera</span>
+      </a>
+      <a href="colecao-azure.html" class="color-swatch">
+        <div class="color-circle" style="background:#2060A0;"></div>
+        <span class="color-name">Azure</span>
+      </a>
+      <a href="colecao-caribbean.html" class="color-swatch">
+        <div class="color-circle" style="background:#1B7B8A;"></div>
+        <span class="color-name">Caribbean</span>
+      </a>
+      <a href="colecao-marseille.html" class="color-swatch">
+        <div class="color-circle" style="background:#4A6FA5;"></div>
+        <span class="color-name">Marseille</span>
+      </a>
+      <a href="colecao-peche.html" class="color-swatch">
+        <div class="color-circle" style="background:#F4A97C;"></div>
+        <span class="color-name">P&ecirc;che</span>
+      </a>
+      <a href="colecao-white.html" class="color-swatch">
+        <div class="color-circle" style="background:#F5F5F5;border:1px solid #ddd;"></div>
+        <span class="color-name">Branco</span>
+      </a>
+      <a href="colecao-flint.html" class="color-swatch">
+        <div class="color-circle" style="background:#8C8C8C;"></div>
+        <span class="color-name">Flint</span>
+      </a>
+      <a href="colecao-onyx.html" class="color-swatch">
+        <div class="color-circle" style="background:#1C1C1C;"></div>
+        <span class="color-name">Onyx</span>
+      </a>
+      <a href="colecao-artichaut.html" class="color-swatch">
+        <div class="color-circle" style="background:#6B7C45;"></div>
+        <span class="color-name">Artichaut</span>
+      </a>
+      <a href="colecao-flamme-doree.html" class="color-swatch">
+        <div class="color-circle" style="background:#D4A017;"></div>
+        <span class="color-name">Flamme Dor&eacute;e</span>
+      </a>
+    </div>
+    <div class="section-cta" style="margin-top:36px;">
+      <a href="colecao-nossas-cores.html" class="hero-btn">EXPLORAR TODAS AS CORES</a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- RECIPE SECTION -->
+<div class="recipe-card" data-reveal>
+  <div class="recipe-img-wrap">
+    <img src="https://www.lecreuset.com.br/dw/image/v2/BDRT_PRD/on/demandware.static/-/Sites-le-creuset-br-master/default/dw8094c41e/images/carolle-crema-lecreuset1.jpg?sw=650&sh=650&sm=fit" alt="Cinnamon Roll por Carole Crema" />
+  </div>
+  <div>
+    <p class="recipe-tag">Receita em Destaque</p>
+    <h2 class="recipe-title">Cinnamon Roll<br>por Carole Crema</h2>
+    <p class="recipe-text">Esta receita &eacute; de um arom&aacute;tico p&atilde;ozinho em espiral com recheio de canela que tem origem sueca, no entanto foi a vers&atilde;o americana que fez a fama do cinnamon roll pelo mundo.</p>
+    <a href="#" class="hero-btn" style="display:inline-block; margin-right: 12px;">Ver Receita Completa</a>
+    <a href="#" class="hero-btn outline" style="display:inline-block;">Ver Mais Receitas</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BRAND VALUES -->
+<div class="brand-values" data-reveal>
+  <div class="brand-values-inner">
+    <div class="brand-value-item">
+      <div class="brand-value-icon">
+        <!-- Shield 1925 -->
+        <svg viewBox="0 0 64 64" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 6 L54 16 L54 34 C54 46 44 55 32 59 C20 55 10 46 10 34 L10 16 Z"/>
+          <text x="32" y="38" text-anchor="middle" font-size="11" font-weight="700" fill="#000" stroke="none" font-family="sans-serif">1925</text>
+        </svg>
+      </div>
+      <h3>A Pioneira</h3>
+      <p>A primeira a trabalhar com ferro fundido esmaltado colorido</p>
+    </div>
+    <div class="brand-value-item">
+      <div class="brand-value-icon">
+        <!-- Pouring liquid / quality -->
+        <svg viewBox="0 0 64 64" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 10 L44 10 L44 38 C44 46 38 52 32 54 C26 52 20 46 20 38 Z"/>
+          <path d="M44 18 L52 14 L52 32 C52 36 48 38 44 38"/>
+          <path d="M26 30 Q32 36 38 30"/>
+        </svg>
+      </div>
+      <h3>A Melhor</h3>
+      <p>Desenvolvido por artes&atilde;os franceses com os materiais da melhor qualidade desde 1925</p>
+    </div>
+    <div class="brand-value-item">
+      <div class="brand-value-icon">
+        <!-- Casserole with heart -->
+        <svg viewBox="0 0 64 64" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="32" cy="42" rx="22" ry="10"/>
+          <path d="M10 42 L10 30 Q10 22 32 22 Q54 22 54 30 L54 42"/>
+          <path d="M22 18 L22 22 M42 18 L42 22"/>
+          <path d="M32 34 C32 34 26 30 26 27 C26 25 28 23 30 24 C31 24.5 32 26 32 26 C32 26 33 24.5 34 24 C36 23 38 25 38 27 C38 30 32 34 32 34Z" stroke-width="1.4"/>
+        </svg>
+      </div>
+      <h3>A Favorita</h3>
+      <p>Por conta da qualidade e confian&ccedil;a, a Le Creuset tem sido a favorita por gera&ccedil;&otilde;es</p>
+    </div>
+    <div class="brand-value-item">
+      <div class="brand-value-icon">
+        <!-- Color swatches -->
+        <svg viewBox="0 0 64 64" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="10" y="28" width="10" height="28" rx="2" transform="rotate(-20 15 42)"/>
+          <rect x="24" y="22" width="10" height="32" rx="2" transform="rotate(-8 29 38)"/>
+          <rect x="38" y="20" width="10" height="34" rx="2" transform="rotate(6 43 37)"/>
+          <rect x="50" y="26" width="10" height="28" rx="2" transform="rotate(20 55 40)"/>
+        </svg>
+      </div>
+      <h3>Paleta Colorida</h3>
+      <p>Trabalhamos com uma paleta de cores diversificadas</p>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h2>Receba Nossa Newsletter</h2>
+  <p>Cadastre-se e receba ofertas exclusivas, novidades e inspira&ccedil;&atilde;o diretamente no seu e-mail.</p>
+  <form class="newsletter-form" onsubmit="return false;">
+    <input type="email" placeholder="Seu melhor e-mail" />
+    <button type="submit">Se Inscrever</button>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://www.lecreuset.com.br/on/demandware.static/-/Sites-LeCreuset_BR-Library/default/dw871fdb5c/images/footer-logo.svg" alt="Le Creuset" class="footer-logo-img" />
+        <p>Desde 1925, Le Creuset fabrica os melhores utens&iacute;lios de cozinha do mundo. Tradi&ccedil;&atilde;o, qualidade e design em cada pe&ccedil;a.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/lecreusetbrasil" class="social-btn" target="_blank" rel="noopener">f</a>
+          <a href="https://instagram.com/lecreusetbrasil" class="social-btn" target="_blank" rel="noopener">in</a>
+          <a href="http://www.youtube.com/user/LeCreusetBr" class="social-btn" target="_blank" rel="noopener">yt</a>
+          <a href="#" class="social-btn">tt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Produtos</h4>
+        <ul>
+          <li><a href="#">Cozinhar</a></li>
+          <li><a href="#">Assar</a></li>
+          <li><a href="colecao-acessorios.html">Acess&oacute;rios</a></li>
+          <li><a href="#">Preparar e Servir</a></li>
+          <li><a href="#">Cole&ccedil;&otilde;es</a></li>
+          <li><a href="#">Promo&ccedil;&otilde;es</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#">100 anos Le Creuset</a></li>
+          <li><a href="#">Trabalhe Conosco</a></li>
+          <li><a href="#">Escolher Por Cor</a></li>
+          <li><a href="#">Material</a></li>
+          <li><a href="#">Receitas</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Lojas Oficiais</a></li>
+          <li><a href="#">Revendedores</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="#">Atendimento ao Cliente</a></li>
+          <li><a href="#">Fale com nossa IA</a></li>
+          <li><a href="#">Uso e Cuidado</a></li>
+          <li><a href="#">Devolu&ccedil;&otilde;es e Trocas</a></li>
+          <li><a href="#">Pol&iacute;tica de Privacidade</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Termos</a></li>
+          <li><a href="#">Prazos Entrega</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Minha Conta</h4>
+        <ul>
+          <li><a href="#">Entrar</a></li>
+          <li><a href="#">Criar Conta</a></li>
+          <li><a href="#">Meus Pedidos</a></li>
+          <li><a href="#">Lista de Desejos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <p>&copy; 2026 Le Creuset Brasil. Todos os direitos reservados.</p>
+        <p class="footer-legal">CNPJ: 02.926.185/0001-95 | Av. Magalh&atilde;es de Castro, n&ordm; 4800, S&atilde;o Paulo/SP, CEP 05676-120</p>
+      </div>
+      <div class="payment-icons">
+        <span class="payment-icon">VISA</span>
+        <span class="payment-icon">MC</span>
+        <span class="payment-icon">PIX</span>
+        <span class="payment-icon">AMEX</span>
+        <span class="payment-icon">BOLETO</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE NAV -->
+<script>
+  // ─── TOP BAR ROTATION ───
+  const topItems = document.querySelectorAll('.top-bar-item');
+  let topIdx = 0;
+  setInterval(() => {
+    topItems[topIdx].classList.remove('active');
+    topIdx = (topIdx + 1) % topItems.length;
+    topItems[topIdx].classList.add('active');
+  }, 4000);
+
+  // ─── HERO CAROUSEL with Door + Ken Burns ───
+  const slidesEl  = document.querySelectorAll('.hero-slide');
+  const door      = document.getElementById('heroDoor');
+  const total     = slidesEl.length;
+  let current     = 0;
+  let busy        = false;
+  let autoTimer;
+
+  function goTo(n) {
+    if (busy) return;
+    busy = true;
+
+    const next = (n + total) % total;
+    if (next === current) { busy = false; return; }
+
+    door.classList.add('active');
+    door.classList.remove('opening');
+
+    setTimeout(() => {
+      slidesEl[current].classList.remove('active');
+      slidesEl[current].classList.add('prev');
+      current = next;
+      slidesEl[current].classList.add('active');
+
+      const img = slidesEl[current].querySelector('img');
+      const clone = img.cloneNode(true);
+      img.replaceWith(clone);
+
+      door.classList.add('opening');
+
+      setTimeout(() => {
+        door.classList.remove('active', 'opening');
+        slidesEl.forEach(s => s.classList.remove('prev'));
+        busy = false;
+      }, 950);
+
+    }, 200);
+  }
+
+  function resetTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(current + 1), 5500);
+  }
+
+  document.getElementById('heroPrev').addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+  document.getElementById('heroNext').addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+
+  // Touch swipe
+  let touchX = 0;
+  document.querySelector('.hero-slides').addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  document.querySelector('.hero-slides').addEventListener('touchend', e => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { goTo(diff > 0 ? current + 1 : current - 1); resetTimer(); }
+  });
+
+  resetTimer();
+
+  // ─── SCROLL REVEAL ───
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const observer  = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // ─── PRODUCT CARDS individual stagger reveal ───
+  document.querySelectorAll('.products-grid, .products-scroll').forEach(grid => {
+    const cards = grid.querySelectorAll('.product-card');
+    cards.forEach((card, i) => {
+      card.setAttribute('data-reveal', '');
+      card.style.transitionDelay = `${i * 0.08}s`;
+      observer.observe(card);
+    });
+  });
+
+  // ─── COLOR SWATCH stagger ───
+  document.querySelectorAll('.color-swatch').forEach((sw, i) => {
+    sw.setAttribute('data-reveal', '');
+    sw.style.transitionDelay = `${i * 0.03}s`;
+    observer.observe(sw);
+  });
+</script>
+
+<script>
+// Mobile menu
+(function() {
+  var btn = document.getElementById('mobileMenuBtn');
+  var nav = document.getElementById('mobileNav');
+  var overlay = document.getElementById('mobileOverlay');
+  var closeBtn = document.getElementById('mobileNavClose');
+  function openNav() { nav.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeNav() { nav.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  if (btn) btn.addEventListener('click', openNav);
+  if (closeBtn) closeBtn.addEventListener('click', closeNav);
+  if (overlay) overlay.addEventListener('click', closeNav);
+
+  // Accordion
+  document.querySelectorAll('.nav-acc-btn').forEach(function(b) {
+    b.addEventListener('click', function() { b.closest('.nav-accordion').classList.toggle('open'); });
+  });
+
+  // ── SEARCH OVERLAY ──
+  var SEARCH_PRODUCTS = [
+    {n:'Panela Redonda Signature',u:'colecao-panelas-de-ferro.html'},
+    {n:'Panela Redonda Clássica',u:'colecao-panelas-de-ferro.html'},
+    {n:'Caçarola Buffet Signature',u:'colecao-panelas-de-ferro.html'},
+    {n:'Caçarola Buffet Clássica',u:'colecao-panelas-de-ferro.html'},
+    {n:'Skillet Redonda Signature',u:'colecao-frigideiras-e-skillets.html'},
+    {n:'Frigideira Antiaderente',u:'colecao-frigideiras-e-skillets.html'},
+    {n:'Grelha Quadrada',u:'colecao-grelhas.html'},
+    {n:'Grelha Redonda',u:'colecao-grelhas.html'},
+    {n:'Mini Cocotte',u:'colecao-mini-cocotte.html'},
+    {n:'Mini Cocotte Jardin',u:'colecao-mini-cocotte.html'},
+    {n:'Mini Cocotte Pegador Colorido',u:'colecao-mini-cocotte.html'},
+    {n:'Chaleira Clássica',u:'colecao-chaleiras.html'},
+    {n:'Chaleira Demi',u:'colecao-chaleiras.html'},
+    {n:'Chaleira Cloche',u:'colecao-chaleiras.html'},
+    {n:'Bowl Redondo Vancouver',u:'colecao-bowls.html'},
+    {n:'Bowl Redondo Kobe',u:'colecao-bowls.html'},
+    {n:'Bowl Octagon',u:'colecao-bowls.html'},
+    {n:'Bowl Jardin',u:'colecao-bowls.html'},
+    {n:'Caneca London 100ml',u:'colecao-canecas-e-xicaras.html'},
+    {n:'Caneca London 200ml',u:'colecao-canecas-e-xicaras.html'},
+    {n:'Caneca London 350ml',u:'colecao-canecas-e-xicaras.html'},
+    {n:'Caneca Seattle 400ml',u:'colecao-canecas-e-xicaras.html'},
+    {n:'Caneca Bistrô 400ml',u:'colecao-canecas-e-xicaras.html'},
+    {n:'Caneca Jardin 200ml',u:'colecao-canecas-e-xicaras.html'},
+    {n:'Caneca Jardin 350ml',u:'colecao-canecas-e-xicaras.html'},
+    {n:'Jarra Clássica',u:'colecao-ceramica.html'},
+    {n:'Jarra Jardin',u:'colecao-ceramica.html'},
+    {n:'Pote de Alho',u:'colecao-ceramica.html'},
+    {n:'Ramekin 200ml',u:'colecao-ceramica.html'},
+    {n:'Prato Raso Vancouver',u:'colecao-ceramica.html'},
+    {n:'Prato Raso Jardin',u:'colecao-ceramica.html'},
+    {n:'Prato Fundo Kobe',u:'colecao-ceramica.html'},
+    {n:'Travessa Retangular Heritage',u:'colecao-assadeiras-travessas.html'},
+    {n:'Assadeira Retangular',u:'colecao-assadeiras-travessas.html'},
+    {n:'Bandeja Para 6 Ovos',u:'colecao-ceramica.html'},
+    {n:'Descanso Oval para Colher',u:'colecao-ceramica.html'},
+    {n:'Stockpot',u:'colecao-stockpots.html'},
+    {n:'Espátula Venus',u:'colecao-acessorios.html'},
+    {n:'Espátula Silicone Signature',u:'colecao-acessorios.html'},
+    {n:'Pie Bird',u:'colecao-ceramica.html'},
+    {n:'Vaso para Ervas',u:'colecao-ceramica.html'},
+    {n:'Bowl para Pet',u:'colecao-ceramica.html'},
+    {n:'Saleiro e Pimenteiro',u:'colecao-ceramica.html'},
+  ];
+  var SEARCH_CATEGORIES = [
+    {n:'Panelas de Ferro',u:'colecao-panelas-de-ferro.html'},
+    {n:'Frigideiras e Skillets',u:'colecao-frigideiras-e-skillets.html'},
+    {n:'Grelhas',u:'colecao-grelhas.html'},
+    {n:'Antiaderente',u:'colecao-antiaderente.html'},
+    {n:'Chaleiras',u:'colecao-chaleiras.html'},
+    {n:'Mini Cocotte e Ramekins',u:'colecao-mini-cocotte.html'},
+    {n:'Canecas e Xícaras',u:'colecao-canecas-e-xicaras.html'},
+    {n:'Cerâmica',u:'colecao-ceramica.html'},
+    {n:'Bowls',u:'colecao-bowls.html'},
+    {n:'Assadeiras e Travessas',u:'colecao-assadeiras-travessas.html'},
+    {n:'Stockpots',u:'colecao-stockpots.html'},
+    {n:'Acessórios',u:'colecao-acessorios.html'},
+    {n:'Best-Sellers',u:'colecao-best-sellers.html'},
+    {n:'Lançamentos',u:'colecao-lancamentos.html'},
+    {n:'Ofertas',u:'colecao-ofertas.html'},
+    {n:'Bleu Riviera',u:'colecao-bleu-riviera.html'},
+    {n:'Panelas in Cozinhar',u:'colecao-panelas-de-ferro.html'},
+  ];
+  var SEARCH_CONTENT = [
+    {n:'Favoritos Le Creuset: Panela Redonda Signature ★',u:'#'},
+    {n:'6 Perguntas a Se Fazer Antes de Comprar uma Panela de Ferro Fundido.',u:'#'},
+    {n:'Coleção Le Creuset × Harry Potter™: Fascinantes aventuras culinárias o aguardam.',u:'#'},
+    {n:'Ensopado de Frango Cremoso com Nozes da Pérsia e Romã',u:'#'},
+    {n:'Boeuf Bourguignon',u:'#'},
+    {n:'Baião de Dois',u:'#'},
+  ];
+
+  var RECENT_KEY = 'lc_recent_searches';
+
+  function el(id) { return document.getElementById(id); }
+  function getRecent() {
+    try { return JSON.parse(localStorage.getItem(RECENT_KEY) || '[]'); } catch(e) { return []; }
+  }
+  function saveRecent(q) {
+    var arr = getRecent().filter(function(x){ return x.toLowerCase() !== q.toLowerCase(); });
+    arr.unshift(q);
+    if (arr.length > 5) arr = arr.slice(0,5);
+    try { localStorage.setItem(RECENT_KEY, JSON.stringify(arr)); } catch(e) {}
+  }
+  window.removeRecent = function(q) {
+    var arr = getRecent().filter(function(x){ return x !== q; });
+    try { localStorage.setItem(RECENT_KEY, JSON.stringify(arr)); } catch(e) {}
+    renderRecent();
+  };
+  function renderRecent() {
+    var rs = el('recentSection'), rl = el('recentList');
+    if (!rs || !rl) return;
+    var arr = getRecent();
+    if (!arr.length) { rs.style.display = 'none'; return; }
+    rs.style.display = '';
+    rl.innerHTML = arr.map(function(q) {
+      var esc = q.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+      return '<div class="search-recent-item"><span onclick="setQuery(\''+esc+'\')">' + q + '</span><button class="search-recent-remove" onclick="removeRecent(\''+esc+'\')">×</button></div>';
+    }).join('');
+  }
+  window.setQuery = function(q) {
+    var inp = el('mobileSearchInput');
+    if (inp) { inp.value = q; doSearch(q); }
+  };
+
+  function normalize(s) { return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+  function doSearch(q) {
+    q = (q||'').trim();
+    var sd = el('searchDefault'), sr = el('searchResults');
+    if (!sd || !sr) return;
+    if (!q) {
+      sd.style.display = ''; sr.style.display = 'none';
+      renderRecent(); return;
+    }
+    sd.style.display = 'none'; sr.style.display = '';
+    var nq = normalize(q);
+    var products = SEARCH_PRODUCTS.filter(function(p){ return normalize(p.n).indexOf(nq)>=0; }).slice(0,6);
+    var cats     = SEARCH_CATEGORIES.filter(function(c){ return normalize(c.n).indexOf(nq)>=0; }).slice(0,4);
+    var content  = SEARCH_CONTENT.filter(function(c){ return normalize(c.n).indexOf(nq)>=0; }).slice(0,3);
+    var hasAny   = products.length || cats.length || content.length;
+
+    var rp  = el('resProdutos'),   rc  = el('resCategorias'),
+        rco = el('resConteudo'),   noR = el('searchNoResults');
+
+    function setSection(sec, listId, items) {
+      if (!sec) return;
+      if (items.length) {
+        sec.style.display = '';
+        el(listId).innerHTML = items.map(function(x){ return '<li><a href="'+x.u+'">'+x.n+'</a></li>'; }).join('');
+      } else { sec.style.display = 'none'; }
+    }
+    setSection(rp,  'resProdutosList',   products);
+    setSection(rc,  'resCategoriasList', cats);
+    setSection(rco, 'resConteudoList',   content);
+    if (noR) { noR.style.display = hasAny ? 'none' : ''; }
+    if (!hasAny) { var nrq = el('noResQuery'); if (nrq) nrq.textContent = q; }
+  }
+
+  window.openSearchOverlay = function(e) {
+    if (e) e.preventDefault();
+    var ov = el('mobileSearchOverlay'), inp = el('mobileSearchInput');
+    if (!ov) return;
+    ov.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    renderRecent();
+    if (inp) setTimeout(function(){ inp.focus(); }, 80);
+    // wire input events once
+    if (!ov._wired) {
+      ov._wired = true;
+      if (inp) {
+        inp.addEventListener('input', function(){ doSearch(this.value); });
+        inp.addEventListener('keydown', function(ev){
+          if (ev.key==='Enter') {
+            var q = this.value.trim();
+            if (q) { saveRecent(q); window.location.href = 'busca.html?q=' + encodeURIComponent(q); }
+          }
+          if (ev.key==='Escape') closeSearchOverlay();
+        });
+      }
+      // Click on result links: save recent
+      ov.addEventListener('click', function(ev){
+        var a = ev.target.closest('a');
+        if (a) { var q = (inp||{}).value; if (q && q.trim()) saveRecent(q.trim()); }
+      });
+    }
+  };
+  window.closeSearchOverlay = function() {
+    var ov = el('mobileSearchOverlay'), inp = el('mobileSearchInput'),
+        sd = el('searchDefault'),       sr  = el('searchResults');
+    if (!ov) return;
+    if (inp && inp.value.trim()) saveRecent(inp.value.trim());
+    ov.classList.remove('open');
+    document.body.style.overflow = '';
+    if (inp) inp.value = '';
+    if (sd) sd.style.display = '';
+    if (sr) sr.style.display = 'none';
+  };
+})();
+</script>
+
+<!-- Mobile overlay -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="document.getElementById('mobileNav').classList.remove('open');this.classList.remove('open');"></div>
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header">
+    <button class="mobile-nav-close" onclick="this.closest('.mobile-nav').classList.remove('open');document.getElementById('mobileOverlay').classList.remove('open');">&times;</button>
+  </div>
+  <div class="mnav-search">
+    <input type="text" placeholder="O que voc&ecirc; est&aacute; procurando?" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+  </div>
+  <!-- Accordion: Cozinhar -->
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Cozinhar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-panelas-de-ferro.html">Panelas de Ferro</a>
+      <a href="colecao-frigideiras-e-skillets.html">Frigideiras e Skillets</a>
+      <a href="colecao-grelhas.html">Grelhas</a>
+      <a href="colecao-antiaderente.html">Antiaderente</a>
+      <a href="colecao-cacarolas.html">Ca&ccedil;arolas</a>
+      <a href="colecao-chaleiras.html">Chaleiras de A&ccedil;o Esmaltado</a>
+      <a href="colecao-3ply-aco-inox.html">3-Ply A&ccedil;o Inox</a>
+      <a href="colecao-formatos-especiais.html">Formatos Especiais</a>
+      <a href="colecao-primeira-le-creuset.html">Minha Primeira Le Creuset</a>
+      <a href="colecao-stockpots.html">Stockpots</a>
+    </div>
+  </div>
+  <!-- Accordion: Assar -->
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Assar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-mini-cocotte.html">Mini Cocotte e Ramekins</a>
+      <a href="colecao-formas-metal-bakeware.html">Formas Metal Bakeware</a>
+      <a href="colecao-assadeiras-travessas.html">Assadeiras e Travessas</a>
+    </div>
+  </div>
+  <!-- Accordion: Acessórios -->
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Acess&oacute;rios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-moedores-e-galheteiro.html">Moedores e Galheteiro</a>
+      <a href="colecao-utensilios.html">Utens&iacute;lios</a>
+      <a href="colecao-utensilios-madeira.html">Utens&iacute;lios de Madeira</a>
+      <a href="colecao-suporte-descansos.html">Suportes e Descansos</a>
+      <a href="colecao-potes-e-porta-mantimentos.html">Potes e Porta-Mantimentos</a>
+      <a href="colecao-acessorios-de-vinhos.html">Acess&oacute;rios de Vinhos</a>
+      <a href="colecao-sets.html">Sets</a>
+      <a href="colecao-vasos.html">Decora&ccedil;&atilde;o</a>
+    </div>
+  </div>
+  <!-- Accordion: Preparar e Servir -->
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Preparar e Servir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-bowls.html">Bowls</a>
+      <a href="colecao-pratos.html">Pratos</a>
+      <a href="colecao-canecas-e-xicaras.html">Canecas e X&iacute;caras</a>
+      <a href="colecao-bules-e-jarras.html">Bules e Jarras</a>
+      <a href="colecao-chaleiras.html">Chaleiras</a>
+      <a href="colecao-travessas.html">Travessas</a>
+    </div>
+  </div>
+  <!-- Accordion: Coleções -->
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Cole&ccedil;&otilde;es <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body">
+      <a href="colecao-flamme-doree.html">Flamme Dor&eacute;e</a>
+      <a href="colecao-gift-collection.html">Gift Collection</a>
+      <a href="colecao-churrasco.html">Churrasco</a>
+      <a href="colecao-alpine.html">Cole&ccedil;&atilde;o Alpine</a>
+      <a href="colecao-modern-heritage.html">Modern Heritage</a>
+      <a href="colecao-jardim.html">Cole&ccedil;&atilde;o Jardim</a>
+      <a href="colecao-culinaria-oriental.html">Culin&aacute;ria Oriental</a>
+      <a href="colecao-gourmand.html">Cole&ccedil;&atilde;o Gourmand</a>
+    </div>
+  </div>
+  <!-- Accordion: Nossas Cores -->
+  <div class="mnav-accordion">
+    <button class="mnav-accordion-btn" onclick="this.parentElement.classList.toggle('open');">Nossas Cores <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 6 15 12 9 18"/></svg></button>
+    <div class="mnav-accordion-body" style="padding:0;"></div>
+  </div>
+  <!-- Color swatches -->
+  <div class="mnav-colors">
+    <a href="colecao-bleu-riviera.html" class="mnav-color" style="background:#2DBECD;" title="Bleu Riviera"></a>
+    <a href="colecao-flamme-doree.html" class="mnav-color" style="background:#D4A017;" title="Flamme Dor&eacute;e"></a>
+  </div>
+  <!-- Direct links -->
+  <ul class="mnav-links">
+    <li class="highlight"><a href="#">Dia das M&atilde;es</a></li>
+    <li><a href="colecao-ofertas.html">Ofertas</a></li>
+    <li><a href="colecao-bleu-riviera.html">Bleu Riviera</a></li>
+    <li><a href="colecao-lancamentos.html">Lan&ccedil;amentos</a></li>
+    <li><a href="colecao-ferro-fundido.html">Ferro Fundido</a></li>
+    <li><a href="colecao-ceramica.html">Cer&acirc;mica</a></li>
+        <li><a href="colecao-best-sellers.html">Best-sellers</a></li>
+  </ul>
+</nav>
+<!-- Mobile search overlay -->
+<div class="mobile-search-overlay" id="mobileSearchOverlay">
+  <div class="search-overlay-header">
+    <div class="mobile-search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="O que voc&ecirc; est&aacute; procurando?" id="mobileSearchInput" autocomplete="off" />
+      <button style="background:#000;border:none;padding:0 12px;height:100%;cursor:pointer;display:flex;align-items:center;" onclick="var q=document.getElementById('mobileSearchInput').value.trim();if(q)window.location.href='busca.html?q='+encodeURIComponent(q);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <button class="search-overlay-close" onclick="closeSearchOverlay()">&times;</button>
+  </div>
+  <div class="search-overlay-body" id="searchOverlayBody">
+    <!-- Default: shown when no query -->
+    <div id="searchDefault">
+      <div class="search-section" id="recentSection" style="display:none">
+        <div class="search-section-title">Pesquisas atuais</div>
+        <div id="recentList"></div>
+      </div>
+      <div class="search-section">
+        <div class="search-section-title">Categorias</div>
+        <div>
+          <a href="colecao-panelas-de-ferro.html" class="search-trending-pill">Panelas de Ferro</a>
+          <a href="colecao-frigideiras-e-skillets.html" class="search-trending-pill">Frigideiras</a>
+          <a href="colecao-ceramica.html" class="search-trending-pill">Cer&acirc;mica</a>
+          <a href="colecao-mini-cocotte.html" class="search-trending-pill">Mini Cocotte</a>
+          <a href="colecao-canecas-e-xicaras.html" class="search-trending-pill">Canecas</a>
+          <a href="colecao-chaleiras.html" class="search-trending-pill">Chaleiras</a>
+          <a href="colecao-bowls.html" class="search-trending-pill">Bowls</a>
+          <a href="colecao-antiaderente.html" class="search-trending-pill">Antiaderente</a>
+          <a href="colecao-ofertas.html" class="search-trending-pill">Ofertas</a>
+          <a href="colecao-lancamentos.html" class="search-trending-pill">Lan&ccedil;amentos</a>
+          <a href="colecao-bleu-riviera.html" class="search-trending-pill">Bleu Riviera</a>
+        </div>
+      </div>
+    </div>
+    <!-- Results: shown when typing -->
+    <div id="searchResults" style="display:none">
+      <div class="search-section" id="resProdutos" style="display:none">
+        <div class="search-section-title">Produtos</div>
+        <ul class="search-result-list" id="resProdutosList"></ul>
+      </div>
+      <div class="search-section" id="resCategorias" style="display:none">
+        <div class="search-section-title">Categorias</div>
+        <ul class="search-result-list" id="resCategoriasList"></ul>
+      </div>
+      <div class="search-section" id="resConteudo" style="display:none">
+        <div class="search-section-title">Conte&uacute;do</div>
+        <ul class="search-result-list" id="resConteudoList"></ul>
+      </div>
+      <div class="search-no-results" id="searchNoResults" style="display:none">Nenhum resultado para "<span id="noResQuery"></span>"</div>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile bottom navigation -->
+
+<script src="cart.js"></script>
+</body>
+</html>
+
+
+
