@@ -843,9 +843,6 @@ document.getElementById('go3').onclick = function() {
 };
 document.getElementById('bk1').onclick = function() { goStep(1); };
 document.getElementById('bk2').onclick = function() { goStep(2); };
-// ═══ BLACK CAT PAY INTEGRATION ═══
-var BC_URL = '/.netlify/functions/pay';
-
 function formatBRLck(val) {
   return 'R$ ' + val.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
 }
@@ -1025,212 +1022,12 @@ function copyPix() {
   setTimeout(function(){ msg.style.display='none'; }, 2000);
 }
 
-function extractPixData(data) {
-  var flat = {};
-  function flatten(obj, prefix) {
-    if (!obj || typeof obj !== 'object') return;
-    Object.keys(obj).forEach(function(k) {
-      var val = obj[k];
-      flat[k] = val;
-      flat[prefix+k] = val;
-      if (val && typeof val === 'object') flatten(val, k+'_');
-    });
-  }
-  flatten(data, '');
-
-  // Black Cat Pay devolve qrCodeBase64 com o texto PIX (EMV), não uma imagem base64 real.
-  // Código EMV começa com "0002" — nesse caso descartamos como imagem e usamos como texto.
-  function isRealBase64Img(s) {
-    return s && typeof s === 'string' && s.length > 100 && !s.startsWith('0002');
-  }
-
-  var rawBase64 = flat.qrCodeBase64 || flat.encodedImage || flat.base64Image || flat.qrImageBase64 || '';
-  var qrBase64  = isRealBase64Img(rawBase64) ? rawBase64 : '';
-
-  // Para o texto do PIX: tenta campos específicos primeiro, depois usa rawBase64 como fallback
-  var qrText = flat.copyPaste || flat.emv || flat.brCode || flat.pixCode || flat.pix_code
-             || flat.code || flat.qrcode || flat.key || flat.qrCode
-             || (rawBase64 && !qrBase64 ? rawBase64 : '')
-             || '';
-
-  return { qrBase64: qrBase64, qrText: qrText };
-}
-
-function renderPixResults(pixData, orderId, nPix, parcVal, total, idx, onNextFn) {
-  document.getElementById('pixPre').style.display = 'none';
-  document.getElementById('finish').style.display = 'none';
-  document.getElementById('bk2').style.display = 'none';
-
-  var container = document.getElementById('pixResult');
-  container.style.display = 'block';
-  container.scrollIntoView({behavior:'smooth', block:'start'});
-
-  renderSinglePix(pixData, orderId, nPix, parcVal, total, idx, onNextFn);
-}
-
-function renderSinglePix(pixData, orderId, nPix, parcVal, total, idx, onNextFn) {
-  var container = document.getElementById('pixResult');
-  var pix = extractPixData(pixData);
-  var isLast = (idx === nPix - 1);
-
-  var secHtml = nPix > 1
-    ? '<div style="background:#fff8e1;border:1px solid #ffe082;padding:12px 16px;margin-bottom:16px;display:flex;gap:10px;align-items:flex-start;">'
-      + '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'
-      + '<div><div style="font-size:12px;font-weight:800;color:#92400e;margin-bottom:3px;">Para sua segurança, o pagamento será feito em partes</div>'
-      + '<div style="font-size:11px;color:#78350f;line-height:1.6;">Seu pedido de <strong>'+formatBRLck(total)+'</strong> será dividido em <strong>'+nPix+' cobranças PIX</strong> de <strong>'+formatBRLck(parcVal)+'</strong> cada. Pague uma de cada vez na ordem indicada.</div>'
-      + '</div></div>'
-    : '';
-
-  var qrHolderId = 'qrHolder' + idx + Date.now();
-  var pollStatusId = 'pixPollStatus' + idx;
-  var uid = 'pixCode' + idx;
-
-  var progHtml = nPix > 1
-    ? '<div style="display:flex;gap:4px;justify-content:center;margin-bottom:16px;">'
-      + (function(){
-          var dots = '';
-          for(var i=0;i<nPix;i++){
-            var bg = i < idx ? '#2a7d2e' : (i === idx ? '#c8102e' : '#ddd');
-            var clr = i <= idx ? '#fff' : '#999';
-            dots += '<div style="width:28px;height:28px;border-radius:50%;background:'+bg+';color:'+clr+';font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;">'+(i+1)+'</div>';
-          }
-          return dots;
-        })()
-      + '</div>'
-    : '';
-
-  var debugHtml = (!pix.qrBase64 && !pix.qrText)
-    ? '<div style="font-size:10px;color:#c00;background:#fff0f0;padding:6px 8px;word-break:break-all;margin-top:6px;">Resposta API: '+JSON.stringify(pixData).substring(0,400)+'</div>'
-    : '';
-
-  // Status bar + botão manual de fallback
-  var bottomHtml =
-    '<div id="'+pollStatusId+'" style="margin-top:14px;padding:11px 16px;background:#f0f8ff;border:1px solid #b8d4f0;border-radius:6px;text-align:center;font-size:12px;color:#555;">'
-    + '<span style="display:inline-block;animation:spin 1s linear infinite;margin-right:6px;font-size:14px;">⟳</span>'
-    + (isLast ? 'Aguardando confirmação do pagamento...' : 'Aguardando confirmação do PIX '+(idx+1)+'...')
-    + '</div>'
-    + (!isLast
-        ? '<button id="pixManualNextBtn" onclick="window._pixManualNext&&window._pixManualNext()" '
-          + 'style="width:100%;background:#555;color:#fff;border:none;padding:11px;font-size:11px;font-weight:600;cursor:pointer;margin-top:6px;border-radius:4px;opacity:0.75;">'
-          + 'Já paguei — avançar manualmente'
-          + '</button>'
-        : '');
-
-  container.innerHTML =
-    secHtml
-    + '<div style="text-align:center;margin-bottom:4px;font-size:11px;color:#888;">Pedido #LC-'+orderId+' — Total: '+formatBRLck(total)+'</div>'
-    + progHtml
-    + '<div style="border:1.5px solid #c8e6c9;padding:20px;background:#f9fef9;text-align:center;">'
-    + '<div style="font-weight:800;font-size:14px;color:#1a5c2a;margin-bottom:12px;">PIX '+(idx+1)+' de '+nPix+' — '+formatBRLck(parcVal)+'</div>'
-    + '<div style="display:flex;justify-content:center;margin-bottom:14px;"><div id="'+qrHolderId+'" style="width:200px;height:200px;margin:0 auto;background:#f5f5f5;display:flex;align-items:center;justify-content:center;"></div></div>'
-    + (pix.qrText
-        ? '<div style="font-size:11px;font-weight:700;color:#777;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Copia e Cola</div>'
-          + '<div style="display:flex;gap:8px;margin-bottom:4px;">'
-          + '<input id="'+uid+'" readonly value="'+pix.qrText.replace(/"/g,'&quot;')+'" style="flex:1;border:1px solid #e0e0e0;padding:9px 12px;font-size:11px;background:#fafafa;outline:none;color:#333;font-family:monospace;" />'
-          + '<button onclick="copyCode(\''+uid+'\')" style="background:#2a7d2e;color:#fff;border:none;padding:9px 16px;font-size:12px;font-weight:700;cursor:pointer;">Copiar</button>'
-          + '</div>'
-        : '')
-    + debugHtml
-    + '</div>'
-    + bottomHtml;
-
-  // Renderiza QR code
-  (function() {
-    var qrDiv = document.getElementById(qrHolderId);
-    if (!qrDiv) return;
-    if (pix.qrBase64) {
-      var src = pix.qrBase64.startsWith('data:') ? pix.qrBase64 : 'data:image/png;base64,' + pix.qrBase64;
-      qrDiv.innerHTML = '<img src="' + src + '" style="width:200px;height:200px;object-fit:contain;" />';
-    } else if (pix.qrText) {
-      if (typeof QRCode !== 'undefined') {
-        qrDiv.style.background = '';
-        new QRCode(qrDiv, { text: pix.qrText, width: 200, height: 200, correctLevel: QRCode.CorrectLevel.M });
-      } else {
-        qrDiv.innerHTML = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(pix.qrText) + '" style="width:200px;height:200px;" />';
-      }
-    }
-  })();
-
-  // Encontra transactionId na resposta
-  var txId = '';
-  (function findTx(obj) {
-    if (!obj || typeof obj !== 'object') return;
-    if (obj.transactionId) { txId = obj.transactionId; return; }
-    if (obj.id && typeof obj.id === 'string' && obj.id.length > 5) { txId = obj.id; return; }
-    Object.keys(obj).forEach(function(k) { if (!txId) findTx(obj[k]); });
-  })(pixData);
-
-  function advance() {
-    window._pixManualNext = null;
-    if (window._pixPollCancel) { window._pixPollCancel(); window._pixPollCancel = null; }
-    onNextFn && onNextFn();
-  }
-
-  window._pixManualNext = advance;
-
-  if (txId) {
-    if (window._pixPollCancel) window._pixPollCancel();
-    window._pixPollCancel = pollPixStatus(txId, pollStatusId, advance);
-  }
-
-  container.scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-function pollPixStatus(transactionId, statusElId, onPaid) {
-  var cancelled = false;
-  var attempts = 0;
-
-  function check() {
-    if (cancelled) return;
-    if (++attempts > 72) return; // para após ~6 min
-
-    fetch('/.netlify/functions/check-pix-status?id=' + encodeURIComponent(transactionId))
-    .then(function(r) { return r.json(); })
-    .then(function(d) {
-      if (cancelled) return;
-      var status = '';
-      (function findStatus(obj) {
-        if (!obj || typeof obj !== 'object') return;
-        if (typeof obj.status === 'string') { status = obj.status; return; }
-        Object.keys(obj).forEach(function(k) { if (!status) findStatus(obj[k]); });
-      })(d);
-      console.log('poll', transactionId, '->', status || '(sem status)');
-
-      var paid = ['PAID','COMPLETED','APPROVED','paid','completed','approved'].indexOf(status) !== -1;
-      if (paid) {
-        cancelled = true;
-        var el = document.getElementById(statusElId);
-        if (el) el.innerHTML = '<span style="color:#2a7d2e;font-weight:800;font-size:13px;">✅ Pagamento confirmado!</span>';
-        var mb = document.getElementById('pixManualNextBtn');
-        if (mb) mb.style.display = 'none';
-        setTimeout(onPaid, 1200);
-      } else {
-        setTimeout(check, 5000);
-      }
-    })
-    .catch(function() { if (!cancelled) setTimeout(check, 8000); });
-  }
-
-  setTimeout(check, 5000);
-  return function() { cancelled = true; };
-}
-
-function copyCode(id) {
-  var inp = document.getElementById(id);
-  if (!inp) return;
-  navigator.clipboard ? navigator.clipboard.writeText(inp.value) : (inp.select(), document.execCommand('copy'));
-  var btn = inp.nextElementSibling;
-  if (btn) { btn.textContent = '✅'; setTimeout(function(){ btn.textContent='Copiar'; }, 2000); }
-}
-
 document.getElementById('finish').onclick = function() {
   var btn = this;
   var errBox = document.getElementById('finishError');
 
   function showFinishError(msg) {
     if (errBox) { errBox.textContent = msg; errBox.style.display = 'block'; errBox.scrollIntoView({behavior:'smooth', block:'nearest'}); }
-    btn.disabled = false;
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Finalizar Pedido';
   }
 
   if (errBox) errBox.style.display = 'none';
@@ -1238,14 +1035,10 @@ document.getElementById('finish').onclick = function() {
   var activeTab = document.querySelector('.pay-tab.active');
   var method = activeTab ? activeTab.id.replace('tab-','') : 'pix';
 
-  // Customer info
   var fname = (document.getElementById('fName').value||'').trim();
-  var lname = (document.getElementById('lName').value||'').trim();
   var email = (document.getElementById('email').value||'').trim();
   var cpf   = (document.getElementById('cpf').value||'').replace(/\D/g,'');
-  var phone = (document.getElementById('phone').value||'').replace(/\D/g,'');
 
-  // Highlight missing fields
   ['fName','lName','email','cpf'].forEach(function(id) {
     var el = document.getElementById(id);
     if (el) el.classList.remove('has-error');
@@ -1256,7 +1049,6 @@ document.getElementById('finish').onclick = function() {
   if (cpf.length < 11) { document.getElementById('cpf').classList.add('has-error'); missing = true; }
   if (missing) { showFinishError('Preencha Nome, E-mail e CPF antes de finalizar.'); return; }
 
-  // Validate card fields
   if (method === 'card') {
     var cn = (document.getElementById('cardNum').value||'').trim();
     var cname = (document.getElementById('cardName').value||'').trim();
@@ -1265,148 +1057,12 @@ document.getElementById('finish').onclick = function() {
     if (!cn || !cname || !cexp || !ccvv) { showFinishError('Preencha todos os dados do cartão.'); return; }
   }
 
-  var cart = getCartCK();
-
-  // Totals
-  var subtotal = window._ckSubtotal || cart.reduce(function(a,i){ return a+(i.priceNum||parsePriceCK(i.price))*(i.qty||1); }, 0);
-  if (!subtotal) { showFinishError('Não foi possível calcular o valor do pedido. Volte ao carrinho e tente novamente.'); return; }
-  var shipping = window._ckShipping !== undefined ? window._ckShipping : (subtotal >= 1500 ? 0 : 49.90);
-  var isPix = method === 'pix';
-  var pixDiscRate = (isPix && window._ckPixDiscount20) ? 0.20 : 0.12;
-  var pixDisc = isPix ? subtotal * pixDiscRate : 0;
-  var total = (isPix && window._pixOfferTotal) ? window._pixOfferTotal : (subtotal - pixDisc + shipping);
-  var totalCentavos = Math.round(total * 100);
-
-  // Build items from sidebar (always shows correct Le Creuset products)
-  var _genericNames = ['Kit de Blusas','Kit 10 Camisetas','Kit Presente','Kit Roupas','Kit de Moda'];
-  function _gname(idx) { return _genericNames[idx % _genericNames.length]; }
-  var sidebarItems = [];
-  var _gi = 0;
-  document.querySelectorAll('.sb-item').forEach(function(el) {
-    var qty  = el.querySelector('.sb-qty');
-    var price = el.querySelector('.sb-price');
-    if (el.querySelector('.sb-name')) {
-      sidebarItems.push({
-        title: _gname(_gi++),
-        quantity: qty ? parseInt(qty.textContent) || 1 : 1,
-        tangible: false
-      });
-    }
-  });
-  // Fallback: use localStorage if sidebar empty
-  if (!sidebarItems.length) {
-    sidebarItems = cart.length
-      ? cart.map(function(i, idx){ return { title: _gname(idx), quantity: i.qty||1, tangible: false }; })
-      : [{ title: _gname(0), quantity: 1, tangible: false }];
-  }
-
-  // Payload
-  var payload = {
-    amount: totalCentavos,
-    currency: 'BRL',
-    paymentMethod: isPix ? 'PIX' : 'CREDIT_CARD',
-    items: sidebarItems,
-    customer: {
-      name: fname + (lname ? ' ' + lname : ''),
-      email: email,
-      document: { type: 'cpf', number: cpf }
-    }
-  };
-  if (phone) payload.customer.phone = phone;
-
-  if (isPix) {
-    payload.pix = { expiresInDays: 1 };
-  } else {
-    var expParts = (document.getElementById('cardExp').value||'').split('/');
-    payload.card = {
-      number: (document.getElementById('cardNum').value||'').replace(/\s/g,''),
-      holderName: document.getElementById('cardName').value||'',
-      expirationMonth: expParts[0] || '',
-      expirationYear: expParts[1] ? '20'+expParts[1] : '',
-      cvv: document.getElementById('cardCvv').value||''
-    };
-    payload.installments = (document.getElementById('installments').selectedIndex||0) + 1;
-  }
-
-  btn.disabled = true;
-  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite;width:16px;height:16px;"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Processando...';
-
-  function resetBtn() {
-    btn.disabled = false;
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Finalizar Pedido';
-  }
-
-  if (!isPix) {
-    // CARD: single call
-    fetch(BC_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) })
-    .then(function(r) {
-      return r.json().then(function(data) { return { status: r.status, data: data }; });
-    })
-    .then(function(res) {
-      var data = res.data;
-      resetBtn();
-      console.log('BC card status:', res.status, 'response:', JSON.stringify(data));
-      if (res.status >= 400 || data.success === false || data.error || data.status === 'error' || data.status === 'failed') { showCardDeclinedPixOffer(); return; }
-      var orderId = data.transactionId || data.id || data.saleId || Math.floor(100000+Math.random()*900000);
-      document.getElementById('ordId').textContent = orderId;
-      document.getElementById('s4confirm').classList.remove('hidden');
-      document.getElementById('s4pix').classList.add('hidden');
-      localStorage.removeItem('lc_cart');
-      goStep(4);
-    })
-    .catch(function(err){ resetBtn(); showFinishError('Erro de conexão: ' + err.message); });
-    return;
-  }
-
-  // PIX: gera um de cada vez, o próximo só após confirmação de pagamento
-  var nPix = Math.ceil(total / 1000);
-  var parcVal = total / nPix;
-  var parcCentavos = Math.round(parcVal * 100);
   var orderId = Math.floor(100000+Math.random()*900000);
-
-  function makePixCall(idx) {
-    btn.disabled = true;
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite;width:16px;height:16px;"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Gerando PIX '+(idx+1)+'/'+nPix+'...';
-    var p = JSON.parse(JSON.stringify(payload));
-    p.amount = parcCentavos;
-    p.items = sidebarItems.length ? sidebarItems : [{ title: _gname(idx), quantity: 1, tangible: false }];
-    fetch(BC_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(p) })
-    .then(function(r) {
-      return r.json().then(function(data) { return { status: r.status, data: data }; });
-    })
-    .then(function(res) {
-      var data = res.data;
-      console.log('BC pix '+(idx+1)+' status:', res.status, 'response:', JSON.stringify(data));
-      var isError = res.status >= 400 || data.success === false || !!data.error || data.status === 'error' || data.status === 'failed';
-      if (isError) {
-        resetBtn();
-        showFinishError('Erro no PIX '+(idx+1)+': ' + (data.message || data.error || JSON.stringify(data)));
-        return;
-      }
-      resetBtn();
-      if (idx === 0) localStorage.removeItem('lc_cart');
-
-      // Mostra este PIX e aguarda pagamento antes de gerar o próximo
-      renderPixResults(data, orderId, nPix, parcVal, total, idx, function onPaid() {
-        if (idx + 1 < nPix) {
-          makePixCall(idx + 1);
-        } else {
-          // Todos pagos
-          var c = document.getElementById('pixResult');
-          if (c) c.insertAdjacentHTML('beforeend',
-            '<div style="background:#e8f5e9;border:1px solid #c8e6c9;padding:16px;margin-top:14px;border-radius:8px;text-align:center;">'
-            + '<div style="font-size:15px;font-weight:800;color:#1a5c2a;margin-bottom:6px;">🎉 Todos os pagamentos confirmados!</div>'
-            + '<div style="font-size:12px;color:#2a7d2e;margin-bottom:14px;">Você receberá o e-mail de confirmação em breve.</div>'
-            + '<a href="index.html" style="display:inline-block;padding:12px 28px;background:#1a1a1a;color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:6px;">Voltar à Loja</a>'
-            + '</div>'
-          );
-        }
-      });
-    })
-    .catch(function(err){ resetBtn(); showFinishError('Erro de conexão no PIX '+(idx+1)+': ' + err.message); });
-  }
-
-  makePixCall(0);
+  document.getElementById('ordId').textContent = orderId;
+  document.getElementById('s4confirm').classList.remove('hidden');
+  document.getElementById('s4pix').classList.add('hidden');
+  localStorage.removeItem('lc_cart');
+  goStep(4);
 };
 
 function shakeBtn(btn) {
